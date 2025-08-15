@@ -1,4 +1,4 @@
-# 🚀 HackerZone - Landing Page
+# 🚀 sdev - 
 
 Uma landing page moderna e interativa inspirada no tema hacker, desenvolvida com HTML, CSS e JavaScript puro.
 
