@@ -1,0 +1,216 @@
+/* Splash Screen Styles - OTIMIZADO PARA CARREGAMENTO RÁPIDO */
+.splash-screen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #0a0a0a;
+    z-index: 9999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: opacity 0.2s ease-out; /* Reduzido de 0.5s para 0.2s */
+}
+
+.splash-screen.fade-out {
+    opacity: 0;
+    pointer-events: none;
+}
+
+.splash-screen.hidden {
+    display: none;
+}
+
+.vertical-centered-box {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+}
+
+.vertical-centered-box:after {
+    content: '';
+    display: inline-block;
+    height: 100%;
+    vertical-align: middle;
+    margin-right: -0.25em;
+}
+
+.vertical-centered-box .content {
+    box-sizing: border-box;
+    display: inline-block;
+    vertical-align: middle;
+    text-align: center;
+    font-size: 0;
+}
+
+/* Loader Circle - OTIMIZADO */
+.loader-circle {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    width: 150px; /* Reduzido de 200px para 150px */
+    height: 150px; /* Reduzido de 200px para 150px */
+    border-radius: 50%;
+    box-shadow: inset 0 0 0 1px rgba(255, 165, 0, 0.3);
+    margin-left: -75px; /* Ajustado para o novo tamanho */
+    margin-top: -75px; /* Ajustado para o novo tamanho */
+}
+
+.loader-line-mask {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    width: 75px; /* Reduzido de 100px para 75px */
+    height: 150px; /* Reduzido de 200px para 150px */
+    margin-left: -75px; /* Ajustado para o novo tamanho */
+    margin-top: -75px; /* Ajustado para o novo tamanho */
+    overflow: hidden;
+    transform-origin: 75px 75px; /* Ajustado para o novo tamanho */
+    -webkit-mask-image: -webkit-linear-gradient(top, #000000, rgba(0, 0, 0, 0));
+    animation: rotate 0.8s infinite linear; /* Reduzido de 1.2s para 0.8s */
+}
+
+.loader-line-mask .loader-line {
+    width: 150px; /* Reduzido de 200px para 150px */
+    height: 150px; /* Reduzido de 200px para 150px */
+    border-radius: 50%;
+    box-shadow: inset 0 0 0 1px rgba(255, 165, 0, 0.8);
+}
+
+/* Splash Logo - OTIMIZADO */
+.splash-logo {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    z-index: 10;
+    animation: fade-in 0.3s ease-out; /* Reduzido de fade-in padrão para 0.3s */
+}
+
+.splash-logo .logo-text {
+    font-size: 2.5rem; /* Reduzido de 3rem para 2.5rem */
+    font-weight: 800;
+    color: #ffffff;
+    margin-bottom: 0.5rem;
+    display: block;
+}
+
+.splash-logo .orange {
+    color: #ffa500;
+}
+
+.splash-subtitle {
+    font-size: 1rem; /* Reduzido de 1.2rem para 1rem */
+    color: #888;
+    margin: 0;
+    font-weight: 400;
+}
+
+/* Particles Background - OTIMIZADO */
+#particles-background,
+#particles-foreground {
+    left: -51%;
+    top: -51%;
+    width: 202%;
+    height: 202%;
+    transform: scale3d(0.5, 0.5, 1);
+}
+
+#particles-background {
+    background: #0a0a0a;
+    background-image: linear-gradient(45deg, #1a1a1a 2%, #0a0a0a 100%);
+}
+
+/* Animations - OTIMIZADAS PARA VELOCIDADE */
+@keyframes rotate {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes fade {
+    0% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0.25;
+    }
+}
+
+@keyframes fade-in {
+    0% {
+        opacity: 0;
+        transform: translate(-50%, -50%) scale(0.9);
+    }
+    100% {
+        opacity: 1;
+        transform: translate(-50%, -50%) scale(1);
+    }
+}
+
+/* Responsive - OTIMIZADO */
+@media (max-width: 768px) {
+    .splash-logo .logo-text {
+        font-size: 2rem; /* Reduzido de 2.5rem para 2rem */
+    }
+    
+    .splash-subtitle {
+        font-size: 0.9rem; /* Reduzido de 1rem para 0.9rem */
+    }
+    
+    .loader-circle {
+        width: 120px; /* Reduzido de 160px para 120px */
+        height: 120px; /* Reduzido de 160px para 120px */
+        margin-left: -60px; /* Ajustado para o novo tamanho */
+        margin-top: -60px; /* Ajustado para o novo tamanho */
+    }
+    
+    .loader-line-mask {
+        width: 60px; /* Reduzido de 80px para 60px */
+        height: 120px; /* Reduzido de 160px para 120px */
+        margin-left: -60px; /* Ajustado para o novo tamanho */
+        margin-top: -60px; /* Ajustado para o novo tamanho */
+        transform-origin: 60px 60px; /* Ajustado para o novo tamanho */
+    }
+    
+    .loader-line-mask .loader-line {
+        width: 120px; /* Reduzido de 160px para 120px */
+        height: 120px; /* Reduzido de 160px para 120px */
+    }
+}
+
+@media (max-width: 480px) {
+    .splash-logo .logo-text {
+        font-size: 1.8rem; /* Reduzido de 2rem para 1.8rem */
+    }
+    
+    .splash-subtitle {
+        font-size: 0.8rem; /* Reduzido de 0.9rem para 0.8rem */
+    }
+    
+    .loader-circle {
+        width: 100px; /* Reduzido ainda mais para mobile */
+        height: 100px;
+        margin-left: -50px;
+        margin-top: -50px;
+    }
+    
+    .loader-line-mask {
+        width: 50px;
+        height: 100px;
+        margin-left: -50px;
+        margin-top: -50px;
+        transform-origin: 50px 50px;
+    }
+    
+    .loader-line-mask .loader-line {
+        width: 100px;
+        height: 100px;
+    }
+} 

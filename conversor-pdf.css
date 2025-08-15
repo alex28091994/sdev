@@ -1,0 +1,688 @@
+/* ===== CSS ESPECÍFICO PARA CONVERSOR PDF ===== */
+/* Arquivo separado para evitar conflitos no hosting */
+
+/* Reset específico para esta página */
+.conversor-pdf-page * {
+    box-sizing: border-box;
+}
+
+/* Hero Section do Conversor */
+.conversor-hero {
+    background: #0a0a0a; /* Fallback sólido */
+    background: linear-gradient(135deg, rgba(0, 255, 0, 0.1) 0%, rgba(0, 255, 0, 0.05) 100%);
+    padding: 6rem 0 4rem;
+    position: relative;
+    overflow: hidden;
+}
+
+.conversor-hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: #0a0a0a;
+    opacity: 0.8;
+    z-index: 1;
+}
+
+.conversor-hero .container {
+    position: relative;
+    z-index: 2;
+}
+
+/* Terminal Mockup - Versão otimizada */
+.script-showcase {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    min-height: 300px;
+}
+
+.terminal-mockup {
+    background: #1a1a1a;
+    border: 2px solid #333;
+    border-radius: 12px;
+    width: 400px;
+    height: 300px;
+    overflow: hidden;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
+    position: relative;
+}
+
+.terminal-header {
+    background: #2a2a2a;
+    padding: 0.75rem 1rem;
+    border-bottom: 1px solid #333;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+.terminal-buttons {
+    display: flex;
+    gap: 0.5rem;
+}
+
+.btn-red, .btn-yellow, .btn-green {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    display: inline-block;
+}
+
+.btn-red { background: #ff5f56; }
+.btn-yellow { background: #ffbd2e; }
+.btn-green { background: #27ca3f; }
+
+.terminal-title {
+    color: #888;
+    font-size: 0.9rem;
+    font-family: 'Courier New', monospace;
+    font-weight: 500;
+}
+
+.terminal-content {
+    padding: 1rem;
+    font-family: 'Courier New', monospace;
+    font-size: 0.9rem;
+    line-height: 1.6;
+    background: #1a1a1a;
+    height: calc(100% - 60px);
+    overflow: hidden;
+}
+
+.code-line {
+    margin-bottom: 0.5rem;
+    white-space: nowrap;
+}
+
+.prompt {
+    color: #ff6600;
+    font-weight: bold;
+}
+
+.command {
+    color: #ffffff;
+}
+
+.output-line {
+    margin-bottom: 0.5rem;
+    padding-left: 1rem;
+    white-space: nowrap;
+}
+
+.success {
+    color: #00ff00;
+}
+
+.info {
+    color: #cccccc;
+}
+
+/* Features Grid - Versão otimizada */
+.features {
+    padding: 5rem 0;
+    background: #0a0a0a;
+}
+
+.features-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    margin-top: 3rem;
+}
+
+.feature-card {
+    background: #1a1a1a;
+    border: 1px solid #333;
+    border-radius: 15px;
+    padding: 2rem;
+    text-align: center;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.feature-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: #00ff00;
+    transform: scaleX(0);
+    transition: transform 0.3s ease;
+}
+
+.feature-card:hover {
+    transform: translateY(-5px);
+    border-color: #00ff00;
+    box-shadow: 0 10px 30px rgba(0, 255, 0, 0.2);
+}
+
+.feature-card:hover::before {
+    transform: scaleX(1);
+}
+
+.feature-icon {
+    font-size: 3rem;
+    color: #00ff00;
+    margin-bottom: 1.5rem;
+}
+
+.feature-card h3 {
+    font-size: 1.3rem;
+    font-weight: 600;
+    color: #ffffff;
+    margin-bottom: 1rem;
+}
+
+.feature-card p {
+    color: #cccccc;
+    line-height: 1.6;
+}
+
+/* Installation Steps - Versão otimizada */
+.installation {
+    padding: 5rem 0;
+    background: #1a1a1a;
+}
+
+.installation-steps {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    margin-top: 3rem;
+}
+
+.step {
+    display: flex;
+    gap: 1.5rem;
+    padding: 2rem;
+    background: #2a2a2a;
+    border: 1px solid #333;
+    border-radius: 15px;
+}
+
+.step-number {
+    background: #00ff00;
+    color: #000000;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    font-weight: bold;
+    flex-shrink: 0;
+}
+
+.step-content h3 {
+    color: #ffffff;
+    margin-bottom: 1rem;
+    font-size: 1.2rem;
+}
+
+.step-content p {
+    color: #cccccc;
+    margin-bottom: 1rem;
+    line-height: 1.6;
+}
+
+.code-block {
+    background: #0a0a0a;
+    border: 1px solid #333;
+    border-radius: 8px;
+    padding: 1rem;
+    margin: 1rem 0;
+    font-family: 'Courier New', monospace;
+}
+
+.code-block code {
+    color: #00ff00;
+    font-size: 0.9rem;
+}
+
+/* Usage Section - Versão otimizada */
+.usage {
+    padding: 5rem 0;
+    background: #0a0a0a;
+}
+
+.usage-content {
+    margin-top: 3rem;
+}
+
+.usage-section {
+    margin-bottom: 3rem;
+}
+
+.usage-section h3 {
+    color: #ffffff;
+    font-size: 1.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.usage-section p {
+    color: #cccccc;
+    line-height: 1.6;
+    margin-bottom: 1.5rem;
+}
+
+/* Folder Structure - Versão otimizada */
+.folder-structure {
+    background: #2a2a2a;
+    border: 1px solid #333;
+    border-radius: 12px;
+    padding: 2rem;
+    margin: 1.5rem 0;
+}
+
+.folder-item {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    margin-bottom: 1rem;
+    color: #ffffff;
+}
+
+.folder-item.sub {
+    margin-left: 2rem;
+}
+
+.folder-item i {
+    color: #00ff00;
+    font-size: 1.2rem;
+}
+
+.files {
+    margin-left: 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+}
+
+.files span {
+    color: #888;
+    font-size: 0.9rem;
+    font-family: 'Courier New', monospace;
+}
+
+/* Menu Options - Versão otimizada */
+.menu-options {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1rem;
+    margin: 1.5rem 0;
+}
+
+.menu-option {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 1rem;
+    background: #2a2a2a;
+    border: 1px solid #333;
+    border-radius: 8px;
+}
+
+.option-number {
+    background: #ff6600;
+    color: #000000;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    font-size: 0.9rem;
+}
+
+.option-desc {
+    color: #ffffff;
+    font-size: 0.9rem;
+}
+
+/* Tips List - Versão otimizada */
+.tips-list {
+    list-style: none;
+    padding: 0;
+}
+
+.tips-list li {
+    padding: 0.75rem 0;
+    border-bottom: 1px solid #333;
+    color: #cccccc;
+    line-height: 1.6;
+}
+
+.tips-list li:last-child {
+    border-bottom: none;
+}
+
+.tips-list strong {
+    color: #ffffff;
+}
+
+/* Download Section - Versão otimizada */
+.download {
+    padding: 5rem 0;
+    background: #1a1a1a;
+}
+
+.download-content {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    margin-top: 3rem;
+}
+
+.download-card {
+    background: #2a2a2a;
+    border: 1px solid #333;
+    border-radius: 15px;
+    padding: 2rem;
+    text-align: center;
+    transition: all 0.3s ease;
+}
+
+.download-card:hover {
+    transform: translateY(-5px);
+    border-color: #ff6600;
+    box-shadow: 0 10px 30px rgba(255, 102, 0, 0.2);
+}
+
+.download-icon {
+    font-size: 3rem;
+    color: #ff6600;
+    margin-bottom: 1.5rem;
+}
+
+.download-card h3 {
+    color: #ffffff;
+    margin-bottom: 1rem;
+    font-size: 1.3rem;
+}
+
+.download-card p {
+    color: #cccccc;
+    margin-bottom: 1.5rem;
+    line-height: 1.6;
+}
+
+/* Source Code Section - Versão otimizada */
+.source-code {
+    padding: 5rem 0;
+    background: #0a0a0a;
+}
+
+.code-container {
+    background: #1a1a1a;
+    border: 1px solid #333;
+    border-radius: 12px;
+    overflow: hidden;
+    margin-top: 3rem;
+}
+
+.code-header {
+    background: #2a2a2a;
+    padding: 1rem 1.5rem;
+    border-bottom: 1px solid #333;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.file-name {
+    color: #ffffff;
+    font-family: 'Courier New', monospace;
+    font-weight: 500;
+}
+
+.btn-copy {
+    background: #00ff00;
+    color: #000000;
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 0.9rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    transition: all 0.3s ease;
+}
+
+.btn-copy:hover {
+    background: #33ff33;
+    transform: translateY(-2px);
+}
+
+.code-content {
+    padding: 1.5rem;
+    margin: 0;
+    background: #1a1a1a;
+    color: #cccccc;
+    font-family: 'Courier New', monospace;
+    font-size: 0.85rem;
+    line-height: 1.5;
+    overflow-x: auto;
+    max-height: 500px;
+}
+
+.code-content code {
+    color: inherit;
+    background: none;
+    padding: 0;
+}
+
+/* Documentation Section - Versão otimizada */
+.documentation {
+    padding: 5rem 0;
+    background: #1a1a1a;
+}
+
+.docs-content {
+    margin-top: 3rem;
+}
+
+.docs-section {
+    margin-bottom: 3rem;
+}
+
+.docs-section h3 {
+    color: #ffffff;
+    font-size: 1.3rem;
+    margin-bottom: 1.5rem;
+}
+
+.docs-section p {
+    color: #cccccc;
+    line-height: 1.6;
+    margin-bottom: 1rem;
+}
+
+.docs-section ul {
+    list-style: none;
+    padding: 0;
+}
+
+.docs-section li {
+    padding: 0.5rem 0;
+    color: #cccccc;
+    line-height: 1.6;
+    border-bottom: 1px solid #333;
+}
+
+.docs-section li:last-child {
+    border-bottom: none;
+}
+
+.docs-section strong {
+    color: #ffffff;
+}
+
+/* Responsive Design - Versão otimizada */
+@media (max-width: 768px) {
+    .terminal-mockup {
+        width: 300px;
+        height: 250px;
+    }
+    
+    .features-grid,
+    .installation-steps,
+    .download-content {
+        grid-template-columns: 1fr;
+    }
+    
+    .step {
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    .menu-options {
+        grid-template-columns: 1fr;
+    }
+    
+    .folder-structure {
+        padding: 1rem;
+    }
+    
+    .folder-item.sub {
+        margin-left: 1rem;
+    }
+    
+    .files {
+        margin-left: 1rem;
+    }
+    
+    .code-content {
+        font-size: 0.75rem;
+        padding: 1rem;
+    }
+    
+    .hero-content {
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    .hero-visual {
+        margin-top: 2rem;
+    }
+    
+    .terminal-mockup {
+        width: 280px;
+        height: 220px;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero-title .title-line {
+        display: block;
+        margin-bottom: 0.5rem;
+    }
+    
+    .hero-stats {
+        flex-direction: column;
+        gap: 1rem;
+    }
+    
+    .stat-item {
+        text-align: center;
+    }
+    
+    .terminal-mockup {
+        width: 250px;
+        height: 200px;
+    }
+    
+    .terminal-content {
+        font-size: 0.8rem;
+        padding: 0.75rem;
+    }
+    
+    .feature-card,
+    .download-card {
+        padding: 1.5rem;
+    }
+    
+    .step {
+        padding: 1.5rem;
+    }
+}
+
+/* Fallbacks para navegadores antigos */
+@supports not (display: grid) {
+    .features-grid,
+    .installation-steps,
+    .download-content,
+    .menu-options {
+        display: block;
+    }
+    
+    .feature-card,
+    .step,
+    .download-card,
+    .menu-option {
+        margin-bottom: 2rem;
+        display: block;
+    }
+}
+
+@supports not (display: flex) {
+    .hero-content,
+    .step,
+    .menu-option {
+        display: block;
+    }
+    
+    .hero-text,
+    .hero-visual {
+        display: block;
+        margin-bottom: 2rem;
+    }
+}
+
+/* Correções específicas para problemas de hosting */
+.conversor-pdf-page {
+    overflow-x: hidden;
+}
+
+.conversor-pdf-page .hero-content {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+}
+
+.conversor-pdf-page .hero-text {
+    flex: 1;
+}
+
+.conversor-pdf-page .hero-visual {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+}
+
+/* Garantir que as cores funcionem em todos os navegadores */
+.conversor-pdf-page .orange {
+    color: #ff6600 !important;
+}
+
+.conversor-pdf-page .btn-primary {
+    background: #ff6600 !important;
+    color: #000000 !important;
+}
+
+.conversor-pdf-page .btn-secondary {
+    background: transparent !important;
+    color: #00ff00 !important;
+    border: 2px solid #00ff00 !important;
+}
+

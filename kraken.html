@@ -1,0 +1,470 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alex Developer - Desenvolvimento & Segurança</title>
+    <meta name="description" content="Desenvolvedor especializado em segurança da informação, pentesting e desenvolvimento web.">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="splash.css">
+</head>
+<body>
+    <!-- Splash Screen -->
+    <div id="splash-screen" class="splash-screen">
+        <div id="particles-background" class="vertical-centered-box"></div>
+        <div id="particles-foreground" class="vertical-centered-box"></div>
+        
+        <div class="vertical-centered-box">
+            <div class="content">
+                <div class="loader-circle"></div>
+                <div class="loader-line-mask">
+                    <div class="loader-line"></div>
+                </div>
+                <div class="splash-logo">
+                    <span class="logo-text">K<span class="orange">raken</span></span>
+                    <p class="splash-subtitle">Software de Gerenciamento</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Contador de Pessoas Online -->
+    <div class="online-counter">
+        <div class="counter-content">
+            <i class="fas fa-users"></i>
+            <span class="counter-number" id="online-count">0</span>
+            <span class="counter-label">online</span>
+        </div>
+    </div>
+    <div class="webgl-background"></div>
+
+    <header class="header">
+        <nav class="nav">
+            <div class="container">
+                <a href="index.html" class="logo-text">S<span class="orange">Dev</span></a>
+                <ul class="nav-menu">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="index.html#skills">Skills</a></li>
+                    <li><a href="https://web-check.xyz" target="_blank">Web Check</a></li>
+                    <li><a href="https://doc.cloudpri.org/" target="_blank">Ferramentas de TI</a></li>
+                    <li><a href="index.html#contact">Contato</a></li>
+                </ul>
+                <div class="hamburger">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="hero kraken-hero">
+            <div class="container">
+                <div class="hero-content">
+                    <div class="hero-text">
+                        <h1 class="hero-title">
+                            <span class="title-line">Kraken</span>
+                            <span class="title-line">Software de</span>
+                            <span class="title-line">Gerenciamento</span>
+                            <span class="title-line">Profissional</span>
+                        </h1>
+                        <p class="hero-description">
+                            Software avançado para gerenciamento de listas JSON, downloads e organização de conteúdo. 
+                            Desenvolvido com tecnologias modernas para máxima eficiência e segurança.
+                        </p>
+                        <div class="hero-actions">
+                            <a href="#download" class="btn-primary">
+                                <span>Download Gratuito</span>
+                                <i class="fas fa-download"></i>
+                            </a>
+                            <a href="#features" class="btn-secondary">
+                                <span>Ver Características</span>
+                                <i class="fas fa-arrow-down"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="hero-visual">
+                        <div class="kraken-mockup">
+                            <div class="mockup-screen">
+                                <div class="mockup-header">
+                                    <div class="mockup-dots">
+                                        <span></span>
+                                        <span></span>
+                                        <span></span>
+                                    </div>
+                                </div>
+                                <div class="mockup-content">
+                                    <div class="kraken-interface">
+                                        <div class="interface-header">
+                                            <i class="fas fa-dragon"></i>
+                                            <span>Kraken v1.0</span>
+                                        </div>
+                                        <div class="interface-list">
+                                            <div class="list-item">
+                                                <i class="fas fa-file-alt"></i>
+                                                <span>Documento 1</span>
+                                                <div class="stars">★★★★☆</div>
+                                            </div>
+                                            <div class="list-item">
+                                                <i class="fas fa-download"></i>
+                                                <span>Download 2</span>
+                                                <div class="stars">★★★★★</div>
+                                            </div>
+                                            <div class="list-item">
+                                                <i class="fas fa-link"></i>
+                                                <span>Link 3</span>
+                                                <div class="stars">★★★☆☆</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Features Section -->
+        <section id="features" class="features">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title">Fluxo de Uso</h2>
+                    <p class="section-subtitle">Interface intuitiva e funcionalidades avançadas</p>
+                </div>
+                <div class="features-grid">
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-file-code"></i>
+                        </div>
+                        <h3>Abrir ou Criar Lista JSON</h3>
+                        <p>Importe listas existentes ou crie novas do zero com formato JSON estruturado</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-search"></i>
+                        </div>
+                        <h3>Visualizar e Navegar</h3>
+                        <p>Paginação, busca e filtros avançados para encontrar rapidamente o que precisa</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-edit"></i>
+                        </div>
+                        <h3>Gerenciar Itens</h3>
+                        <p>Adicione, edite ou exclua itens com interface simples e intuitiva</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-check-square"></i>
+                        </div>
+                        <h3>Seleção Múltipla</h3>
+                        <p>Selecione vários itens para exportar ou excluir em lote</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-download"></i>
+                        </div>
+                        <h3>Downloads Inteligentes</h3>
+                        <p>Baixe arquivos ou abra links/torrents diretamente do software</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <h3>Sistema de Avaliação</h3>
+                        <p>Avalie itens com sistema de estrelas para organização pessoal</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-share-alt"></i>
+                        </div>
+                        <h3>Exportar e Unir</h3>
+                        <p>Exporte listas ou una múltiplas listas conforme sua necessidade</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-sync-alt"></i>
+                        </div>
+                        <h3>Atualizações da Comunidade</h3>
+                        <p>Atualize listas da comunidade ou acesse o fórum integrado</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Tech Stack Section -->
+        <section class="tech-stack">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title">Tecnologias Utilizadas</h2>
+                    <p class="section-subtitle">Desenvolvido com as melhores tecnologias disponíveis</p>
+                </div>
+                <div class="tech-grid">
+                    <div class="tech-item">
+                        <div class="tech-icon">
+                            <i class="fab fa-python"></i>
+                        </div>
+                        <h4>Python 3.10+</h4>
+                        <p>Linguagem principal com recursos modernos e alta performance</p>
+                    </div>
+                    <div class="tech-item">
+                        <div class="tech-icon">
+                            <i class="fas fa-desktop"></i>
+                        </div>
+                        <h4>PyQt5</h4>
+                        <p>Interface gráfica profissional e responsiva</p>
+                    </div>
+                    <div class="tech-item">
+                        <div class="tech-icon">
+                            <i class="fas fa-globe"></i>
+                        </div>
+                        <h4>Requests</h4>
+                        <p>Downloads HTTP seguros e eficientes</p>
+                    </div>
+                    <div class="tech-item">
+                        <div class="tech-icon">
+                            <i class="fas fa-image"></i>
+                        </div>
+                        <h4>Pillow</h4>
+                        <p>Manipulação avançada de imagens</p>
+                    </div>
+                    <div class="tech-item">
+                        <div class="tech-icon">
+                            <i class="fas fa-magnet"></i>
+                        </div>
+                        <h4>libtorrent</h4>
+                        <p>Suporte completo a downloads torrent</p>
+                    </div>
+                    <div class="tech-item">
+                        <div class="tech-icon">
+                            <i class="fas fa-copy"></i>
+                        </div>
+                        <h4>pyperclip</h4>
+                        <p>Integração com área de transferência</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Installation Section -->
+        <section class="installation">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title">Instalação e Distribuição</h2>
+                    <p class="section-subtitle">Processo simples e profissional</p>
+                </div>
+                <div class="installation-content">
+                    <div class="installation-steps">
+                        <div class="step">
+                            <div class="step-icon">
+                                <i class="fas fa-download"></i>
+                            </div>
+                            <div class="step-content">
+                                <h3>Download Simples</h3>
+                                <p>Baixe o instalador profissional gerado com Inno Setup</p>
+                            </div>
+                        </div>
+                        <div class="step">
+                            <div class="step-icon">
+                                <i class="fas fa-play"></i>
+                            </div>
+                            <div class="step-content">
+                                <h3>Execução Direta</h3>
+                                <p>Execute via Python ou como executável standalone (PyInstaller)</p>
+                            </div>
+                        </div>
+                        <div class="step">
+                            <div class="step-icon">
+                                <i class="fas fa-check-circle"></i>
+                            </div>
+                            <div class="step-content">
+                                <h3>Pronto para Usar</h3>
+                                <p>Não é necessário compilar ou configurar nada</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Security Section -->
+        <section class="security">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title">Segurança</h2>
+                    <p class="section-subtitle">Software seguro e confiável</p>
+                </div>
+                <div class="security-content">
+                    <div class="security-info">
+                        <div class="security-item">
+                            <i class="fas fa-shield-alt"></i>
+                            <div>
+                                <h3>SmartScreen Alert</h3>
+                                <p>O Windows pode exibir um alerta de SmartScreen ao instalar. Isso é normal para programas novos/distribuídos fora da loja.</p>
+                            </div>
+                        </div>
+                        <div class="security-item">
+                            <i class="fas fa-user-shield"></i>
+                            <div>
+                                <h3>Software Seguro</h3>
+                                <p>O software é seguro e exclusivo do Dev Prieto, sem código malicioso.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- License Section -->
+        <section class="license">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title">Licença</h2>
+                    <p class="section-subtitle">Termos de uso e distribuição</p>
+                </div>
+                <div class="license-content">
+                    <div class="license-info">
+                        <div class="license-item">
+                            <i class="fas fa-copyright"></i>
+                            <div>
+                                <h3>Exclusivo do Desenvolvedor</h3>
+                                <p>Software exclusivo do Dev Prieto</p>
+                            </div>
+                        </div>
+                        <div class="license-item">
+                            <i class="fas fa-ban"></i>
+                            <div>
+                                <h3>Restrições</h3>
+                                <p>Proibida a cópia, distribuição, engenharia reversa ou uso comercial sem autorização expressa.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Download Section -->
+        <section id="download" class="download-section">
+            <div class="container">
+                <div class="download-content">
+                    <div class="download-info">
+                        <h2>Baixe o Kraken Agora</h2>
+                        <p>Software profissional para gerenciamento de listas e downloads</p>
+                        <div class="download-features">
+                            <div class="download-feature">
+                                <i class="fas fa-check"></i>
+                                <span>Interface moderna e intuitiva</span>
+                            </div>
+                            <div class="download-feature">
+                                <i class="fas fa-check"></i>
+                                <span>Suporte a múltiplos formatos</span>
+                            </div>
+                            <div class="download-feature">
+                                <i class="fas fa-check"></i>
+                                <span>Downloads seguros e rápidos</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="download-actions">
+                        <a href="#" class="btn-large">
+                            <i class="fas fa-download"></i>
+                            <span>Download Gratuito</span>
+                        </a>
+                        <div class="download-meta">
+                            <span>Versão 1.0</span>
+                            <span>•</span>
+                            <span>Windows 10+</span>
+                            <span>•</span>
+                            <span>50MB</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section class="contact">
+            <div class="container">
+                <div class="contact-content">
+                    <div class="contact-info">
+                        <h2 class="section-title">Contato do Desenvolvedor</h2>
+                        <p class="contact-description">
+                            Entre em contato com o desenvolvedor para suporte, dúvidas ou parcerias.
+                        </p>
+                        <div class="contact-details">
+                            <div class="contact-item">
+                                <i class="fas fa-user"></i>
+                                <div>
+                                    <span class="contact-label">Desenvolvedor</span>
+                                    <span class="contact-value">Dev Prieto</span>
+                                </div>
+                            </div>
+                            <div class="contact-item">
+                                <i class="fab fa-instagram"></i>
+                                <div>
+                                    <span class="contact-label">Instagram</span>
+                                    <span class="contact-value">@prietto_polar</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="contact-form">
+                        <div class="form-group">
+                            <label>Contato Direto</label>
+                            <div class="contact-buttons">
+                                <a href="https://wa.me/351925199063" target="_blank" class="btn-whatsapp">
+                                    <i class="fab fa-whatsapp"></i>
+                                    <span>WhatsApp</span>
+                                </a>
+                                <a href="#" target="_blank" class="btn-telegram">
+                                    <i class="fab fa-telegram-plane"></i>
+                                    <span>Telegram</span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <span class="logo-text">S<span class="orange">Dev</span></span>
+                    <p>Desenvolvimento & Segurança</p>
+                </div>
+                <div class="footer-links">
+                    <div class="footer-section">
+                        <h4>Navegação</h4>
+                        <ul>
+                            <li><a href="index.html">Home</a></li>
+                            <li><a href="index.html#skills">Skills</a></li>
+                            <li><a href="index.html#contact">Contato</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-section">
+                        <h4>Software</h4>
+                        <ul>
+                            <li><a href="kraken.html">Kraken</a></li>
+                            <li><a href="garimpador.html">Garimpador</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Dev Prieto. Todos os direitos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
+    <script src="splash.js"></script>
+    <script src="script.js"></script>
+</body>
+</html> 

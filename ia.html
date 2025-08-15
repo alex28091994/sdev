@@ -1,0 +1,1491 @@
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IA computadores - Recursos de Inteligência Artificial</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        /* Estilos específicos para a página IA */
+        body {
+            padding-top: 80px;
+        }
+        
+        .ia-page-header {
+            background: rgba(10, 10, 10, 0.95);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid var(--border-color);
+            padding: 2rem 0;
+            margin-bottom: 2rem;
+        }
+        
+        .ia-page-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .ia-page-content h1 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--text-color);
+            margin: 0;
+        }
+        
+        .ia-page-content .orange {
+            color: var(--primary-color);
+        }
+        
+        .ia-page-info {
+            text-align: right;
+        }
+        
+        .ia-page-info a {
+            color: var(--primary-color);
+            text-decoration: none;
+        }
+        
+        .ia-page-info a:hover {
+            text-decoration: underline;
+        }
+        
+        .ia-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+        
+        .ia-info {
+            background: rgba(26, 26, 26, 0.8);
+            border: 1px solid var(--border-color);
+            border-radius: 10px;
+            padding: 1.5rem;
+            margin-bottom: 2rem;
+            backdrop-filter: blur(10px);
+        }
+        
+        .ia-info p {
+            color: var(--text-light);
+            font-weight: 500;
+            margin-bottom: 0.5rem;
+        }
+        
+        .ia-table {
+            background: rgba(26, 26, 26, 0.8);
+            border: 1px solid var(--border-color);
+            border-radius: 10px;
+            overflow: hidden;
+            backdrop-filter: blur(10px);
+        }
+        
+        .ia-table table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        
+        .ia-table th {
+            background: var(--primary-color);
+            color: var(--text-color);
+            padding: 1rem;
+            text-align: left;
+            font-weight: 600;
+            font-size: 0.9rem;
+        }
+        
+        .ia-table td {
+            padding: 1rem;
+            border-bottom: 1px solid var(--border-color);
+            color: var(--text-color);
+        }
+        
+        .ia-table tr:hover {
+            background: rgba(255, 102, 0, 0.1);
+        }
+        
+        .ia-table tr:last-child td {
+            border-bottom: none;
+        }
+        
+        .search-container {
+            position: relative;
+            display: flex;
+            align-items: center;
+            background: var(--bg-dark);
+            border: 2px solid var(--border-color);
+            border-radius: 10px;
+            padding: 0.5rem 1rem;
+            margin: 1rem 0;
+            transition: all 0.3s ease;
+        }
+        
+        .search-container:focus-within {
+            border-color: var(--primary-color);
+            box-shadow: 0 0 0 3px rgba(255, 102, 0, 0.1);
+        }
+        
+        .search-icon {
+            color: var(--text-muted);
+            margin-right: 0.75rem;
+            font-size: 1rem;
+        }
+        
+        .search-input {
+            flex: 1;
+            background: transparent;
+            border: none;
+            color: var(--text-color);
+            font-size: 1rem;
+            font-family: 'Inter', sans-serif;
+            outline: none;
+        }
+        
+        .search-input::placeholder {
+            color: var(--text-muted);
+        }
+        
+        .search-version {
+            color: var(--text-muted);
+            font-size: 0.8rem;
+            font-weight: 500;
+            margin-left: 1rem;
+            padding: 0.25rem 0.5rem;
+            background: rgba(255, 102, 0, 0.1);
+            border-radius: 5px;
+        }
+        
+        .open-btn {
+            background: var(--primary-color) !important;
+            color: var(--text-color) !important;
+            border: none !important;
+            padding: 0.5rem 1rem !important;
+            border-radius: 5px !important;
+            cursor: pointer !important;
+            font-size: 0.8rem !important;
+            text-decoration: none !important;
+            display: inline-block !important;
+            transition: all 0.3s ease !important;
+        }
+        
+        .open-btn:hover {
+            background: #e55a00 !important;
+            transform: translateY(-2px) !important;
+        }
+        
+        @media (max-width: 768px) {
+            .ia-page-content {
+                flex-direction: column;
+                gap: 1rem;
+                text-align: center;
+            }
+            
+            .ia-page-content h1 {
+                font-size: 2rem;
+            }
+            
+            .search-container {
+                padding: 0.75rem;
+                margin: 0.75rem 0;
+            }
+            
+            .search-input {
+                font-size: 0.9rem;
+            }
+            
+            .search-version {
+                font-size: 0.7rem;
+                margin-left: 0.5rem;
+                padding: 0.2rem 0.4rem;
+            }
+            
+            .ia-table {
+                overflow-x: auto;
+            }
+            
+            .ia-table th,
+            .ia-table td {
+                padding: 0.75rem 0.5rem;
+                font-size: 0.8rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="webgl-background"></div>
+    
+    <header class="header">
+        <nav class="nav">
+            <div class="logo">
+                <span class="logo-text">Alex<span class="orange">Dev</span></span>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="index.html#work">Trabalhos</a></li>
+                <li><a href="index.html#skills">Skills</a></li>
+                <li><a href="index.html#contact">Contato</a></li>
+            </ul>
+            <div class="nav-cta">
+                <a href="index.html#contact" class="btn-primary">Vamos Conversar</a>
+            </div>
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </nav>
+    </header>
+
+    <div class="ia-page-header">
+        <div class="ia-page-content">
+            <h1>IA <span class="orange">computadores</span></h1>
+            <div class="ia-page-info">
+                <a href="https://www.instagram.com/prietto_polar?igsh=MXgycXg5eThzNmprZw==" target="_blank">
+                    <i class="fab fa-instagram"></i> Visite meu Instagram
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <main class="ia-content">
+        <div class="ia-info">
+            <p><i class="fas fa-info-circle"></i> As tabelas estão atualizadas em tempo real pelos usuários da comunidade!</p>
+            <div class="search-container">
+                <i class="fas fa-search search-icon"></i>
+                <input type="text" id="searchInput" placeholder="Pesquisar recursos..." class="search-input">
+                <span class="search-version">V 1.15</span>
+            </div>
+        </div>
+        
+        <div class="ia-table">
+            <table>
+        <thead>
+            <tr>
+<th>Recursos gratuitos da API LLM</th><th> </th><th>Ações</th></tr></thead><tbody><tr><td>AI Studio</td><td>https://aistudio.google.com/app/prompts/new_chat</td>
+        <td><a href="https://aistudio.google.com/app/prompts/new_chat" target="_blank" class="open-btn">
+                <i class="fas fa-external-link-alt"></i> Abrir
+            </a>
+        </td>
+        </tr><tr><td>ChatGPT</td><td>https://chatgpt.com/</td>
+        <td><a href="https://chatgpt.com/" target="_blank" class="open-btn"><i class="fas fa-external-link-alt"></i> Abrir</a>
+        </td>
+        </tr><tr><td>Qwen</td><td>https://chat.qwen.ai/</td>
+        <td><a href="https://chat.qwen.ai/" target="_blank" class="open-btn"><i class="fas fa-external-link-alt"></i> Abrir</a>
+        </td>
+        </tr><tr><td>DeepSeek</td><td>https://chat.deepseek.com/</td>
+        <td><a href="https://chat.deepseek.com/" target="_blank" class="open-btn"><i class="fas fa-external-link-alt"></i> Abrir</a>
+        </td>
+        </tr><tr><td>Grok</td><td>https://grok.com/</td>
+        <td><a href="https://grok.com/" target="_blank" class="open-btn"><i class="fas fa-external-link-alt"></i> Abrir</a>
+        </td>
+        </tr><tr><td>Microsoft Copilot</td><td>https://copilot.microsoft.com</td>
+        <td><a href="https://copilot.microsoft.com" target="_blank" class="open-btn"><i class="fas fa-external-link-alt"></i> Abrir</a>
+        </td>
+        </tr><tr><td>Chatbot Arena</td><td>https://beta.lmarena.ai</td>
+        <td><a href="https://beta.lmarena.ai" target="_blank" class="open-btn"><i class="fas fa-external-link-alt"></i> Abrir</a>
+        </td>
+        </tr><tr><td>Mistral</td><td>https://chat.mistral.ai</td>
+        <td><a href="https://chat.mistral.ai" target="_blank" class="open-btn"><i class="fas fa-external-link-alt"></i> Abrir</a>
+        </td>
+        </tr><tr><td>Claude</td><td>https://claude.ai/</td>
+        <td><a href="https://claude.ai/" target="_blank" class="open-btn"><i class="fas fa-external-link-alt"></i> Abrir</a>
+        </td>
+        </tr><tr><td>DuckDuckGo AI</td><td>https://duck.ai/</td>
+        <td><a href="https://duck.ai/" target="_blank" class="open-btn"><i class="fas fa-external-link-alt"></i> Abrir</a>
+        </td>
+        </tr><tr><td>ChatK</td><td>https://chat.oaichat.cc/</td>
+        <td><a href="https://chat.oaichat.cc/" target="_blank" class="open-btn"><i class="fas fa-external-link-alt"></i> Abrir</a>
+        </td>
+        </tr><tr><td>Assistente de IA</td><td>https://aiassistantbot.pages.dev/</td>
+        <td><a href="https://aiassistantbot.pages.dev/" target="_blank" class="open-btn"><i class="fas fa-external-link-alt"></i> Abrir</a>
+        </td>
+        </tr><tr><td>AI SDK</td><td>https://sdk.vercel.ai/</td>
+        <td><a href="https://sdk.vercel.ai/" target="_blank" class="open-btn"><i class="fas fa-external-link-alt"></i> Abrir</a>
+        </td>
+        </tr><tr><td>GizAI</td><td>https://www.giz.ai/</td>
+        <td><a href="https://www.giz.ai/" target="_blank" class="open-btn"><i class="fas fa-external-link-alt"></i> Abrir</a>
+        </td>
+        </tr><tr><td>FreePass</td><td>https://freepass.ai/</td>
+        <td><a href="https://freepass.ai/" target="_blank" class="open-btn"><i class="fas fa-external-link-alt"></i> Abrir</a>
+        </td>
+        </tr><tr><td>SciSpace</td><td>https://scispace.com/</td>
+        <td><a href="https://scispace.com/" target="_blank" class="open-btn"><i class="fas fa-external-link-alt"></i> Abrir</a>
+        </td>
+        </tr><tr><td>HelixMind</td><td>https://helixmind.online/</td>
+        <td><a href="https://helixmind.online/" target="_blank" class="open-btn"><i class="fas fa-external-link-alt"></i> Abrir</a>
+        </td>
+        </tr><tr><td>HuggingChat</td><td>https://huggingface.co/chat/</td>
+        <td><a href="https://huggingface.co/chat/" target="_blank" class="open-btn"><i class="fas fa-external-link-alt"></i> Abrir</a>
+        </td>
+        </tr><tr><td>Infermatic</td><td>https://infermatic.ai/</td>
+        <td><a href="https://infermatic.ai/" target="_blank" class="open-btn"><i class="fas fa-external-link-alt"></i> Abrir</a>
+        </td>
+        </tr><tr><td>Electron Hub</td><td>https://www.electronhub.top/</td>
+        <td><a href="https://www.electronhub.top/" target="_blank" class="open-btn"><i class="fas fa-external-link-alt"></i> Abrir</a>
+        </td>
+        </tr><tr><td>NexusAI</td><td>https://www.nexusmind.tech/</td>
+        <td><a href="https://www.nexusmind.tech/" target="_blank" class="open-btn"><i class="fas fa-external-link-alt"></i> Abrir</a>
+        </td>
+        </tr><tr><td>NVIDIA NIM</td><td>https://build.nvidia.com/</td>
+        <td><a href="https://build.nvidia.com/" target="_blank" class="open-btn"><i class="fas fa-external-link-alt"></i> Abrir</a>
+        </td>
+        </tr><tr><td>OIChat</td><td>https://oi.wr.do/</td>
+        <td><a href="https://oi.wr.do/" target="_blank" class="open-btn"><i class="fas fa-external-link-alt"></i> Abrir</a>
+        </td>
+        </tr><tr><td>Kimi</td><td>https://kimi.ai/</td>
+        <td><a href="https://kimi.ai/" target="_blank" class="open-btn"><i class="fas fa-external-link-alt"></i> Abrir</a>
+        </td>
+        </tr><tr><td>Groq</td><td>https://groq.com/</td>
+        <td><a href="https://groq.com/" target="_blank" class="open-btn"><i class="fas fa-external-link-alt"></i> Abrir</a>
+        </td>
+        </tr><tr><td>SambaNova</td><td>https://sambanova.ai/</td>
+        <td><a href="https://sambanova.ai/" target="_blank" class="open-btn"><i class="fas fa-external-link-alt"></i> Abrir</a>
+        </td>
+        </tr><tr><td>Lambda Chat</td><td>https://lambda.chat/chatui/</td>
+        <td><a href="https://lambda.chat/chatui/" target="_blank" class="open-btn"><i class="fas fa-external-link-alt"></i> Abrir</a>
+        </td>
+        </tr><tr><td>Maisa</td><td>https://maisa.ai/</td>
+        <td><a href="https://maisa.ai/" target="_blank" class="open-btn"><i class="fas fa-external-link-alt"></i> Abrir</a>
+        </td>
+        </tr><tr><td>Meta AI</td><td>https://www.meta.ai/</td>
+        <td><a href="https://www.meta.ai/" target="_blank" class="open-btn"><i class="fas fa-external-link-alt"></i> Abrir</a>
+        </td>
+        </tr><tr><td>Bate-papo do Baidu</td><td>https://chat.baidu.com/</td>
+        <td><a href="https://chat.baidu.com/" target="_blank" class="open-btn"><i class="fas fa-external-link-alt"></i> Abrir</a>
+        </td>
+        </tr><tr><td>MiniMax AI</td><td>https://chat.minimax.io/</td>
+        <td><a href="https://chat.minimax.io/" target="_blank" class="open-btn"><i class="fas fa-external-link-alt"></i> Abrir</a>
+        </td>
+        </tr><tr><td>Pi</td><td>https://pi.ai/</td>
+        <td><a href="https://pi.ai/" target="_blank" class="open-btn"><i class="fas fa-external-link-alt"></i> Abrir</a>
+        </td>
+        </tr><tr><td>Reka</td><td>https://www.reka.ai/</td>
+        <td><a href="https://www.reka.ai/" target="_blank" class="open-btn"><i class="fas fa-external-link-alt"></i> Abrir</a>
+        </td>
+        </tr><tr><td>Poe</td><td>https://poe.com/</td>
+        <td><a href="https://poe.com/" target="_blank" class="open-btn"><i class="fas fa-external-link-alt"></i> Abrir</a>
+        </td>
+        </tr><tr><td>PrivateGPT</td><td>https://privategpt.dev/</td>
+        <td><a href="https://privategpt.dev/" target="_blank" class="open-btn"><i class="fas fa-external-link-alt"></i> Abrir</a>
+        </td>
+        </tr><tr><td>Awesome AI Web Search</td><td>https://github.com/felladrin/awesome-ai-web-search</td>
+        <td><a href="https://github.com/felladrin/awesome-ai-web-search" target="_blank" class="open-btn"><i class="fas fa-external-link-alt"></i> Abrir</a>
+        </td>
+        </tr><tr><td>Scira</td><td>https://scira.ai/</td>
+        <td><a href="https://scira.ai/" target="_blank" class="open-btn"><i class="fas fa-external-link-alt"></i> Abrir</a>
+        </td>
+        </tr><tr><td>Perplexidade</td><td>https://www.perplexity.ai/</td>
+        <td><a href="https://www.perplexity.ai/" target="_blank" class="open-btn"><i class="fas fa-external-link-alt"></i> Abrir</a>
+        </td>
+        </tr><tr><td>WolframAlpha</td><td>https://www.wolframalpha.com/</td>
+        <td><a href="https://www.wolframalpha.com/" target="_blank" class="open-btn"><i class="fas fa-external-link-alt"></i> Abrir</a>
+        </td>
+        </tr><tr><td>Você</td><td>https://you.com/</td>
+        <td><a href="https://you.com/" target="_blank" class="open-btn"><i class="fas fa-external-link-alt"></i> Abrir</a>
+        </td>
+        </tr><tr><td>Hyperspace</td><td>https://hyper.space/</td>
+        <td><a href="https://hyper.space/" target="_blank" class="open-btn"><i class="fas fa-external-link-alt"></i> Abrir</a>
+        </td>
+        </tr><tr><td>Phind</td><td>https://www.phind.com/</td>
+        <td><a href="https://www.phind.com/" target="_blank" class="open-btn"><i class="fas fa-external-link-alt"></i> Abrir</a>
+        </td>
+        </tr><tr><td>Morphic</td><td>https://www.morphic.sh/</td>
+        <td><a href="https://www.morphic.sh/" target="_blank" class="open-btn"><i class="fas fa-external-link-alt"></i> Abrir</a>
+        </td>
+        </tr><tr><td>Komo</td><td>https://komo.ai/</td>
+        <td><a href="https://komo.ai/" target="_blank" class="open-btn"><i class="fas fa-external-link-alt"></i> Abrir</a>
+        </td>
+        </tr><tr><td>Jina</td><td>https://search.jina.ai/</td>
+        <td><a href="https://search.jina.ai/" target="_blank" class="open-btn"><i class="fas fa-external-link-alt"></i> Abrir</a>
+        </td>
+        </tr><tr><td>Felo</td><td>https://felo.ai/</td>
+        <td><a href="https://felo.ai/" target="_blank" class="open-btn"><i class="fas fa-external-link-alt"></i> Abrir</a>
+        </td>
+        </tr><tr><td>searc.ai</td><td>https://searc.ai/</td>
+        <td><a href="https://searc.ai/" target="_blank" class="open-btn"><i class="fas fa-external-link-alt"></i> Abrir</a>
+        </td>
+        </tr><tr><td>RabbitHoles</td><td>https://rabbitholes.dojoma.ai/</td>
+        <td><a href="https://rabbitholes.dojoma.ai/" target="_blank" class="open-btn"><i class="fas fa-external-link-alt"></i> Abrir</a>
+        </td>
+        </tr><tr><td>Isou.chat</td><td>https://isou.chat/</td>
+        <td><a href="https://isou.chat/" target="_blank" class="open-btn"><i class="fas fa-external-link-alt"></i> Abrir</a>
+        </td>
+        </tr><tr><td>Hika</td><td>https://hika.fyi/</td>
+        <td><a href="https://hika.fyi/" target="_blank" class="open-btn"><i class="fas fa-external-link-alt"></i> Abrir</a>
+        </td>
+        </tr><tr><td>Khoj</td><td>https://khoj.dev/</td>
+        <td><a href="https://khoj.dev/" target="_blank" class="open-btn"><i class="fas fa-external-link-alt"></i> Abrir</a>
+        </td>
+        </tr><tr><td>AyeSoul</td><td>https://ayesoul.com/</td>
+        <td><a href="https://ayesoul.com/" target="_blank" class="open-btn"><i class="fas fa-external-link-alt"></i> Abrir</a>
+        </td>
+        </tr><tr><td>Veneza</td><td>https://venice.ai/</td>
+        <td><a href="https://venice.ai/" target="_blank" class="open-btn"><i class="fas fa-external-link-alt"></i> Abrir</a>
+        </td>
+        </tr><tr><td>uncovr</td><td>https://uncovr.app/</td>
+        <td><a href="https://uncovr.app/" target="_blank" class="open-btn"><i class="fas fa-external-link-alt"></i> Abrir</a>
+        </td>
+        </tr><tr><td>Exa</td><td>https://exa.ai/</td>
+        <td><a href="https://exa.ai/" target="_blank" class="open-btn"><i class="fas fa-external-link-alt"></i> Abrir</a>
+        </td>
+        </tr><tr><td>Lepton Search</td><td>https://search.lepton.run/</td>
+        <td><a href="https://search.lepton.run/" target="_blank" class="open-btn"><i class="fas fa-external-link-alt"></i> Abrir</a>
+        </td>
+        </tr><tr><td>Perplexica</td><td>https://github.com/ItzCrazyKns/Perplexica</td>
+        <td><a href="https://github.com/ItzCrazyKns/Perplexica" target="_blank" class="open-btn"><i class="fas fa-external-link-alt"></i> Abrir</a>
+        </td>
+        </tr><tr><td>Jan</td><td>https://jan.ai/</td>
+        <td><a href="https://jan.ai/" target="_blank" class="open-btn"><i class="fas fa-external-link-alt"></i> Abrir</a>
+        </td>
+        </tr><tr><td>SillyTavern</td><td>https://docs.sillytavern.app/</td>
+        <td><a href="https://docs.sillytavern.app/" target="_blank" class="open-btn"><i class="fas fa-external-link-alt"></i> Abrir</a>
+        </td>
+        </tr><tr><td>Open WebUI</td><td>https://openwebui.com/</td>
+        <td><a href="https://openwebui.com/" target="_blank" class="open-btn"><i class="fas fa-external-link-alt"></i> Abrir</a>
+        </td>
+        </tr><tr><td>llama.cpp</td><td>https://github.com/ggerganov/llama.cpp</td>
+        <td><a href="https://github.com/ggerganov/llama.cpp" target="_blank" class="open-btn"><i class="fas fa-external-link-alt"></i> Abrir</a>
+        </td>
+        </tr><tr><td>KoboldCpp</td><td>https://github.com/LostRuins/koboldcpp</td>
+        <td><a href="https://github.com/LostRuins/koboldcpp" target="_blank" class="open-btn"><i class="fas fa-external-link-alt"></i> Abrir</a>
+        </td>
+        </tr><tr><td>Pinokio</td><td>https://pinokio.computer/</td>
+        <td><a href="https://pinokio.computer/" target="_blank" class="open-btn"><i class="fas fa-external-link-alt"></i> Abrir</a>
+        </td>
+        </tr><tr><td>oobabooga</td><td>https://github.com/oobabooga/text-generation-webui</td>
+        <td><a href="https://github.com/oobabooga/text-generation-webui" target="_blank" class="open-btn"><i class="fas fa-external-link-alt"></i> Abrir</a>
+        </td>
+        </tr><tr><td>Aphrodite Engine</td><td>https://aphrodite.pygmalion.chat/</td>
+        <td><a href="https://aphrodite.pygmalion.chat/" target="_blank" class="open-btn"><i class="fas fa-external-link-alt"></i> Abrir</a>
+        </td>
+        </tr><tr><td>Pétalas</td><td>https://petals.dev/</td>
+        <td><a href="https://petals.dev/" target="_blank" class="open-btn"><i class="fas fa-external-link-alt"></i> Abrir</a>
+        </td>
+        </tr><tr><td>Leon</td><td>https://getleon.ai/</td>
+        <td><a href="https://getleon.ai/" target="_blank" class="open-btn"><i class="fas fa-external-link-alt"></i> Abrir</a>
+        </td>
+        </tr><tr><td>Ollama</td><td>https://ollama.com/</td>
+        <td><a href="https://ollama.com/" target="_blank" class="open-btn"><i class="fas fa-external-link-alt"></i> Abrir</a>
+        </td>
+        </tr><tr><td>tgpt</td><td>https://github.com/aandrew-me/tgpt</td>
+        <td><a href="https://github.com/aandrew-me/tgpt" target="_blank" class="open-btn"><i class="fas fa-external-link-alt"></i> Abrir</a>
+        </td>
+        </tr><tr><td>Interface do usuário da Web do LoLLMs</td><td>https://github.com/ParisNeo/lollms-webui</td>
+        <td><a href="https://github.com/ParisNeo/lollms-webui" target="_blank" class="open-btn"><i class="fas fa-external-link-alt"></i> Abrir</a>
+        </td>
+        </tr><tr><td>LM Studio</td><td>https://lmstudio.ai/</td>
+        <td><a href="https://lmstudio.ai/" target="_blank" class="open-btn"><i class="fas fa-external-link-alt"></i> Abrir</a>
+        </td>
+        </tr><tr><td>AnythingLLM</td><td>https://anythingllm.com/</td>
+        <td><a href="https://anythingllm.com/" target="_blank" class="open-btn"><i class="fas fa-external-link-alt"></i> Abrir</a>
+        </td>
+        </tr><tr><td>LibreChat</td><td>https://librechat.ai/</td>
+        <td><a href="https://librechat.ai/" target="_blank" class="open-btn"><i class="fas fa-external-link-alt"></i> Abrir</a>
+        </td>
+        </tr><tr><td>GPT4All</td><td>https://www.nomic.ai/gpt4all</td>
+        <td><a href="https://www.nomic.ai/gpt4all" target="_blank" class="open-btn"><i class="fas fa-external-link-alt"></i> Abrir</a>
+        </td>
+        </tr><tr><td>llamafile</td><td>https://github.com/Mozilla-Ocho/llamafile</td>
+        <td><a href="https://github.com/Mozilla-Ocho/llamafile" target="_blank" class="open-btn"><i class="fas fa-external-link-alt"></i> Abrir</a>
+        </td>
+        </tr><tr><td>Sukino-Findings</td><td>https://rentry.org/Sukino-Findings</td>
+        <td><a href="https://rentry.org/Sukino-Findings" target="_blank" class="open-btn"><i class="fas fa-external-link-alt"></i> Abrir</a>
+        </td>
+        </tr><tr><td>BestERP</td><td>https://besterp.ai/</td>
+        <td><a href="https://besterp.ai/" target="_blank" class="open-btn"><i class="fas fa-external-link-alt"></i> Abrir</a>
+        </td>
+        </tr><tr><td>PygmalionAI</td><td>https://pygmalion.chat/</td>
+        <td><a href="https://pygmalion.chat/" target="_blank" class="open-btn"><i class="fas fa-external-link-alt"></i> Abrir</a>
+        </td>
+        </tr><tr><td>Character.AI</td><td>https://character.ai/</td>
+        <td><a href="https://character.ai/" target="_blank" class="open-btn"><i class="fas fa-external-link-alt"></i> Abrir</a>
+        </td>
+        </tr><tr><td>FlowGPT</td><td>https://flowgpt.com</td>
+        <td><a href="https://flowgpt.com" target="_blank" class="open-btn"><i class="fas fa-external-link-alt"></i> Abrir</a>
+        </td>
+        </tr><tr><td>Guia de criação de bot</td><td>https://wikia.schneedc.com/bot-creation/intro</td>
+        <td><a href="https://wikia.schneedc.com/bot-creation/intro" target="_blank" class="open-btn"><i class="fas fa-external-link-alt"></i> Abrir</a>
+        </td>
+        </tr><tr><td>Chub</td><td>https://chub.ai/</td>
+        <td><a href="https://chub.ai/" target="_blank" class="open-btn"><i class="fas fa-external-link-alt"></i> Abrir</a>
+        </td>
+        </tr><tr><td>Llama + SillyTavern</td><td>https://rentry.org/llama_v2_sillytavern</td>
+        <td><a href="https://rentry.org/llama_v2_sillytavern" target="_blank" class="open-btn"><i class="fas fa-external-link-alt"></i> Abrir</a>
+        </td>
+        </tr><tr><td>KoboldAI</td><td>https://koboldai.com/</td>
+        <td><a href="https://koboldai.com/" target="_blank" class="open-btn"><i class="fas fa-external-link-alt"></i> Abrir</a>
+        </td>
+        </tr><tr><td>4thWall AI</td><td>https://beta.4wall.ai/</td>
+        <td><a href="https://beta.4wall.ai/" target="_blank" class="open-btn"><i class="fas fa-external-link-alt"></i> Abrir</a>
+        </td>
+        </tr><tr><td>WyvernChat</td><td>https://app.wyvern.chat/</td>
+        <td><a href="https://app.wyvern.chat/" target="_blank" class="open-btn"><i class="fas fa-external-link-alt"></i> Abrir</a>
+        </td>
+        </tr><tr><td>JanitorAI</td><td>https://janitorai.com/</td>
+        <td><a href="https://janitorai.com/" target="_blank" class="open-btn"><i class="fas fa-external-link-alt"></i> Abrir</a>
+        </td>
+        </tr><tr><td>FictionLab</td><td>https://fictionlab.ai/</td>
+        <td><a href="https://fictionlab.ai/" target="_blank" class="open-btn"><i class="fas fa-external-link-alt"></i> Abrir</a>
+        </td>
+        </tr><tr><td>TavernAI</td><td>https://tavernai.net/</td>
+        <td><a href="https://tavernai.net/" target="_blank" class="open-btn"><i class="fas fa-external-link-alt"></i> Abrir</a>
+        </td>
+        </tr><tr><td>AI Dungeon</td><td>https://aidungeon.com/</td>
+        <td><a href="https://aidungeon.com/" target="_blank" class="open-btn"><i class="fas fa-external-link-alt"></i> Abrir</a>
+        </td>
+        </tr><tr><td>Spellbound</td><td>https://www.tryspellbound.com/</td>
+        <td><a href="https://www.tryspellbound.com/" target="_blank" class="open-btn"><i class="fas fa-external-link-alt"></i> Abrir</a>
+        </td>
+        </tr><tr><td>Kajiwoto</td><td>https://kajiwoto.ai/</td>
+        <td><a href="https://kajiwoto.ai/" target="_blank" class="open-btn"><i class="fas fa-external-link-alt"></i> Abrir</a>
+        </td>
+        </tr><tr><td>Cruzando o Vale Misterioso</td><td>https://www.sesame.com/</td>
+        <td><a href="https://www.sesame.com/" target="_blank" class="open-btn"><i class="fas fa-external-link-alt"></i> Abrir</a>
+        </td>
+        </tr><tr><td>Tabela de classificação EvalPlus</td><td>https://evalplus.github.io/leaderboard.html</td>
+        <td><a href="https://evalplus.github.io/leaderboard.html" target="_blank" class="open-btn"><i class="fas fa-external-link-alt"></i> Abrir</a>
+        </td>
+        </tr><tr><td>Agentes de IA incríveis</td><td>https://github.com/e2b-dev/awesome-ai-agents</td>
+        <td><a href="https://github.com/e2b-dev/awesome-ai-agents" target="_blank" class="open-btn"><i class="fas fa-external-link-alt"></i> Abrir</a>
+        </td>
+        </tr><tr><td>Windsurf</td><td>https://www.windsurf.com/</td>
+        <td><a href="https://www.windsurf.com/" target="_blank" class="open-btn"><i class="fas fa-external-link-alt"></i> Abrir</a>
+        </td>
+        </tr><tr><td>Peças</td><td>https://pieces.app/</td>
+        <td><a href="https://pieces.app/" target="_blank" class="open-btn"><i class="fas fa-external-link-alt"></i> Abrir</a>
+        </td>
+        </tr><tr><td>WDTCD?</td><td>https://whatdoesthiscodedo.com/</td>
+        <td><a href="https://whatdoesthiscodedo.com/" target="_blank" class="open-btn"><i class="fas fa-external-link-alt"></i> Abrir</a>
+        </td>
+        </tr><tr><td>Sourcery</td><td>https://sourcery.ai/</td>
+        <td><a href="https://sourcery.ai/" target="_blank" class="open-btn"><i class="fas fa-external-link-alt"></i> Abrir</a>
+        </td>
+        </tr><tr><td>Devv</td><td>https://devv.ai/</td>
+        <td><a href="https://devv.ai/" target="_blank" class="open-btn"><i class="fas fa-external-link-alt"></i> Abrir</a>
+        </td>
+        </tr><tr><td>Telosys</td><td>https://www.telosys.org/</td>
+        <td><a href="https://www.telosys.org/" target="_blank" class="open-btn"><i class="fas fa-external-link-alt"></i> Abrir</a>
+        </td>
+        </tr><tr><td>Llama Coder</td><td>https://llamacoder.together.ai/</td>
+        <td><a href="https://llamacoder.together.ai/" target="_blank" class="open-btn"><i class="fas fa-external-link-alt"></i> Abrir</a>
+        </td>
+        </tr><tr><td>imgcook</td><td>https://imgcook.com</td>
+        <td><a href="https://imgcook.com" target="_blank" class="open-btn"><i class="fas fa-external-link-alt"></i> Abrir</a>
+        </td>
+        </tr><tr><td>Supermaven</td><td>https://supermaven.com/</td>
+        <td><a href="https://supermaven.com/" target="_blank" class="open-btn"><i class="fas fa-external-link-alt"></i> Abrir</a>
+        </td>
+        </tr><tr><td>Cody</td><td>https://sourcegraph.com/cody</td>
+        <td><a href="https://sourcegraph.com/cody" target="_blank" class="open-btn"><i class="fas fa-external-link-alt"></i> Abrir</a>
+        </td>
+        </tr><tr><td>OpenHands</td><td>https://www.all-hands.dev/</td>
+        <td><a href="https://www.all-hands.dev/" target="_blank" class="open-btn"><i class="fas fa-external-link-alt"></i> Abrir</a>
+        </td>
+        </tr><tr><td>Continuar</td><td>https://continue.dev/</td>
+        <td><a href="https://continue.dev/" target="_blank" class="open-btn"><i class="fas fa-external-link-alt"></i> Abrir</a>
+        </td>
+        </tr><tr><td>GitHub Copilot</td><td>https://github.com/features/copilot</td>
+        <td><a href="https://github.com/features/copilot" target="_blank" class="open-btn"><i class="fas fa-external-link-alt"></i> Abrir</a>
+        </td>
+        </tr><tr><td>Trae</td><td>https://www.trae.ai/</td>
+        <td><a href="https://www.trae.ai/" target="_blank" class="open-btn"><i class="fas fa-external-link-alt"></i> Abrir</a>
+        </td>
+        </tr><tr><td>Cline</td><td>https://github.com/cline/cline</td>
+        <td><a href="https://github.com/cline/cline" target="_blank" class="open-btn"><i class="fas fa-external-link-alt"></i> Abrir</a>
+        </td>
+        </tr><tr><td>Cursor</td><td>https://rentry.co/FMHYBase64#cursor</td>
+        <td><a href="https://rentry.co/FMHYBase64#cursor" target="_blank" class="open-btn"><i class="fas fa-external-link-alt"></i> Abrir</a>
+        </td>
+        </tr><tr><td>Qodo</td><td>https://www.qodo.ai/</td>
+        <td><a href="https://www.qodo.ai/" target="_blank" class="open-btn"><i class="fas fa-external-link-alt"></i> Abrir</a>
+        </td>
+        </tr><tr><td>Blackbox</td><td>https://www.blackbox.ai/</td>
+        <td><a href="https://www.blackbox.ai/" target="_blank" class="open-btn"><i class="fas fa-external-link-alt"></i> Abrir</a>
+        </td>
+        </tr><tr><td>Denigma</td><td>https://denigma.app/</td>
+        <td><a href="https://denigma.app/" target="_blank" class="open-btn"><i class="fas fa-external-link-alt"></i> Abrir</a>
+        </td>
+        </tr><tr><td>Aider</td><td>https://aider.chat/</td>
+        <td><a href="https://aider.chat/" target="_blank" class="open-btn"><i class="fas fa-external-link-alt"></i> Abrir</a>
+        </td>
+        </tr><tr><td>Codacy</td><td>https://www.codacy.com/</td>
+        <td><a href="https://www.codacy.com/" target="_blank" class="open-btn"><i class="fas fa-external-link-alt"></i> Abrir</a>
+        </td>
+        </tr><tr><td>Open Interpreter</td><td>https://github.com/OpenInterpreter/open-interpreter</td>
+        <td><a href="https://github.com/OpenInterpreter/open-interpreter" target="_blank" class="open-btn"><i class="fas fa-external-link-alt"></i> Abrir</a>
+        </td>
+        </tr><tr><td>v0</td><td>https://v0.dev/</td>
+        <td><a href="https://v0.dev/" target="_blank" class="open-btn"><i class="fas fa-external-link-alt"></i> Abrir</a>
+        </td>
+        </tr><tr><td>DeepSite</td><td>https://huggingface.co/spaces/enzostvs/deepsite</td>
+        <td><a href="https://huggingface.co/spaces/enzostvs/deepsite" target="_blank" class="open-btn"><i class="fas fa-external-link-alt"></i> Abrir</a>
+        </td>
+        </tr><tr><td>Bolt.new</td><td>https://bolt.new/</td>
+        <td><a href="https://bolt.new/" target="_blank" class="open-btn"><i class="fas fa-external-link-alt"></i> Abrir</a>
+        </td>
+        </tr><tr><td>Fragmentos</td><td>https://fragments.e2b.dev/</td>
+        <td><a href="https://fragments.e2b.dev/" target="_blank" class="open-btn"><i class="fas fa-external-link-alt"></i> Abrir</a>
+        </td>
+        </tr><tr><td>Composio</td><td>https://composio.dev/</td>
+        <td><a href="https://composio.dev/" target="_blank" class="open-btn"><i class="fas fa-external-link-alt"></i> Abrir</a>
+        </td>
+        </tr><tr><td>Awesome ChatGPT</td><td>https://github.com/uhub/awesome-chatgpt</td>
+        <td><a href="https://github.com/uhub/awesome-chatgpt" target="_blank" class="open-btn"><i class="fas fa-external-link-alt"></i> Abrir</a>
+        </td>
+        </tr><tr><td>Cada GUI do ChatGPT</td><td>https://github.com/billmei/every-chatgpt-gui</td>
+        <td><a href="https://github.com/billmei/every-chatgpt-gui" target="_blank" class="open-btn"><i class="fas fa-external-link-alt"></i> Abrir</a>
+        </td>
+        </tr><tr><td>Ferramentas de API de IA</td><td>/devtools#api-tools</td>
+        <td><a href="/devtools#api-tools" target="_blank" class="open-btn"><i class="fas fa-external-link-alt"></i> Abrir</a>
+        </td>
+        </tr><tr><td>tldraw computer</td><td>https://computer.tldraw.com/</td>
+        <td><a href="https://computer.tldraw.com/" target="_blank" class="open-btn"><i class="fas fa-external-link-alt"></i> Abrir</a>
+        </td>
+        </tr><tr><td>ChatGPT Box</td><td>https://github.com/josStorer/chatGPTBox</td>
+        <td><a href="https://github.com/josStorer/chatGPTBox" target="_blank" class="open-btn"><i class="fas fa-external-link-alt"></i> Abrir</a>
+        </td>
+        </tr><tr><td>LLM</td><td>https://llm.datasette.io/</td>
+        <td><a href="https://llm.datasette.io/" target="_blank" class="open-btn"><i class="fas fa-external-link-alt"></i> Abrir</a>
+        </td>
+        </tr><tr><td>GPT4Free</td><td>https://github.com/xtekky/gpt4free</td>
+        <td><a href="https://github.com/xtekky/gpt4free" target="_blank" class="open-btn"><i class="fas fa-external-link-alt"></i> Abrir</a>
+        </td>
+        </tr><tr><td>Msty</td><td>https://msty.app/</td>
+        <td><a href="https://msty.app/" target="_blank" class="open-btn"><i class="fas fa-external-link-alt"></i> Abrir</a>
+        </td>
+        </tr><tr><td>LobeChat</td><td>https://lobechat.com/chat</td>
+        <td><a href="https://lobechat.com/chat" target="_blank" class="open-btn"><i class="fas fa-external-link-alt"></i> Abrir</a>
+        </td>
+        </tr><tr><td>Noi</td><td>https://noi.nofwl.com/</td>
+        <td><a href="https://noi.nofwl.com/" target="_blank" class="open-btn"><i class="fas fa-external-link-alt"></i> Abrir</a>
+        </td>
+        </tr><tr><td>Interface do usuário do chatbot</td><td>https://chatbotui.com</td>
+        <td><a href="https://chatbotui.com" target="_blank" class="open-btn"><i class="fas fa-external-link-alt"></i> Abrir</a>
+        </td>
+        </tr><tr><td>ChatRTX</td><td>https://www.nvidia.com/en-us/ai-on-rtx/chatrtx/</td>
+        <td><a href="https://www.nvidia.com/en-us/ai-on-rtx/chatrtx/" target="_blank" class="open-btn"><i class="fas fa-external-link-alt"></i> Abrir</a>
+        </td>
+        </tr><tr><td>ChatPDF</td><td>https://www.chatpdf.com/</td>
+        <td><a href="https://www.chatpdf.com/" target="_blank" class="open-btn"><i class="fas fa-external-link-alt"></i> Abrir</a>
+        </td>
+        </tr><tr><td>ChatGPT DeMod</td><td>https://github.com/4as/ChatGPT-DeMod</td>
+        <td><a href="https://github.com/4as/ChatGPT-DeMod" target="_blank" class="open-btn"><i class="fas fa-external-link-alt"></i> Abrir</a>
+        </td>
+        </tr><tr><td>ParallelGPT</td><td>https://www.parallelgpt.ai/</td>
+        <td><a href="https://www.parallelgpt.ai/" target="_blank" class="open-btn"><i class="fas fa-external-link-alt"></i> Abrir</a>
+        </td>
+        </tr><tr><td>Concierge</td><td>https://askconcierge.ai/</td>
+        <td><a href="https://askconcierge.ai/" target="_blank" class="open-btn"><i class="fas fa-external-link-alt"></i> Abrir</a>
+        </td>
+        </tr><tr><td>MassiveMark</td><td>https://www.bibcit.com/en/massivemark</td>
+        <td><a href="https://www.bibcit.com/en/massivemark" target="_blank" class="open-btn"><i class="fas fa-external-link-alt"></i> Abrir</a>
+        </td>
+        </tr><tr><td>ChatGPT Widescreen</td><td>https://chatgptevo.com/widescreen/</td>
+        <td><a href="https://chatgptevo.com/widescreen/" target="_blank" class="open-btn"><i class="fas fa-external-link-alt"></i> Abrir</a>
+        </td>
+        </tr><tr><td>Controle de voz</td><td>https://voicecontrol.chat/</td>
+        <td><a href="https://voicecontrol.chat/" target="_blank" class="open-btn"><i class="fas fa-external-link-alt"></i> Abrir</a>
+        </td>
+        </tr><tr><td>screenpipe</td><td>https://screenpi.pe/</td>
+        <td><a href="https://screenpi.pe/" target="_blank" class="open-btn"><i class="fas fa-external-link-alt"></i> Abrir</a>
+        </td>
+        </tr><tr><td>Exportador ChatGPT</td><td>https://greasyfork.org/en/scripts/456055</td>
+        <td><a href="https://greasyfork.org/en/scripts/456055" target="_blank" class="open-btn"><i class="fas fa-external-link-alt"></i> Abrir</a>
+        </td>
+        </tr><tr><td>GPThemes</td><td>https://github.com/itsmartashub/GPThemes</td>
+        <td><a href="https://github.com/itsmartashub/GPThemes" target="_blank" class="open-btn"><i class="fas fa-external-link-alt"></i> Abrir</a>
+        </td>
+        </tr><tr><td>Calculadora CanIRunThisLLM</td><td>https://www.canirunthisllm.net/</td>
+        <td><a href="https://www.canirunthisllm.net/" target="_blank" class="open-btn"><i class="fas fa-external-link-alt"></i> Abrir</a>
+        </td>
+        </tr><tr><td>Recursos de pirataria de IA</td><td>https://rentry.org/aipiracyresources</td>
+        <td><a href="https://rentry.org/aipiracyresources" target="_blank" class="open-btn"><i class="fas fa-external-link-alt"></i> Abrir</a>
+        </td>
+        </tr><tr><td>Listagens de Jailbreak</td><td>https://rentry.org/jb-listing</td>
+        <td><a href="https://rentry.org/jb-listing" target="_blank" class="open-btn"><i class="fas fa-external-link-alt"></i> Abrir</a>
+        </td>
+        </tr><tr><td>Prompts do BlackFriday GPTs</td><td>https://github.com/friuns2/BlackFriday-GPTs-Prompts</td>
+        <td><a href="https://github.com/friuns2/BlackFriday-GPTs-Prompts" target="_blank" class="open-btn"><i class="fas fa-external-link-alt"></i> Abrir</a>
+        </td>
+        </tr><tr><td>Prompts vazados</td><td>https://github.com/linexjlin/GPTs</td>
+        <td><a href="https://github.com/linexjlin/GPTs" target="_blank" class="open-btn"><i class="fas fa-external-link-alt"></i> Abrir</a>
+        </td>
+        </tr><tr><td>Guia de engenharia de prompt</td><td>https://www.promptingguide.ai</td>
+        <td><a href="https://www.promptingguide.ai" target="_blank" class="open-btn"><i class="fas fa-external-link-alt"></i> Abrir</a>
+        </td>
+        </tr><tr><td>/r/ChatGPTJailbreak</td><td>https://www.reddit.com/r/ChatGPTJailbreak/</td>
+        <td><a href="https://www.reddit.com/r/ChatGPTJailbreak/" target="_blank" class="open-btn"><i class="fas fa-external-link-alt"></i> Abrir</a>
+        </td>
+        </tr><tr><td>Prompt do sistema ChatGPT</td><td>https://github.com/LouisShark/chatgpt_system_prompt</td>
+        <td><a href="https://github.com/LouisShark/chatgpt_system_prompt" target="_blank" class="open-btn"><i class="fas fa-external-link-alt"></i> Abrir</a>
+        </td>
+        </tr><tr><td>A Grande Biblioteca de Prompts</td><td>https://github.com/0xeb/TheBigPromptLibrary</td>
+        <td><a href="https://github.com/0xeb/TheBigPromptLibrary" target="_blank" class="open-btn"><i class="fas fa-external-link-alt"></i> Abrir</a>
+        </td>
+        </tr><tr><td>ChatGPT & Bing AI Prompts</td><td>https://github.com/yokoffing/ChatGPT-Prompts</td>
+        <td><a href="https://github.com/yokoffing/ChatGPT-Prompts" target="_blank" class="open-btn"><i class="fas fa-external-link-alt"></i> Abrir</a>
+        </td>
+        </tr><tr><td>L1B3RT4S</td><td>https://github.com/elder-plinius/L1B3RT4S</td>
+        <td><a href="https://github.com/elder-plinius/L1B3RT4S" target="_blank" class="open-btn"><i class="fas fa-external-link-alt"></i> Abrir</a>
+        </td>
+        </tr><tr><td>promptfoo</td><td>https://www.promptfoo.dev/</td>
+        <td><a href="https://www.promptfoo.dev/" target="_blank" class="open-btn"><i class="fas fa-external-link-alt"></i> Abrir</a>
+        </td>
+        </tr><tr><td>Tensor Trust</td><td>https://tensortrust.ai/</td>
+        <td><a href="https://tensortrust.ai/" target="_blank" class="open-btn"><i class="fas fa-external-link-alt"></i> Abrir</a>
+        </td>
+        </tr><tr><td>RedTeam Arena</td><td>https://redarena.ai/</td>
+        <td><a href="https://redarena.ai/" target="_blank" class="open-btn"><i class="fas fa-external-link-alt"></i> Abrir</a>
+        </td>
+        </tr><tr><td>Gobble Bot</td><td>https://gobble.bot/</td>
+        <td><a href="https://gobble.bot/" target="_blank" class="open-btn"><i class="fas fa-external-link-alt"></i> Abrir</a>
+        </td>
+        </tr><tr><td>LifeArchitect</td><td>https://lifearchitect.ai/models-table/</td>
+        <td><a href="https://lifearchitect.ai/models-table/" target="_blank" class="open-btn"><i class="fas fa-external-link-alt"></i> Abrir</a>
+        </td>
+        </tr><tr><td>FutureTools</td><td>https://www.futuretools.io/?pricing-model=free</td>
+        <td><a href="https://www.futuretools.io/?pricing-model=free" target="_blank" class="open-btn"><i class="fas fa-external-link-alt"></i> Abrir</a>
+        </td>
+        </tr><tr><td>Google Labs</td><td>https://labs.google/</td>
+        <td><a href="https://labs.google/" target="_blank" class="open-btn"><i class="fas fa-external-link-alt"></i> Abrir</a>
+        </td>
+        </tr><tr><td>Por acaso</td><td>https://perchance.org/generators</td>
+        <td><a href="https://perchance.org/generators" target="_blank" class="open-btn"><i class="fas fa-external-link-alt"></i> Abrir</a>
+        </td>
+        </tr><tr><td>YP para IA</td><td>https://www.ypforai.com</td>
+        <td><a href="https://www.ypforai.com" target="_blank" class="open-btn"><i class="fas fa-external-link-alt"></i> Abrir</a>
+        </td>
+        </tr><tr><td>Hub de Recursos do LLM</td><td>https://llmresourceshub.vercel.app/</td>
+        <td><a href="https://llmresourceshub.vercel.app/" target="_blank" class="open-btn"><i class="fas fa-external-link-alt"></i> Abrir</a>
+        </td>
+        </tr><tr><td>Awesome AI Tools</td><td>https://github.com/mahseema/awesome-ai-tools</td>
+        <td><a href="https://github.com/mahseema/awesome-ai-tools" target="_blank" class="open-btn"><i class="fas fa-external-link-alt"></i> Abrir</a>
+        </td>
+        </tr><tr><td>É melhor com IA</td><td>https://itsbetterwithai.com/</td>
+        <td><a href="https://itsbetterwithai.com/" target="_blank" class="open-btn"><i class="fas fa-external-link-alt"></i> Abrir</a>
+        </td>
+        </tr><tr><td>Demonstração do GPT</td><td>https://www.gptdemo.net/</td>
+        <td><a href="https://www.gptdemo.net/" target="_blank" class="open-btn"><i class="fas fa-external-link-alt"></i> Abrir</a>
+        </td>
+        </tr><tr><td>ArtificialStudio</td><td>https://app.artificialstudio.ai/tools</td>
+        <td><a href="https://app.artificialstudio.ai/tools" target="_blank" class="open-btn"><i class="fas fa-external-link-alt"></i> Abrir</a>
+        </td>
+        </tr><tr><td>Autorizações de modelo</td><td>https://koltregaskes.notion.site/modelreleases</td>
+        <td><a href="https://koltregaskes.notion.site/modelreleases" target="_blank" class="open-btn"><i class="fas fa-external-link-alt"></i> Abrir</a>
+        </td>
+        </tr><tr><td>Análise Artificial</td><td>https://artificialanalysis.ai/</td>
+        <td><a href="https://artificialanalysis.ai/" target="_blank" class="open-btn"><i class="fas fa-external-link-alt"></i> Abrir</a>
+        </td>
+        </tr><tr><td>Chatbot Arena</td><td>https://beta.lmarena.ai/leaderboard</td>
+        <td><a href="https://beta.lmarena.ai/leaderboard" target="_blank" class="open-btn"><i class="fas fa-external-link-alt"></i> Abrir</a>
+        </td>
+        </tr><tr><td>LiveBench</td><td>https://livebench.ai/</td>
+        <td><a href="https://livebench.ai/" target="_blank" class="open-btn"><i class="fas fa-external-link-alt"></i> Abrir</a>
+        </td>
+        </tr><tr><td>Tabelas de classificação SEAL LLM</td><td>https://scale.com/leaderboard</td>
+        <td><a href="https://scale.com/leaderboard" target="_blank" class="open-btn"><i class="fas fa-external-link-alt"></i> Abrir</a>
+        </td>
+        </tr><tr><td>WildBench</td><td>https://huggingface.co/spaces/allenai/WildBench</td>
+        <td><a href="https://huggingface.co/spaces/allenai/WildBench" target="_blank" class="open-btn"><i class="fas fa-external-link-alt"></i> Abrir</a>
+        </td>
+        </tr><tr><td>Projeto Wolfram LLM Benchmarking</td><td>https://www.wolfram.com/llm-benchmarking-project/</td>
+        <td><a href="https://www.wolfram.com/llm-benchmarking-project/" target="_blank" class="open-btn"><i class="fas fa-external-link-alt"></i> Abrir</a>
+        </td>
+        </tr><tr><td>ZeroEval</td><td>https://huggingface.co/spaces/allenai/ZeroEval</td>
+        <td><a href="https://huggingface.co/spaces/allenai/ZeroEval" target="_blank" class="open-btn"><i class="fas fa-external-link-alt"></i> Abrir</a>
+        </td>
+        </tr><tr><td>Estatísticas LLM</td><td>https://llm-stats.com/</td>
+        <td><a href="https://llm-stats.com/" target="_blank" class="open-btn"><i class="fas fa-external-link-alt"></i> Abrir</a>
+        </td>
+        </tr><tr><td>OpenLM Arena</td><td>https://openlm.ai/chatbot-arena/</td>
+        <td><a href="https://openlm.ai/chatbot-arena/" target="_blank" class="open-btn"><i class="fas fa-external-link-alt"></i> Abrir</a>
+        </td>
+        </tr><tr><td>A IA mais rápida</td><td>https://thefastest.ai/</td>
+        <td><a href="https://thefastest.ai/" target="_blank" class="open-btn"><i class="fas fa-external-link-alt"></i> Abrir</a>
+        </td>
+        </tr><tr><td>OpenRouter</td><td>https://openrouter.ai/rankings</td>
+        <td><a href="https://openrouter.ai/rankings" target="_blank" class="open-btn"><i class="fas fa-external-link-alt"></i> Abrir</a>
+        </td>
+        </tr><tr><td>Open VLM Leaderboard</td><td>https://huggingface.co/spaces/opencompass/open_vlm_leaderboard</td>
+        <td><a href="https://huggingface.co/spaces/opencompass/open_vlm_leaderboard" target="_blank" class="open-btn"><i class="fas fa-external-link-alt"></i> Abrir</a>
+        </td>
+        </tr><tr><td>MathArena</td><td>https://matharena.ai/</td>
+        <td><a href="https://matharena.ai/" target="_blank" class="open-btn"><i class="fas fa-external-link-alt"></i> Abrir</a>
+        </td>
+        </tr><tr><td>AI Elo</td><td>https://aielo.co/</td>
+        <td><a href="https://aielo.co/" target="_blank" class="open-btn"><i class="fas fa-external-link-alt"></i> Abrir</a>
+        </td>
+        </tr><tr><td>TextFX</td><td>https://textfx.withgoogle.com/</td>
+        <td><a href="https://textfx.withgoogle.com/" target="_blank" class="open-btn"><i class="fas fa-external-link-alt"></i> Abrir</a>
+        </td>
+        </tr><tr><td>Scrip AI</td><td>https://scripai.com/</td>
+        <td><a href="https://scripai.com/" target="_blank" class="open-btn"><i class="fas fa-external-link-alt"></i> Abrir</a>
+        </td>
+        </tr><tr><td>NovelAI</td><td>https://novelai.net/</td>
+        <td><a href="https://novelai.net/" target="_blank" class="open-btn"><i class="fas fa-external-link-alt"></i> Abrir</a>
+        </td>
+        </tr><tr><td>Dreamily</td><td>https://dreamily.ai/</td>
+        <td><a href="https://dreamily.ai/" target="_blank" class="open-btn"><i class="fas fa-external-link-alt"></i> Abrir</a>
+        </td>
+        </tr><tr><td>PerchanceStory</td><td>https://perchancestory.com/</td>
+        <td><a href="https://perchancestory.com/" target="_blank" class="open-btn"><i class="fas fa-external-link-alt"></i> Abrir</a>
+        </td>
+        </tr><tr><td>Quarkle</td><td>https://quarkle.ai/</td>
+        <td><a href="https://quarkle.ai/" target="_blank" class="open-btn"><i class="fas fa-external-link-alt"></i> Abrir</a>
+        </td>
+        </tr><tr><td>VBench</td><td>https://huggingface.co/spaces/Vchitect/VBench_Leaderboard</td>
+        <td><a href="https://huggingface.co/spaces/Vchitect/VBench_Leaderboard" target="_blank" class="open-btn"><i class="fas fa-external-link-alt"></i> Abrir</a>
+        </td>
+        </tr><tr><td>PixVerse</td><td>https://pixverse.ai/</td>
+        <td><a href="https://pixverse.ai/" target="_blank" class="open-btn"><i class="fas fa-external-link-alt"></i> Abrir</a>
+        </td>
+        </tr><tr><td>Estúdio de IA</td><td>https://aistudio.google.com/generate-video</td>
+        <td><a href="https://aistudio.google.com/generate-video" target="_blank" class="open-btn"><i class="fas fa-external-link-alt"></i> Abrir</a>
+        </td>
+        </tr><tr><td>Síntese Colab</td><td>https://github.com/camenduru/text-to-video-synthesis-colab</td>
+        <td><a href="https://github.com/camenduru/text-to-video-synthesis-colab" target="_blank" class="open-btn"><i class="fas fa-external-link-alt"></i> Abrir</a>
+        </td>
+        </tr><tr><td>Vídeo estável</td><td>https://www.stablevideo.com/</td>
+        <td><a href="https://www.stablevideo.com/" target="_blank" class="open-btn"><i class="fas fa-external-link-alt"></i> Abrir</a>
+        </td>
+        </tr><tr><td>Vidu</td><td>https://www.vidu.studio/</td>
+        <td><a href="https://www.vidu.studio/" target="_blank" class="open-btn"><i class="fas fa-external-link-alt"></i> Abrir</a>
+        </td>
+        </tr><tr><td>Genmo</td><td>https://www.genmo.ai/</td>
+        <td><a href="https://www.genmo.ai/" target="_blank" class="open-btn"><i class="fas fa-external-link-alt"></i> Abrir</a>
+        </td>
+        </tr><tr><td>Vídeos de difusão estável</td><td>https://github.com/nateraw/stable-diffusion-videos</td>
+        <td><a href="https://github.com/nateraw/stable-diffusion-videos" target="_blank" class="open-btn"><i class="fas fa-external-link-alt"></i> Abrir</a>
+        </td>
+        </tr><tr><td>Wan AI</td><td>https://wan.video/</td>
+        <td><a href="https://wan.video/" target="_blank" class="open-btn"><i class="fas fa-external-link-alt"></i> Abrir</a>
+        </td>
+        </tr><tr><td>Máquina dos Sonhos</td><td>https://lumalabs.ai/dream-machine</td>
+        <td><a href="https://lumalabs.ai/dream-machine" target="_blank" class="open-btn"><i class="fas fa-external-link-alt"></i> Abrir</a>
+        </td>
+        </tr><tr><td>LensGo</td><td>https://lensgo.ai/</td>
+        <td><a href="https://lensgo.ai/" target="_blank" class="open-btn"><i class="fas fa-external-link-alt"></i> Abrir</a>
+        </td>
+        </tr><tr><td>Kling AI</td><td>https://klingai.com/</td>
+        <td><a href="https://klingai.com/" target="_blank" class="open-btn"><i class="fas fa-external-link-alt"></i> Abrir</a>
+        </td>
+        </tr><tr><td>Pika</td><td>https://www.pika.art/</td>
+        <td><a href="https://www.pika.art/" target="_blank" class="open-btn"><i class="fas fa-external-link-alt"></i> Abrir</a>
+        </td>
+        </tr><tr><td>Dreamina</td><td>https://dreamina.capcut.com/ai-tool/home</td>
+        <td><a href="https://dreamina.capcut.com/ai-tool/home" target="_blank" class="open-btn"><i class="fas fa-external-link-alt"></i> Abrir</a>
+        </td>
+        </tr><tr><td>Qwen</td><td>https://chat.qwen.ai/</td>
+        <td><a href="https://chat.qwen.ai/" target="_blank" class="open-btn"><i class="fas fa-external-link-alt"></i> Abrir</a>
+        </td>
+        </tr><tr><td>Krea</td><td>https://www.krea.ai/</td>
+        <td><a href="https://www.krea.ai/" target="_blank" class="open-btn"><i class="fas fa-external-link-alt"></i> Abrir</a>
+        </td>
+        </tr><tr><td>Hailuo Free</td><td>https://hailuoaifree.com/</td>
+        <td><a href="https://hailuoaifree.com/" target="_blank" class="open-btn"><i class="fas fa-external-link-alt"></i> Abrir</a>
+        </td>
+        </tr><tr><td>Hailuo AI</td><td>https://hailuoai.video/</td>
+        <td><a href="https://hailuoai.video/" target="_blank" class="open-btn"><i class="fas fa-external-link-alt"></i> Abrir</a>
+        </td>
+        </tr><tr><td>Fusion Brain</td><td>https://fusionbrain.ai/en/</td>
+        <td><a href="https://fusionbrain.ai/en/" target="_blank" class="open-btn"><i class="fas fa-external-link-alt"></i> Abrir</a>
+        </td>
+        </tr><tr><td>Vivago</td><td>https://vivago.ai/</td>
+        <td><a href="https://vivago.ai/" target="_blank" class="open-btn"><i class="fas fa-external-link-alt"></i> Abrir</a>
+        </td>
+        </tr><tr><td>ChatGLM</td><td>https://chatglm.cn/</td>
+        <td><a href="https://chatglm.cn/" target="_blank" class="open-btn"><i class="fas fa-external-link-alt"></i> Abrir</a>
+        </td>
+        </tr><tr><td>Eggnog</td><td>https://www.eggnog.ai/</td>
+        <td><a href="https://www.eggnog.ai/" target="_blank" class="open-btn"><i class="fas fa-external-link-alt"></i> Abrir</a>
+        </td>
+        </tr><tr><td>Imagem NexusAI</td><td>https://image.nexusmind.tech/</td>
+        <td><a href="https://image.nexusmind.tech/" target="_blank" class="open-btn"><i class="fas fa-external-link-alt"></i> Abrir</a>
+        </td>
+        </tr><tr><td>FLUX.1 [Schnell]</td><td>https://huggingface.co/spaces/black-forest-labs/FLUX.1-schnell</td>
+        <td><a href="https://huggingface.co/spaces/black-forest-labs/FLUX.1-schnell" target="_blank" class="open-btn"><i class="fas fa-external-link-alt"></i> Abrir</a>
+        </td>
+        </tr><tr><td>Mago</td><td>https://www.mage.space/</td>
+        <td><a href="https://www.mage.space/" target="_blank" class="open-btn"><i class="fas fa-external-link-alt"></i> Abrir</a>
+        </td>
+        </tr><tr><td>ImageFX</td><td>https://labs.google/fx/tools/image-fx</td>
+        <td><a href="https://labs.google/fx/tools/image-fx" target="_blank" class="open-btn"><i class="fas fa-external-link-alt"></i> Abrir</a>
+        </td>
+        </tr><tr><td>ComfyUI Online</td><td>https://www.runcomfy.com/comfyui-web</td>
+        <td><a href="https://www.runcomfy.com/comfyui-web" target="_blank" class="open-btn"><i class="fas fa-external-link-alt"></i> Abrir</a>
+        </td>
+        </tr><tr><td>Grok</td><td>https://grok.com/</td>
+        <td><a href="https://grok.com/" target="_blank" class="open-btn"><i class="fas fa-external-link-alt"></i> Abrir</a>
+        </td>
+        </tr><tr><td>Dezgo</td><td>https://dezgo.com/</td>
+        <td><a href="https://dezgo.com/" target="_blank" class="open-btn"><i class="fas fa-external-link-alt"></i> Abrir</a>
+        </td>
+        </tr><tr><td>Fusion Brain</td><td>https://fusionbrain.ai/en/</td>
+        <td><a href="https://fusionbrain.ai/en/" target="_blank" class="open-btn"><i class="fas fa-external-link-alt"></i> Abrir</a>
+        </td>
+        </tr><tr><td>Microsoft Designer</td><td>https://designer.microsoft.com/image-creator</td>
+        <td><a href="https://designer.microsoft.com/image-creator" target="_blank" class="open-btn"><i class="fas fa-external-link-alt"></i> Abrir</a>
+        </td>
+        </tr><tr><td>Kling AI</td><td>https://klingai.com/</td>
+        <td><a href="https://klingai.com/" target="_blank" class="open-btn"><i class="fas fa-external-link-alt"></i> Abrir</a>
+        </td>
+        </tr><tr><td>AI Gallery</td><td>https://aigallery.app/</td>
+        <td><a href="https://aigallery.app/" target="_blank" class="open-btn"><i class="fas fa-external-link-alt"></i> Abrir</a>
+        </td>
+        </tr><tr><td>Wan AI</td><td>https://wan.video/</td>
+        <td><a href="https://wan.video/" target="_blank" class="open-btn"><i class="fas fa-external-link-alt"></i> Abrir</a>
+        </td>
+        </tr><tr><td>PicLumen</td><td>https://piclumen.com/</td>
+        <td><a href="https://piclumen.com/" target="_blank" class="open-btn"><i class="fas fa-external-link-alt"></i> Abrir</a>
+        </td>
+        </tr><tr><td>Recriar</td><td>https://www.recraft.ai/</td>
+        <td><a href="https://www.recraft.ai/" target="_blank" class="open-btn"><i class="fas fa-external-link-alt"></i> Abrir</a>
+        </td>
+        </tr><tr><td>imgsys</td><td>https://imgsys.org/</td>
+        <td><a href="https://imgsys.org/" target="_blank" class="open-btn"><i class="fas fa-external-link-alt"></i> Abrir</a>
+        </td>
+        </tr><tr><td>NVIDIA NIM</td><td>https://build.nvidia.com/models?filters=usecase%3Ausecase_image_gen</td>
+        <td><a href="https://build.nvidia.com/models?filters=usecase%3Ausecase_image_gen" target="_blank" class="open-btn"><i class="fas fa-external-link-alt"></i> Abrir</a>
+        </td>
+        </tr><tr><td>Hotpot</td><td>https://hotpot.ai/</td>
+        <td><a href="https://hotpot.ai/" target="_blank" class="open-btn"><i class="fas fa-external-link-alt"></i> Abrir</a>
+        </td>
+        </tr><tr><td>Prodia</td><td>https://app.prodia.com/playground</td>
+        <td><a href="https://app.prodia.com/playground" target="_blank" class="open-btn"><i class="fas fa-external-link-alt"></i> Abrir</a>
+        </td>
+        </tr><tr><td>Polinizações</td><td>https://pollinations.ai/</td>
+        <td><a href="https://pollinations.ai/" target="_blank" class="open-btn"><i class="fas fa-external-link-alt"></i> Abrir</a>
+        </td>
+        </tr><tr><td>PicSynth</td><td>https://www.picsynth.me/generation</td>
+        <td><a href="https://www.picsynth.me/generation" target="_blank" class="open-btn"><i class="fas fa-external-link-alt"></i> Abrir</a>
+        </td>
+        </tr><tr><td>Leonardo</td><td>https://leonardo.ai/</td>
+        <td><a href="https://leonardo.ai/" target="_blank" class="open-btn"><i class="fas fa-external-link-alt"></i> Abrir</a>
+        </td>
+        </tr><tr><td>Loras</td><td>https://www.loras.dev/</td>
+        <td><a href="https://www.loras.dev/" target="_blank" class="open-btn"><i class="fas fa-external-link-alt"></i> Abrir</a>
+        </td>
+        </tr><tr><td>ChatGLM</td><td>https://chatglm.cn/</td>
+        <td><a href="https://chatglm.cn/" target="_blank" class="open-btn"><i class="fas fa-external-link-alt"></i> Abrir</a>
+        </td>
+        </tr><tr><td>Meta AI</td><td>https://www.meta.ai/icebreakers/imagine/</td>
+        <td><a href="https://www.meta.ai/icebreakers/imagine/" target="_blank" class="open-btn"><i class="fas fa-external-link-alt"></i> Abrir</a>
+        </td>
+        </tr><tr><td>Playground</td><td>https://playground.com/</td>
+        <td><a href="https://playground.com/" target="_blank" class="open-btn"><i class="fas fa-external-link-alt"></i> Abrir</a>
+        </td>
+        </tr><tr><td>TensorArt</td><td>https://tensor.art/</td>
+        <td><a href="https://tensor.art/" target="_blank" class="open-btn"><i class="fas fa-external-link-alt"></i> Abrir</a>
+        </td>
+        </tr><tr><td>Shakker</td><td>https://www.shakker.ai/</td>
+        <td><a href="https://www.shakker.ai/" target="_blank" class="open-btn"><i class="fas fa-external-link-alt"></i> Abrir</a>
+        </td>
+        </tr><tr><td>Difusão Estável</td><td>https://huggingface.co/spaces/stabilityai/stable-diffusion</td>
+        <td><a href="https://huggingface.co/spaces/stabilityai/stable-diffusion" target="_blank" class="open-btn"><i class="fas fa-external-link-alt"></i> Abrir</a>
+        </td>
+        </tr><tr><td>Difusão Instável</td><td>https://www.unstability.ai/</td>
+        <td><a href="https://www.unstability.ai/" target="_blank" class="open-btn"><i class="fas fa-external-link-alt"></i> Abrir</a>
+        </td>
+        </tr><tr><td>SeaArt</td><td>https://www.seaart.ai/</td>
+        <td><a href="https://www.seaart.ai/" target="_blank" class="open-btn"><i class="fas fa-external-link-alt"></i> Abrir</a>
+        </td>
+        </tr><tr><td>Art Genie</td><td>https://artgenie.pages.dev/</td>
+        <td><a href="https://artgenie.pages.dev/" target="_blank" class="open-btn"><i class="fas fa-external-link-alt"></i> Abrir</a>
+        </td>
+        </tr><tr><td>Raphael</td><td>https://raphael.app/</td>
+        <td><a href="https://raphael.app/" target="_blank" class="open-btn"><i class="fas fa-external-link-alt"></i> Abrir</a>
+        </td>
+        </tr><tr><td>CGDream</td><td>https://cgdream.ai/</td>
+        <td><a href="https://cgdream.ai/" target="_blank" class="open-btn"><i class="fas fa-external-link-alt"></i> Abrir</a>
+        </td>
+        </tr><tr><td>Hailuo AI</td><td>https://hailuoai.video/</td>
+        <td><a href="https://hailuoai.video/" target="_blank" class="open-btn"><i class="fas fa-external-link-alt"></i> Abrir</a>
+        </td>
+        </tr><tr><td>PixNova AI</td><td>https://pixnova.ai/ai-body-generator/</td>
+        <td><a href="https://pixnova.ai/ai-body-generator/" target="_blank" class="open-btn"><i class="fas fa-external-link-alt"></i> Abrir</a>
+        </td>
+        </tr><tr><td>ChatK</td><td>https://chat.oaichat.cc/</td>
+        <td><a href="https://chat.oaichat.cc/" target="_blank" class="open-btn"><i class="fas fa-external-link-alt"></i> Abrir</a>
+        </td>
+        </tr><tr><td>Imagem Reve</td><td>https://preview.reve.art/</td>
+        <td><a href="https://preview.reve.art/" target="_blank" class="open-btn"><i class="fas fa-external-link-alt"></i> Abrir</a>
+        </td>
+        </tr><tr><td>Baidu Chat</td><td>https://chat.baidu.com/</td>
+        <td><a href="https://chat.baidu.com/" target="_blank" class="open-btn"><i class="fas fa-external-link-alt"></i> Abrir</a>
+        </td>
+        </tr><tr><td>ImageLabs</td><td>https://editor.imagelabs.net/</td>
+        <td><a href="https://editor.imagelabs.net/" target="_blank" class="open-btn"><i class="fas fa-external-link-alt"></i> Abrir</a>
+        </td>
+        </tr><tr><td>Qwen</td><td>https://chat.qwen.ai/</td>
+        <td><a href="https://chat.qwen.ai/" target="_blank" class="open-btn"><i class="fas fa-external-link-alt"></i> Abrir</a>
+        </td>
+        </tr><tr><td>AIGazou</td><td>https://muryou-aigazou.com/</td>
+        <td><a href="https://muryou-aigazou.com/" target="_blank" class="open-btn"><i class="fas fa-external-link-alt"></i> Abrir</a>
+        </td>
+        </tr><tr><td>Dreamina</td><td>https://dreamina.capcut.com/ai-tool/home</td>
+        <td><a href="https://dreamina.capcut.com/ai-tool/home" target="_blank" class="open-btn"><i class="fas fa-external-link-alt"></i> Abrir</a>
+        </td>
+        </tr><tr><td>Por acaso</td><td>https://perchance.org/ai-text-to-image-generator</td>
+        <td><a href="https://perchance.org/ai-text-to-image-generator" target="_blank" class="open-btn"><i class="fas fa-external-link-alt"></i> Abrir</a>
+        </td>
+        </tr><tr><td>getimg.ai</td><td>https://getimg.ai/</td>
+        <td><a href="https://getimg.ai/" target="_blank" class="open-btn"><i class="fas fa-external-link-alt"></i> Abrir</a>
+        </td>
+        </tr><tr><td>Adobe Firefly</td><td>https://firefly.adobe.com/</td>
+        <td><a href="https://firefly.adobe.com/" target="_blank" class="open-btn"><i class="fas fa-external-link-alt"></i> Abrir</a>
+        </td>
+        </tr><tr><td>Aitubo</td><td>https://app.aitubo.ai/</td>
+        <td><a href="https://app.aitubo.ai/" target="_blank" class="open-btn"><i class="fas fa-external-link-alt"></i> Abrir</a>
+        </td>
+        </tr><tr><td>Poe</td><td>https://poe.com/</td>
+        <td><a href="https://poe.com/" target="_blank" class="open-btn"><i class="fas fa-external-link-alt"></i> Abrir</a>
+        </td>
+        </tr><tr><td>Maze Guru</td><td>https://maze.guru/gallery</td>
+        <td><a href="https://maze.guru/gallery" target="_blank" class="open-btn"><i class="fas fa-external-link-alt"></i> Abrir</a>
+        </td>
+        </tr><tr><td>DALL· E</td><td>https://openai.com/index/dall-e-3/</td>
+        <td><a href="https://openai.com/index/dall-e-3/" target="_blank" class="open-btn"><i class="fas fa-external-link-alt"></i> Abrir</a>
+        </td>
+        </tr><tr><td>PixAI</td><td>https://pixai.art/</td>
+        <td><a href="https://pixai.art/" target="_blank" class="open-btn"><i class="fas fa-external-link-alt"></i> Abrir</a>
+        </td>
+        </tr><tr><td>FluxPro</td><td>https://fluxpro.art/</td>
+        <td><a href="https://fluxpro.art/" target="_blank" class="open-btn"><i class="fas fa-external-link-alt"></i> Abrir</a>
+        </td>
+        </tr><tr><td>Glif</td><td>https://glif.app/</td>
+        <td><a href="https://glif.app/" target="_blank" class="open-btn"><i class="fas fa-external-link-alt"></i> Abrir</a>
+        </td>
+        </tr><tr><td>Vivago</td><td>https://vivago.ai/</td>
+        <td><a href="https://vivago.ai/" target="_blank" class="open-btn"><i class="fas fa-external-link-alt"></i> Abrir</a>
+        </td>
+        </tr><tr><td>Krea</td><td>https://www.krea.ai/</td>
+        <td><a href="https://www.krea.ai/" target="_blank" class="open-btn"><i class="fas fa-external-link-alt"></i> Abrir</a>
+        </td>
+        </tr><tr><td>Batedor</td><td>https://labs.google/fx/en/tools/whisk</td>
+        <td><a href="https://labs.google/fx/en/tools/whisk" target="_blank" class="open-btn"><i class="fas fa-external-link-alt"></i> Abrir</a>
+        </td>
+        </tr><tr><td>Artoons</td><td>https://artoons.vercel.app/</td>
+        <td><a href="https://artoons.vercel.app/" target="_blank" class="open-btn"><i class="fas fa-external-link-alt"></i> Abrir</a>
+        </td>
+        </tr><tr><td>Genie</td><td>https://lumalabs.ai/genie</td>
+        <td><a href="https://lumalabs.ai/genie" target="_blank" class="open-btn"><i class="fas fa-external-link-alt"></i> Abrir</a>
+        </td>
+        </tr><tr><td>Cenas interativas</td><td>https://lumalabs.ai/interactive-scenes</td>
+        <td><a href="https://lumalabs.ai/interactive-scenes" target="_blank" class="open-btn"><i class="fas fa-external-link-alt"></i> Abrir</a>
+        </td>
+        </tr><tr><td>Illusion Diffusion</td><td>https://huggingface.co/spaces/AP123/IllusionDiffusion</td>
+        <td><a href="https://huggingface.co/spaces/AP123/IllusionDiffusion" target="_blank" class="open-btn"><i class="fas fa-external-link-alt"></i> Abrir</a>
+        </td>
+        </tr><tr><td>Matriz de estabilidade</td><td>https://lykos.ai/</td>
+        <td><a href="https://lykos.ai/" target="_blank" class="open-btn"><i class="fas fa-external-link-alt"></i> Abrir</a>
+        </td>
+        </tr><tr><td>Invocar</td><td>https://invoke-ai.github.io/InvokeAI/</td>
+        <td><a href="https://invoke-ai.github.io/InvokeAI/" target="_blank" class="open-btn"><i class="fas fa-external-link-alt"></i> Abrir</a>
+        </td>
+        </tr><tr><td>Confortável</td><td>https://www.comfy.org/</td>
+        <td><a href="https://www.comfy.org/" target="_blank" class="open-btn"><i class="fas fa-external-link-alt"></i> Abrir</a>
+        </td>
+        </tr><tr><td>Fooocus</td><td>https://github.com/lllyasviel/Fooocus</td>
+        <td><a href="https://github.com/lllyasviel/Fooocus" target="_blank" class="open-btn"><i class="fas fa-external-link-alt"></i> Abrir</a>
+        </td>
+        </tr><tr><td>Mochi Diffusion</td><td>https://github.com/MochiDiffusion/MochiDiffusion</td>
+        <td><a href="https://github.com/MochiDiffusion/MochiDiffusion" target="_blank" class="open-btn"><i class="fas fa-external-link-alt"></i> Abrir</a>
+        </td>
+        </tr><tr><td>DiffusionBee</td><td>https://diffusionbee.com/</td>
+        <td><a href="https://diffusionbee.com/" target="_blank" class="open-btn"><i class="fas fa-external-link-alt"></i> Abrir</a>
+        </td>
+        </tr><tr><td>Automatic1111</td><td>https://github.com/AUTOMATIC1111/stable-diffusion-webui</td>
+        <td><a href="https://github.com/AUTOMATIC1111/stable-diffusion-webui" target="_blank" class="open-btn"><i class="fas fa-external-link-alt"></i> Abrir</a>
+        </td>
+        </tr><tr><td>Estúdio Estável</td><td>https://github.com/Stability-AI/StableStudio</td>
+        <td><a href="https://github.com/Stability-AI/StableStudio" target="_blank" class="open-btn"><i class="fas fa-external-link-alt"></i> Abrir</a>
+        </td>
+        </tr><tr><td>Fácil difusão</td><td>https://easydiffusion.github.io/</td>
+        <td><a href="https://easydiffusion.github.io/" target="_blank" class="open-btn"><i class="fas fa-external-link-alt"></i> Abrir</a>
+        </td>
+        </tr><tr><td>Makeayo</td><td>https://makeayo.com</td>
+        <td><a href="https://makeayo.com" target="_blank" class="open-btn"><i class="fas fa-external-link-alt"></i> Abrir</a>
+        </td>
+        </tr><tr><td>biniou</td><td>https://github.com/Woolverine94/biniou</td>
+        <td><a href="https://github.com/Woolverine94/biniou" target="_blank" class="open-btn"><i class="fas fa-external-link-alt"></i> Abrir</a>
+        </td>
+        </tr><tr><td>Sygil WebUI</td><td>https://sygil-dev.github.io/sygil-webui/</td>
+        <td><a href="https://sygil-dev.github.io/sygil-webui/" target="_blank" class="open-btn"><i class="fas fa-external-link-alt"></i> Abrir</a>
+        </td>
+        </tr><tr><td>Radiata</td><td>https://ddpn08.github.io/Radiata/en/</td>
+        <td><a href="https://ddpn08.github.io/Radiata/en/" target="_blank" class="open-btn"><i class="fas fa-external-link-alt"></i> Abrir</a>
+        </td>
+        </tr><tr><td>Forja de interface do usuário do SD</td><td>https://github.com/lllyasviel/stable-diffusion-webui-forge</td>
+        <td><a href="https://github.com/lllyasviel/stable-diffusion-webui-forge" target="_blank" class="open-btn"><i class="fas fa-external-link-alt"></i> Abrir</a>
+        </td>
+        </tr><tr><td>ComfyUI-Zluda</td><td>https://github.com/patientx/ComfyUI-Zluda</td>
+        <td><a href="https://github.com/patientx/ComfyUI-Zluda" target="_blank" class="open-btn"><i class="fas fa-external-link-alt"></i> Abrir</a>
+        </td>
+        </tr><tr><td>Paper2GUI</td><td>https://github.com/Baiyuetribe/paper2gui/blob/main/README_en.md</td>
+        <td><a href="https://github.com/Baiyuetribe/paper2gui/blob/main/README_en.md" target="_blank" class="open-btn"><i class="fas fa-external-link-alt"></i> Abrir</a>
+        </td>
+        </tr><tr><td>Civitai</td><td>https://civitai.com/</td>
+        <td><a href="https://civitai.com/" target="_blank" class="open-btn"><i class="fas fa-external-link-alt"></i> Abrir</a>
+        </td>
+        </tr><tr><td>promptoMANIA</td><td>https://promptomania.com/</td>
+        <td><a href="https://promptomania.com/" target="_blank" class="open-btn"><i class="fas fa-external-link-alt"></i> Abrir</a>
+        </td>
+        </tr><tr><td>Um Guia do Viajante para o Espaço Latente</td><td>https://sweet-hall-e72.notion.site/</td>
+        <td><a href="https://sweet-hall-e72.notion.site/" target="_blank" class="open-btn"><i class="fas fa-external-link-alt"></i> Abrir</a>
+        </td>
+        </tr><tr><td>CLIP Interrogator</td><td>https://huggingface.co/spaces/pharmapsychotic/CLIP-Interrogator</td>
+        <td><a href="https://huggingface.co/spaces/pharmapsychotic/CLIP-Interrogator" target="_blank" class="open-btn"><i class="fas fa-external-link-alt"></i> Abrir</a>
+        </td>
+        </tr><tr><td>Prompts dinâmicos SD</td><td>https://github.com/adieyal/sd-dynamic-prompts</td>
+        <td><a href="https://github.com/adieyal/sd-dynamic-prompts" target="_blank" class="open-btn"><i class="fas fa-external-link-alt"></i> Abrir</a>
+        </td>
+        </tr><tr><td>AI Horde</td><td>https://stablehorde.net/</td>
+        <td><a href="https://stablehorde.net/" target="_blank" class="open-btn"><i class="fas fa-external-link-alt"></i> Abrir</a>
+        </td>
+        </tr><tr><td>IOPaint</td><td>https://www.iopaint.com/</td>
+        <td><a href="https://www.iopaint.com/" target="_blank" class="open-btn"><i class="fas fa-external-link-alt"></i> Abrir</a>
+        </td>
+        </tr><tr><td>Difusão instável</td><td>https://discord.com/invite/unstablediffusion</td>
+        <td><a href="https://discord.com/invite/unstablediffusion" target="_blank" class="open-btn"><i class="fas fa-external-link-alt"></i> Abrir</a>
+        </td>
+        </tr><tr><td>IA generativa para iniciantes</td><td>https://microsoft.github.io/generative-ai-for-beginners/</td>
+        <td><a href="https://microsoft.github.io/generative-ai-for-beginners/" target="_blank" class="open-btn"><i class="fas fa-external-link-alt"></i> Abrir</a>
+        </td>
+        </tr><tr><td>Riffusion</td><td>https://www.riffusion.com/</td>
+        <td><a href="https://www.riffusion.com/" target="_blank" class="open-btn"><i class="fas fa-external-link-alt"></i> Abrir</a>
+        </td>
+        </tr><tr><td>Suno</td><td>https://suno.com/</td>
+        <td><a href="https://suno.com/" target="_blank" class="open-btn"><i class="fas fa-external-link-alt"></i> Abrir</a>
+        </td>
+        </tr><tr><td>MusicFX</td><td>https://labs.google/fx/tools/music-fx</td>
+        <td><a href="https://labs.google/fx/tools/music-fx" target="_blank" class="open-btn"><i class="fas fa-external-link-alt"></i> Abrir</a>
+        </td>
+        </tr><tr><td>WolframTones</td><td>https://tones.wolfram.com/</td>
+        <td><a href="https://tones.wolfram.com/" target="_blank" class="open-btn"><i class="fas fa-external-link-alt"></i> Abrir</a>
+        </td>
+        </tr><tr><td>Áudio estável</td><td>https://www.stableaudio.com/</td>
+        <td><a href="https://www.stableaudio.com/" target="_blank" class="open-btn"><i class="fas fa-external-link-alt"></i> Abrir</a>
+        </td>
+        </tr><tr><td>Udio</td><td>https://www.udio.com/</td>
+        <td><a href="https://www.udio.com/" target="_blank" class="open-btn"><i class="fas fa-external-link-alt"></i> Abrir</a>
+        </td>
+        </tr><tr><td>gerador audiovisual</td><td>https://fredericbriolet.com/avg/</td>
+        <td><a href="https://fredericbriolet.com/avg/" target="_blank" class="open-btn"><i class="fas fa-external-link-alt"></i> Abrir</a>
+        </td>
+        </tr><tr><td>Gerador de música falsa</td><td>https://www.fakemusicgenerator.com/</td>
+        <td><a href="https://www.fakemusicgenerator.com/" target="_blank" class="open-btn"><i class="fas fa-external-link-alt"></i> Abrir</a>
+        </td>
+        </tr><tr><td>MusicGen</td><td>https://huggingface.co/spaces/facebook/MusicGen</td>
+        <td><a href="https://huggingface.co/spaces/facebook/MusicGen" target="_blank" class="open-btn"><i class="fas fa-external-link-alt"></i> Abrir</a>
+        </td>
+        </tr><tr><td>Sonauto</td><td>https://sonauto.ai/</td>
+        <td><a href="https://sonauto.ai/" target="_blank" class="open-btn"><i class="fas fa-external-link-alt"></i> Abrir</a>
+        </td>
+        </tr><tr><td>Beatoven.ai</td><td>https://www.beatoven.ai/</td>
+        <td><a href="https://www.beatoven.ai/" target="_blank" class="open-btn"><i class="fas fa-external-link-alt"></i> Abrir</a>
+        </td>
+        </tr><tr><td>Formador de ondas</td><td>https://waveformer.replicate.dev/</td>
+        <td><a href="https://waveformer.replicate.dev/" target="_blank" class="open-btn"><i class="fas fa-external-link-alt"></i> Abrir</a>
+        </td>
+        </tr><tr><td>SOUNDRAW</td><td>https://soundraw.io/</td>
+        <td><a href="https://soundraw.io/" target="_blank" class="open-btn"><i class="fas fa-external-link-alt"></i> Abrir</a>
+        </td>
+        </tr><tr><td>Mubert</td><td>https://mubert.com/</td>
+        <td><a href="https://mubert.com/" target="_blank" class="open-btn"><i class="fas fa-external-link-alt"></i> Abrir</a>
+        </td>
+        </tr><tr><td>AIVA</td><td>https://aiva.ai/</td>
+        <td><a href="https://aiva.ai/" target="_blank" class="open-btn"><i class="fas fa-external-link-alt"></i> Abrir</a>
+        </td>
+        </tr><tr><td>Estrondoso</td><td>https://boomy.com/</td>
+        <td><a href="https://boomy.com/" target="_blank" class="open-btn"><i class="fas fa-external-link-alt"></i> Abrir</a>
+        </td>
+        </tr><tr><td>Melobytes</td><td>https://melobytes.com/en</td>
+        <td><a href="https://melobytes.com/en" target="_blank" class="open-btn"><i class="fas fa-external-link-alt"></i> Abrir</a>
+        </td>
+        </tr><tr><td>AI Jukebox</td><td>https://huggingface.co/spaces/enzostvs/ai-jukebox</td>
+        <td><a href="https://huggingface.co/spaces/enzostvs/ai-jukebox" target="_blank" class="open-btn"><i class="fas fa-external-link-alt"></i> Abrir</a>
+        </td>
+        </tr><tr><td>Eapy</td><td>https://home.eapy.io/</td>
+        <td><a href="https://home.eapy.io/" target="_blank" class="open-btn"><i class="fas fa-external-link-alt"></i> Abrir</a>
+        </td>
+        </tr><tr><td>Gerador de Pacotes</td><td>https://output.com/products/pack-generator</td>
+        <td><a href="https://output.com/products/pack-generator" target="_blank" class="open-btn"><i class="fas fa-external-link-alt"></i> Abrir</a>
+        </td>
+        </tr><tr><td>MMAudio</td><td>https://hkchengrex.com/MMAudio/</td>
+        <td><a href="https://hkchengrex.com/MMAudio/" target="_blank" class="open-btn"><i class="fas fa-external-link-alt"></i> Abrir</a>
+        </td>
+        </tr><tr><td>Drumloop AI</td><td>https://www.drumloopai.com/</td>
+        <td><a href="https://www.drumloopai.com/" target="_blank" class="open-btn"><i class="fas fa-external-link-alt"></i> Abrir</a>
+        </td>
+        </tr><tr><td>WOMBO</td><td>https://www.wombo.ai/</td>
+        <td><a href="https://www.wombo.ai/" target="_blank" class="open-btn"><i class="fas fa-external-link-alt"></i> Abrir</a>
+        </td>
+        </tr><tr><td>TTS Online</td><td>https://www.text-to-speech.online/</td>
+        <td><a href="https://www.text-to-speech.online/" target="_blank" class="open-btn"><i class="fas fa-external-link-alt"></i> Abrir</a>
+        </td>
+        </tr><tr><td>Uberduck</td><td>https://uberduck.ai/</td>
+        <td><a href="https://uberduck.ai/" target="_blank" class="open-btn"><i class="fas fa-external-link-alt"></i> Abrir</a>
+        </td>
+        </tr><tr><td>Google Illuminate - Gere</td><td>https://illuminate.google.com/</td>
+        <td><a href="https://illuminate.google.com/" target="_blank" class="open-btn"><i class="fas fa-external-link-alt"></i> Abrir</a>
+        </td>
+        </tr><tr><td>ElevenLabs</td><td>https://elevenlabs.io/</td>
+        <td><a href="https://elevenlabs.io/" target="_blank" class="open-btn"><i class="fas fa-external-link-alt"></i> Abrir</a>
+        </td>
+        </tr><tr><td>ttsMP3</td><td>https://ttsmp3.com/</td>
+        <td><a href="https://ttsmp3.com/" target="_blank" class="open-btn"><i class="fas fa-external-link-alt"></i> Abrir</a>
+        </td>
+        </tr><tr><td>FakeYou</td><td>https://fakeyou.com/</td>
+        <td><a href="https://fakeyou.com/" target="_blank" class="open-btn"><i class="fas fa-external-link-alt"></i> Abrir</a>
+        </td>
+        </tr><tr><td>Luvvoice</td><td>https://luvvoice.com/</td>
+        <td><a href="https://luvvoice.com/" target="_blank" class="open-btn"><i class="fas fa-external-link-alt"></i> Abrir</a>
+        </td>
+        </tr><tr><td>TTSMaker</td><td>https://ttsmaker.com/</td>
+        <td><a href="https://ttsmaker.com/" target="_blank" class="open-btn"><i class="fas fa-external-link-alt"></i> Abrir</a>
+        </td>
+        </tr><tr><td>Tartaruga TTS</td><td>https://github.com/neonbjb/tortoise-tts</td>
+        <td><a href="https://github.com/neonbjb/tortoise-tts" target="_blank" class="open-btn"><i class="fas fa-external-link-alt"></i> Abrir</a>
+        </td>
+        </tr><tr><td>Latir</td><td>https://huggingface.co/spaces/suno/bark</td>
+        <td><a href="https://huggingface.co/spaces/suno/bark" target="_blank" class="open-btn"><i class="fas fa-external-link-alt"></i> Abrir</a>
+        </td>
+        </tr><tr><td>TTSOpenAI</td><td>https://ttsopenai.com/</td>
+        <td><a href="https://ttsopenai.com/" target="_blank" class="open-btn"><i class="fas fa-external-link-alt"></i> Abrir</a>
+        </td>
+        </tr><tr><td>Alto-falante AI</td><td>https://ai-speaker.net/</td>
+        <td><a href="https://ai-speaker.net/" target="_blank" class="open-btn"><i class="fas fa-external-link-alt"></i> Abrir</a>
+        </td>
+        </tr><tr><td>edge-tts</td><td>https://github.com/rany2/edge-tts</td>
+        <td><a href="https://github.com/rany2/edge-tts" target="_blank" class="open-btn"><i class="fas fa-external-link-alt"></i> Abrir</a>
+        </td>
+        </tr><tr><td>IndexTTS</td><td>https://github.com/index-tts/index-tts</td>
+        <td><a href="https://github.com/index-tts/index-tts" target="_blank" class="open-btn"><i class="fas fa-external-link-alt"></i> Abrir</a>
+        </td>
+        </tr><tr><td>Vozes</td><td>https://www.hailuo.ai/audio/</td>
+        <td><a href="https://www.hailuo.ai/audio/" target="_blank" class="open-btn"><i class="fas fa-external-link-alt"></i> Abrir</a>
+        </td>
+        </tr><tr><td>TextToSpeech.io</td><td>https://texttospeech.io/</td>
+        <td><a href="https://texttospeech.io/" target="_blank" class="open-btn"><i class="fas fa-external-link-alt"></i> Abrir</a>
+        </td>
+        </tr><tr><td>LazyPy</td><td>https://lazypy.ro/tts/</td>
+        <td><a href="https://lazypy.ro/tts/" target="_blank" class="open-btn"><i class="fas fa-external-link-alt"></i> Abrir</a>
+        </td>
+        </tr><tr><td>Kokoro TTS</td><td>https://huggingface.co/spaces/hexgrad/Kokoro-TTS</td>
+        <td><a href="https://huggingface.co/spaces/hexgrad/Kokoro-TTS" target="_blank" class="open-btn"><i class="fas fa-external-link-alt"></i> Abrir</a>
+        </td>
+        </tr><tr><td>Ondoku</td><td>https://ondoku3.com/en/</td>
+        <td><a href="https://ondoku3.com/en/" target="_blank" class="open-btn"><i class="fas fa-external-link-alt"></i> Abrir</a>
+        </td>
+        </tr><tr><td>AnyVoiceLab</td><td>https://anyvoicelab.com/long-form-text-to-speech-converter/</td>
+        <td><a href="https://anyvoicelab.com/long-form-text-to-speech-converter/" target="_blank" class="open-btn"><i class="fas fa-external-link-alt"></i> Abrir</a>
+        </td>
+        </tr><tr><td>VoiceCraft</td><td>https://github.com/jasonppy/VoiceCraft</td>
+        <td><a href="https://github.com/jasonppy/VoiceCraft" target="_blank" class="open-btn"><i class="fas fa-external-link-alt"></i> Abrir</a>
+        </td>
+        </tr><tr><td>EmotiVoz</td><td>https://github.com/netease-youdao/EmotiVoice</td>
+        <td><a href="https://github.com/netease-youdao/EmotiVoice" target="_blank" class="open-btn"><i class="fas fa-external-link-alt"></i> Abrir</a>
+        </td>
+        </tr><tr><td>Áudio de peixe</td><td>https://fish.audio/</td>
+        <td><a href="https://fish.audio/" target="_blank" class="open-btn"><i class="fas fa-external-link-alt"></i> Abrir</a>
+        </td>
+        </tr><tr><td>Audio-WebUI</td><td>https://github.com/gitmylo/audio-webui</td>
+        <td><a href="https://github.com/gitmylo/audio-webui" target="_blank" class="open-btn"><i class="fas fa-external-link-alt"></i> Abrir</a>
+        </td>
+        </tr><tr><td>VanillaVoice</td><td>https://www.vanillavoice.com/</td>
+        <td><a href="https://www.vanillavoice.com/" target="_blank" class="open-btn"><i class="fas fa-external-link-alt"></i> Abrir</a>
+        </td>
+        </tr><tr><td>TTSFree</td><td>https://ttsfree.com/</td>
+        <td><a href="https://ttsfree.com/" target="_blank" class="open-btn"><i class="fas fa-external-link-alt"></i> Abrir</a>
+        </td>
+        </tr><tr><td>AMOR</td><td>https://lovo.ai/</td>
+        <td><a href="https://lovo.ai/" target="_blank" class="open-btn"><i class="fas fa-external-link-alt"></i> Abrir</a>
+        </td>
+        </tr><tr><td>SoundofText</td><td>https://soundoftext.com/</td>
+        <td><a href="https://soundoftext.com/" target="_blank" class="open-btn"><i class="fas fa-external-link-alt"></i> Abrir</a>
+        </td>
+        </tr><tr><td>TTS grátis</td><td>https://freetts.com/</td>
+        <td><a href="https://freetts.com/" target="_blank" class="open-btn"><i class="fas fa-external-link-alt"></i> Abrir</a>
+        </td>
+        </tr><tr><td>Hume</td><td>https://www.hume.ai/</td>
+        <td><a href="https://www.hume.ai/" target="_blank" class="open-btn"><i class="fas fa-external-link-alt"></i> Abrir</a>
+        </td>
+        </tr><tr><td>Voicemaker</td><td>https://voicemaker.in/</td>
+        <td><a href="https://voicemaker.in/" target="_blank" class="open-btn"><i class="fas fa-external-link-alt"></i> Abrir</a>
+        </td>
+        </tr><tr><td>NaturalReaders</td><td>https://www.naturalreaders.com/online/</td>
+        <td><a href="https://www.naturalreaders.com/online/" target="_blank" class="open-btn"><i class="fas fa-external-link-alt"></i> Abrir</a>
+        </td>
+        </tr><tr><td>TTS</td><td>https://github.com/coqui-ai/tts</td>
+        <td><a href="https://github.com/coqui-ai/tts" target="_blank" class="open-btn"><i class="fas fa-external-link-alt"></i> Abrir</a>
+        </td>
+        </tr><tr><td>Conflito</td><td>https://clash.me/</td>
+        <td><a href="https://clash.me/" target="_blank" class="open-btn"><i class="fas fa-external-link-alt"></i> Abrir</a>
+        </td>
+        </tr><tr><td>Moe TTS</td><td>https://huggingface.co/spaces/skytnt/moe-tts</td>
+        <td><a href="https://huggingface.co/spaces/skytnt/moe-tts" target="_blank" class="open-btn"><i class="fas fa-external-link-alt"></i> Abrir</a>
+        </td>
+        </tr><tr><td>Applio</td><td>https://applio.org/</td>
+        <td><a href="https://applio.org/" target="_blank" class="open-btn"><i class="fas fa-external-link-alt"></i> Abrir</a>
+        </td>
+        </tr><tr><td>Pesos</td><td>https://www.weights.com/</td>
+        <td><a href="https://www.weights.com/" target="_blank" class="open-btn"><i class="fas fa-external-link-alt"></i> Abrir</a>
+        </td>
+        </tr><tr><td>RVC V2</td><td>https://github.com/RVC-Project</td>
+        <td><a href="https://github.com/RVC-Project" target="_blank" class="open-btn"><i class="fas fa-external-link-alt"></i> Abrir</a>
+        </td>
+        </tr><tr><td>Voice Changer</td><td>https://github.com/w-okada/</td>
+        <td><a href="https://github.com/w-okada/" target="_blank" class="open-btn"><i class="fas fa-external-link-alt"></i> Abrir</a>
+        </td>
+        </tr><tr><td>Ilaria RVC</td><td>https://huggingface.co/spaces/TheStinger/Ilaria_RVC</td>
+        <td><a href="https://huggingface.co/spaces/TheStinger/Ilaria_RVC" target="_blank" class="open-btn"><i class="fas fa-external-link-alt"></i> Abrir</a>
+        </td>
+        </tr><tr><td>Replay</td><td>https://www.weights.com/replay</td>
+        <td><a href="https://www.weights.com/replay" target="_blank" class="open-btn"><i class="fas fa-external-link-alt"></i> Abrir</a>
+        </td>
+        </tr><tr><td>Clonagem de voz do Bark</td><td>https://huggingface.co/spaces/kevinwang676/Bark-with-Voice-Cloning</td>
+        <td><a href="https://huggingface.co/spaces/kevinwang676/Bark-with-Voice-Cloning" target="_blank" class="open-btn"><i class="fas fa-external-link-alt"></i> Abrir</a>
+        </td>
+        </tr><tr><td>Inferência RVC HF</td><td>https://huggingface.co/spaces/r3gm/RVC_HFv2</td>
+        <td><a href="https://huggingface.co/spaces/r3gm/RVC_HFv2" target="_blank" class="open-btn"><i class="fas fa-external-link-alt"></i> Abrir</a>
+        </td>
+        </tr><tr><td>AnyVoiceLab</td><td>https://anyvoicelab.com/voice-cloning/</td>
+        <td><a href="https://anyvoicelab.com/voice-cloning/" target="_blank" class="open-btn"><i class="fas fa-external-link-alt"></i> Abrir</a>
+        </td>
+        </tr><tr><td>AllVoiceLab</td><td>https://www.allvoicelab.com/</td>
+        <td><a href="https://www.allvoicelab.com/" target="_blank" class="open-btn"><i class="fas fa-external-link-alt"></i> Abrir</a>
+        </td>
+        </tr><tr><td>Zyphra</td><td>https://playground.zyphra.com/audio</td>
+        <td><a href="https://playground.zyphra.com/audio" target="_blank" class="open-btn"><i class="fas fa-external-link-alt"></i> Abrir</a>
+        </td>
+        </tr><tr><td>Tabela de Classificação MultiSong</td><td>https://mvsep.com/quality_checker/multisong_leaderboard</td>
+        <td><a href="https://mvsep.com/quality_checker/multisong_leaderboard" target="_blank" class="open-btn"><i class="fas fa-external-link-alt"></i> Abrir</a>
+        </td>
+        </tr><tr><td>IU UVR5</td><td>https://huggingface.co/spaces/TheStinger/UVR5_UI</td>
+        <td><a href="https://huggingface.co/spaces/TheStinger/UVR5_UI" target="_blank" class="open-btn"><i class="fas fa-external-link-alt"></i> Abrir</a>
+        </td>
+        </tr><tr><td>MVSEP</td><td>https://mvsep.com/</td>
+        <td><a href="https://mvsep.com/" target="_blank" class="open-btn"><i class="fas fa-external-link-alt"></i> Abrir</a>
+        </td>
+        </tr><tr><td>Divisor</td><td>https://www.bandlab.com/splitter</td>
+        <td><a href="https://www.bandlab.com/splitter" target="_blank" class="open-btn"><i class="fas fa-external-link-alt"></i> Abrir</a>
+        </td>
+        </tr><tr><td>MDX23</td><td>https://github.com/jarredou/MVSEP-MDX23-Colab_v2</td>
+        <td><a href="https://github.com/jarredou/MVSEP-MDX23-Colab_v2" target="_blank" class="open-btn"><i class="fas fa-external-link-alt"></i> Abrir</a>
+        </td>
+        </tr><tr><td>Separação de fonte de música</td><td>https://github.com/jarredou/</td>
+        <td><a href="https://github.com/jarredou/" target="_blank" class="open-btn"><i class="fas fa-external-link-alt"></i> Abrir</a>
+        </td>
+        </tr><tr><td>Removedor de Voz</td><td>https://vocalremover.org/</td>
+        <td><a href="https://vocalremover.org/" target="_blank" class="open-btn"><i class="fas fa-external-link-alt"></i> Abrir</a>
+        </td>
+        </tr><tr><td>Remover vocais</td><td>https://www.remove-vocals.com/</td>
+        <td><a href="https://www.remove-vocals.com/" target="_blank" class="open-btn"><i class="fas fa-external-link-alt"></i> Abrir</a>
+        </td>
+        </tr><tr><td>Vocali</td><td>https://vocali.se/en</td>
+        <td><a href="https://vocali.se/en" target="_blank" class="open-btn"><i class="fas fa-external-link-alt"></i> Abrir</a>
+        </td>
+        </tr><tr><td>mazmazika</td><td>https://www.mazmazika.com/</td>
+        <td><a href="https://www.mazmazika.com/" target="_blank" class="open-btn"><i class="fas fa-external-link-alt"></i> Abrir</a>
+        </td>
+        </tr><tr><td>Removedor de Voz</td><td>https://unmix.audio/</td>
+        <td><a href="https://unmix.audio/" target="_blank" class="open-btn"><i class="fas fa-external-link-alt"></i> Abrir</a>
+        </td>
+        </tr><tr><td>Fácil, Steams</td><td>https://ezstems.com/</td>
+        <td><a href="https://ezstems.com/" target="_blank" class="open-btn"><i class="fas fa-external-link-alt"></i> Abrir</a>
+        </td>
+        </tr>
+        </tbody>
+    </table>
+    </div>
+    </main>
+
+    <script>
+        // Funcionalidade do menu hamburger
+        document.addEventListener('DOMContentLoaded', function() {
+            const hamburger = document.querySelector('.hamburger');
+            const navMenu = document.querySelector('.nav-menu');
+            
+            hamburger.addEventListener('click', function() {
+                hamburger.classList.toggle('active');
+                navMenu.classList.toggle('active');
+            });
+            
+            // Fechar menu ao clicar em um link
+            document.querySelectorAll('.nav-menu a').forEach(link => {
+                link.addEventListener('click', () => {
+                    hamburger.classList.remove('active');
+                    navMenu.classList.remove('active');
+                });
+            });
+        });
+        
+        // Funcionalidade de busca
+        document.addEventListener('DOMContentLoaded', function() {
+            const searchInput = document.getElementById('searchInput');
+            const tableRows = document.querySelectorAll('.ia-table tbody tr');
+            
+            searchInput.addEventListener('input', function() {
+                const searchTerm = this.value.toLowerCase().trim();
+                
+                tableRows.forEach(row => {
+                    const cells = row.querySelectorAll('td');
+                    const text = Array.from(cells).map(cell => cell.textContent.toLowerCase()).join(' ');
+                    
+                    if (searchTerm === '' || text.includes(searchTerm)) {
+                        row.style.display = '';
+                        row.style.opacity = '1';
+                    } else {
+                        row.style.display = 'none';
+                        row.style.opacity = '0.3';
+                    }
+                });
+                
+                // Destacar resultados encontrados
+                if (searchTerm !== '') {
+                    tableRows.forEach(row => {
+                        const cells = row.querySelectorAll('td');
+                        cells.forEach((cell, index) => {
+                            // Pular a última célula que contém o botão
+                            if (index === 2) return;
+                            
+                            const originalText = cell.textContent;
+                            const highlightedText = originalText.replace(
+                                new RegExp(searchTerm, 'gi'),
+                                match => `<mark style="background: var(--primary-color); color: white; padding: 0.1rem 0.2rem; border-radius: 3px;">${match}</mark>`
+                            );
+                            if (highlightedText !== originalText) {
+                                cell.innerHTML = highlightedText;
+                            }
+                        });
+                    });
+                } else {
+                    // Remover destaque quando não há busca
+                    tableRows.forEach(row => {
+                        const cells = row.querySelectorAll('td');
+                        cells.forEach((cell, index) => {
+                            // Pular a última célula que contém o botão
+                            if (index === 2) return;
+                            
+                            cell.innerHTML = cell.textContent;
+                        });
+                    });
+                }
+            });
+            
+            // Limpar busca com Escape
+            searchInput.addEventListener('keydown', function(e) {
+                if (e.key === 'Escape') {
+                    this.value = '';
+                    this.dispatchEvent(new Event('input'));
+                    this.blur();
+                }
+            });
+        });
+    </script>
+</body>
+</html>

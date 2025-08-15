@@ -1,0 +1,473 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Categorias Garimpador - Recursos Organizados</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        .categories-hero {
+            background: linear-gradient(135deg, rgba(255, 102, 0, 0.1) 0%, rgba(255, 102, 0, 0.05) 100%);
+            padding: 4rem 0;
+            text-align: center;
+            border-bottom: 1px solid var(--border-color);
+        }
+        
+        .categories-hero h1 {
+            font-size: 3rem;
+            font-weight: 800;
+            color: var(--text-color);
+            margin-bottom: 1rem;
+        }
+        
+        .categories-hero .orange {
+            color: var(--primary-color);
+        }
+        
+        .categories-hero p {
+            font-size: 1.2rem;
+            color: var(--text-light);
+            max-width: 600px;
+            margin: 0 auto 2rem;
+        }
+        
+        .categories-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+        
+        .category-card {
+            background: rgba(26, 26, 26, 0.8);
+            border: 1px solid var(--border-color);
+            border-radius: 15px;
+            padding: 2rem;
+            text-align: center;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(10px);
+            position: relative;
+            overflow: hidden;
+            text-decoration: none;
+            display: block;
+            color: inherit;
+        }
+        
+        .category-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, var(--primary-color), #e55a00);
+            transform: scaleX(0);
+            transition: transform 0.3s ease;
+        }
+        
+        .category-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--primary-color);
+            box-shadow: 0 10px 30px rgba(255, 102, 0, 0.2);
+        }
+        
+        .category-card:hover::before {
+            transform: scaleX(1);
+        }
+        
+        .category-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            display: block;
+        }
+        
+        .category-card h3 {
+            font-size: 1.3rem;
+            font-weight: 600;
+            color: var(--text-color);
+            margin-bottom: 0.5rem;
+        }
+        
+        .category-card p {
+            color: var(--text-light);
+            font-size: 0.9rem;
+            line-height: 1.5;
+        }
+        
+        .category-stats {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 2rem;
+            margin-top: 3rem;
+            padding: 2rem;
+            background: rgba(26, 26, 26, 0.5);
+            border-radius: 15px;
+            border: 1px solid var(--border-color);
+        }
+        
+        .stat-item {
+            text-align: center;
+        }
+        
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: var(--primary-color);
+            display: block;
+        }
+        
+        .stat-label {
+            color: var(--text-light);
+            font-size: 0.9rem;
+            margin-top: 0.5rem;
+        }
+        
+
+        
+        @media (max-width: 768px) {
+            .categories-hero h1 {
+                font-size: 2rem;
+            }
+            
+            .categories-hero p {
+                font-size: 1rem;
+            }
+            
+            .categories-grid {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+                margin-top: 2rem;
+            }
+            
+            .category-card {
+                padding: 1.5rem;
+            }
+            
+            .category-stats {
+                flex-direction: column;
+                gap: 1rem;
+            }
+            
+
+        }
+    </style>
+</head>
+<body>
+    <!-- Contador de Pessoas Online -->
+    <div class="online-counter">
+        <div class="counter-content">
+            <i class="fas fa-users"></i>
+            <span class="counter-number" id="online-count">0</span>
+            <span class="counter-label">online</span>
+        </div>
+    </div>
+    <div class="webgl-background"></div>
+    
+    <header class="header">
+        <nav class="nav">
+            <div class="logo">
+                <span class="logo-text">S<span class="orange">Dev</span></span>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="https://cloudpri.org/">Home</a></li>
+                <li><a href="https://check.cloudpri.org/" target="_blank">Web Check</a></li>
+                <li><a href="https://doc.cloudpri.org/" target="_blank">Ferramentas de TI</a></li>
+                <li><a href="conversor-pdf.html">Conversor PDF</a></li>
+            </ul>
+            <div class="nav-cta">
+                <a href="index.html#contact" class="btn-primary">Vamos Conversar</a>
+            </div>
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </nav>
+    </header>
+
+
+
+    <main>
+        <section class="categories-hero">
+            <div class="container">
+
+
+                
+                <div class="category-stats">
+                    <div class="stat-item">
+                        <span class="stat-number">25</span>
+                        <span class="stat-label">Categorias</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number">1000+</span>
+                        <span class="stat-label">Recursos</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number">24/7</span>
+                        <span class="stat-label">Disponível</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="categories-section">
+            <div class="container">
+                <div class="categories-grid">
+                    <a href="tabela_2.html" class="category-card">
+                        <span class="category-icon">🤖</span>
+                        <h3>IA Computadores</h3>
+                        <p>Ferramentas de inteligência artificial, chatbots, modelos de linguagem e recursos de machine learning</p>
+                    </a>
+                    
+                    <a href="Clientes torrent.html" class="category-card">
+                        <span class="category-icon">📥</span>
+                        <h3>Clientes Torrent</h3>
+                        <p>Software para download P2P, trackers, clientes torrent e ferramentas relacionadas</p>
+                    </a>
+                    
+                    <a href="Android  iOS.html" class="category-card">
+                        <span class="category-icon">📱</span>
+                        <h3>Android / iOS</h3>
+                        <p>Apps e ferramentas mobile, modificações, utilitários e recursos para smartphones</p>
+                    </a>
+                    
+                    <a href="Linux  macOS.html" class="category-card">
+                        <span class="category-icon">🐧</span>
+                        <h3>Linux / macOS</h3>
+                        <p>Software para sistemas Unix, utilitários, ferramentas de desenvolvimento e aplicações</p>
+                    </a>
+                    
+                    <a href="Livros  Quadrinhos.html" class="category-card">
+                        <span class="category-icon">📚</span>
+                        <h3>Livros / Quadrinhos</h3>
+                        <p>Conteúdo literário, ebooks, quadrinhos, mangás e recursos educacionais</p>
+                    </a>
+                    
+                    <a href="Filmes  TV  Anime.html" class="category-card">
+                        <span class="category-icon">🎬</span>
+                        <h3>Filmes / TV / Anime</h3>
+                        <p>Conteúdo audiovisual, streaming, downloads e recursos de entretenimento</p>
+                    </a>
+                    
+                    <a href="Não inglês.html" class="category-card">
+                        <span class="category-icon">🌍</span>
+                        <h3>Não Inglês</h3>
+                        <p>Recursos em outros idiomas, traduções, conteúdo localizado e ferramentas multilíngue</p>
+                    </a>
+                    
+                    <a href="Educativo.html" class="category-card">
+                        <span class="category-icon">🎓</span>
+                        <h3>Educativo</h3>
+                        <p>Ferramentas educacionais, cursos online, tutoriais e recursos de aprendizado</p>
+                    </a>
+                    
+                    <a href="tabela_9.html" class="category-card">
+                        <span class="category-icon">🔞</span>
+                        <h3>Adulto +18</h3>
+                        <p>Conteúdo para maiores de idade, recursos adultos e ferramentas relacionadas</p>
+                    </a>
+                    
+                    <a href="tabela_10.html" class="category-card">
+                        <span class="category-icon">💾</span>
+                        <h3>Armazenamento</h3>
+                        <p>Soluções de armazenamento, cloud storage, backup e ferramentas de gerenciamento</p>
+                    </a>
+                    
+                    <a href="tabela_11.html" class="category-card">
+                        <span class="category-icon">🛡️</span>
+                        <h3>Sites Inseguros</h3>
+                        <p>Recursos de segurança, proteção, VPNs e ferramentas de privacidade</p>
+                    </a>
+                    
+                    <a href="tabela_12.html" class="category-card">
+                        <span class="category-icon">💻</span>
+                        <h3>Desenvolvedor</h3>
+                        <p>Ferramentas para programadores, IDEs, bibliotecas e recursos de desenvolvimento</p>
+                    </a>
+                    
+                    <a href="tabela_13.html" class="category-card">
+                        <span class="category-icon">⚙️</span>
+                        <h3>System Tools</h3>
+                        <p>Utilitários do sistema, otimização, manutenção e ferramentas de diagnóstico</p>
+                    </a>
+                    
+                    <a href="tabela_14.html" class="category-card">
+                        <span class="category-icon">📁</span>
+                        <h3>File Tools</h3>
+                        <p>Ferramentas para arquivos, compressão, conversão e gerenciamento de dados</p>
+                    </a>
+                    
+                    <a href="tabela_15.html" class="category-card">
+                        <span class="category-icon">🌐</span>
+                        <h3>Internet Tools</h3>
+                        <p>Utilitários web, navegadores, extensões e ferramentas de navegação</p>
+                    </a>
+                    
+                    <a href="tabela_16.html" class="category-card">
+                        <span class="category-icon">📱</span>
+                        <h3>Social Media</h3>
+                        <p>Ferramentas para redes sociais, automação, analytics e recursos de marketing</p>
+                    </a>
+                    
+                    <a href="tabela_17.html" class="category-card">
+                        <span class="category-icon">📝</span>
+                        <h3>Text Tools</h3>
+                        <p>Editores e processadores de texto, formatação e ferramentas de escrita</p>
+                    </a>
+                    
+                    <a href="tabela_18.html" class="category-card">
+                        <span class="category-icon">🎵</span>
+                        <h3>Audio Tools</h3>
+                        <p>Software de áudio, editores, conversores e ferramentas de produção musical</p>
+                    </a>
+                    
+                    <a href="tabela_19.html" class="category-card">
+                        <span class="category-icon">🎥</span>
+                        <h3>Video Tools</h3>
+                        <p>Ferramentas de vídeo, editores, conversores e software de produção</p>
+                    </a>
+                    
+                    <a href="tabela_20.html" class="category-card">
+                        <span class="category-icon">🎮</span>
+                        <h3>Gaming Tools</h3>
+                        <p>Utilitários para jogos, emuladores, mods e ferramentas de gaming</p>
+                    </a>
+                    
+                    <a href="tabela_21.html" class="category-card">
+                        <span class="category-icon">🖼️</span>
+                        <h3>Image Tools</h3>
+                        <p>Software de imagem, editores, conversores e ferramentas de design</p>
+                    </a>
+                    
+                    <a href="tabela_22.html" class="category-card">
+                        <span class="category-icon">🏴‍☠️</span>
+                        <h3>Pirataria</h3>
+                        <p>Recursos relacionados, ferramentas e utilitários específicos</p>
+                    </a>
+                    
+                    <a href="tabela_23.html" class="category-card">
+                        <span class="category-icon">🔓</span>
+                        <h3>Hacking</h3>
+                        <p>Ferramentas de segurança, pentesting e recursos de cibersegurança</p>
+                    </a>
+                    
+                    <a href="tabela_24.html" class="category-card">
+                        <span class="category-icon">🔍</span>
+                        <h3>OSINT</h3>
+                        <p>Inteligência de código aberto, ferramentas de investigação e pesquisa</p>
+                    </a>
+                    
+                    <a href="#" class="category-card">
+                        <span class="category-icon">🚫</span>
+                        <h3>Bloqueio de Anúncios</h3>
+                        <p>Extensões anti-anúncios, bloqueadores e ferramentas de privacidade</p>
+                    </a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <span class="logo-text">Alex<span class="orange">Dev</span></span>
+                    <p>Desenvolvimento & Segurança</p>
+                </div>
+                <div class="footer-links">
+                    <div class="footer-section">
+                        <h4>Navegação</h4>
+                        <ul>
+                            <li><a href="index.html">Home</a></li>
+                            <li><a href="index.html#work">Trabalhos</a></li>
+                            <li><a href="index.html#skills">Skills</a></li>
+                            <li><a href="index.html#contact">Contato</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-section">
+                        <h4>Social</h4>
+                        <ul>
+                            <li><a href="#"><i class="fab fa-github"></i> GitHub</a></li>
+                            <li><a href="#"><i class="fab fa-linkedin"></i> LinkedIn</a></li>
+                            <li><a href="#"><i class="fab fa-twitter"></i> Twitter</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Alex Developer. Todos os direitos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Funcionalidade do menu hamburger
+        document.addEventListener('DOMContentLoaded', function() {
+            const hamburger = document.querySelector('.hamburger');
+            const navMenu = document.querySelector('.nav-menu');
+            
+            hamburger.addEventListener('click', function() {
+                hamburger.classList.toggle('active');
+                navMenu.classList.toggle('active');
+            });
+            
+            // Fechar menu ao clicar em um link
+            document.querySelectorAll('.nav-menu a').forEach(link => {
+                link.addEventListener('click', () => {
+                    // Fechar menu mobile
+                    hamburger.classList.remove('active');
+                    navMenu.classList.remove('active');
+                    
+                    // Se for link externo, permitir navegação normal
+                    if (link.getAttribute('href').startsWith('http')) {
+                        // Link externo - não fazer nada, deixar navegar normalmente
+                        return;
+                    }
+                    
+                    // Se for link interno, permitir smooth scroll
+                    if (link.getAttribute('href').startsWith('#')) {
+                        const target = document.querySelector(link.getAttribute('href'));
+                        if (target) {
+                            target.scrollIntoView({
+                                behavior: 'smooth',
+                                block: 'start'
+                            });
+                        }
+                    }
+                });
+            });
+        });
+        
+        // Contador de Pessoas Online
+        function updateOnlineCounter() {
+            const counterElement = document.getElementById('online-count');
+            if (!counterElement) return;
+            
+            // Simular número base de pessoas online (entre 15 e 45)
+            let baseCount = Math.floor(Math.random() * 31) + 15;
+            
+            // Adicionar variação aleatória ao longo do tempo
+            setInterval(() => {
+                const variation = Math.floor(Math.random() * 7) - 3; // -3 a +3
+                const newCount = Math.max(10, baseCount + variation);
+                counterElement.textContent = newCount;
+                
+                // Adicionar efeito de pulse quando o número muda
+                counterElement.style.transform = 'scale(1.2)';
+                setTimeout(() => {
+                    counterElement.style.transform = 'scale(1)';
+                }, 200);
+            }, 3000); // Atualizar a cada 3 segundos
+            
+            // Definir número inicial
+            counterElement.textContent = baseCount;
+        }
+        
+        // Inicializar contador
+        updateOnlineCounter();
+    </script>
+</body>
+</html> 

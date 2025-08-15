@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Garimpador - App de Mineração de Dados | Alex Developer</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <!-- Contador de Pessoas Online -->
+    <div class="online-counter">
+        <div class="counter-content">
+            <i class="fas fa-users"></i>
+            <span class="counter-number" id="online-count">0</span>
+            <span class="counter-label">online</span>
+        </div>
+    </div>
+    <div class="webgl-background"></div>
+    
+    <header class="header">
+        <nav class="nav">
+            <div class="logo">
+                <a href="index.html" class="logo-text">S<span class="orange">Dev</span></a>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="https://cloudpri.org/">Home</a></li>
+                <li><a href="https://check.cloudpri.org/" target="_blank">Web Check</a></li>
+                <li><a href="https://doc.cloudpri.org/" target="_blank">Ferramentas de TI</a></li>
+                <li><a href="conversor-pdf.html">Conversor PDF</a></li>
+            </ul>
+            <div class="nav-cta">
+                <a href="index.html#contact" class="btn-primary">Vamos Conversar</a>
+            </div>
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <section class="hero garimpador-hero">
+            <div class="particles-container">
+                <div class="particle"></div>
+                <div class="particle"></div>
+                <div class="particle"></div>
+                <div class="particle"></div>
+                <div class="particle"></div>
+                <div class="particle"></div>
+                <div class="particle"></div>
+                <div class="particle"></div>
+                <div class="particle"></div>
+                <div class="particle"></div>
+            </div>
+            <div class="container">
+                <div class="hero-content">
+                    <div class="hero-text">
+                        <h1 class="hero-title">
+                            <span class="title-line">Garimpador</span>
+                            <span class="title-line orange">Organizador de</span>
+                            <span class="title-line">Recursos</span>
+                        </h1>
+                        <p class="hero-description">
+                            App Android que organiza e categoriza milhares de recursos online em 25 categorias específicas. 
+                            Acesso rápido a ferramentas, software e conteúdo através de planilhas do Google Sheets.
+                        </p>
+                        <div class="hero-stats">
+                            <div class="stat-item">
+                                <span class="stat-number">25</span>
+                                <span class="stat-label">Categorias</span>
+                            </div>
+                            <div class="stat-item">
+                                <span class="stat-number">1000+</span>
+                                <span class="stat-label">Recursos</span>
+                            </div>
+                            <div class="stat-item">
+                                <span class="stat-number">4.9</span>
+                                <span class="stat-label">Rating</span>
+                            </div>
+                        </div>
+                        <div class="hero-actions">
+                            <a href="https://drive.google.com/uc?export=download&id=1m0UrK6joC9Adg2fpfjB41V2hVKL9tbZD" class="btn-primary" target="_blank" download>
+                                <i class="fas fa-download"></i>
+                                <span>Download Gratuito</span>
+                            </a>
+                            <a href="#features" class="btn-secondary">
+                                <span>Ver Recursos</span>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="hero-visual">
+                        <div class="app-mockup">
+                            <div class="mockup-screen">
+                                <div class="mockup-header">
+                                    <div class="mockup-dots">
+                                        <span></span>
+                                        <span></span>
+                                        <span></span>
+                                    </div>
+                                </div>
+                                <div class="mockup-content">
+                                                                    <div class="app-interface">
+                                    <div class="search-bar">
+                                        <i class="fas fa-search"></i>
+                                        <input type="text" placeholder="Buscar recursos..." disabled>
+                                    </div>
+                                    <div class="data-preview">
+                                        <div class="data-item">
+                                            <div class="data-icon"><i class="fas fa-folder"></i></div>
+                                            <div class="data-info">
+                                                <span class="data-title">Categorias</span>
+                                                <span class="data-value">25 disponíveis</span>
+                                            </div>
+                                        </div>
+                                        <div class="data-item">
+                                            <div class="data-icon"><i class="fas fa-tools"></i></div>
+                                            <div class="data-info">
+                                                <span class="data-title">Recursos</span>
+                                                <span class="data-value">1000+ itens</span>
+                                            </div>
+                                        </div>
+                                        <div class="data-item">
+                                            <div class="data-icon"><i class="fas fa-google"></i></div>
+                                            <div class="data-info">
+                                                <span class="data-title">Google Sheets</span>
+                                                <span class="data-value">Integrado</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="features" class="features">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title">Recursos Principais</h2>
+                    <p class="section-subtitle">Descubra o que torna o Garimpador uma ferramenta essencial</p>
+                </div>
+                <div class="features-grid">
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-folder-tree"></i>
+                        </div>
+                        <h3>25 Categorias Organizadas</h3>
+                        <p>Interface com 25 botões laranja organizados em categorias específicas para fácil navegação.</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-google"></i>
+                        </div>
+                        <h3>Integração Google Sheets</h3>
+                        <p>Conexão direta com planilhas do Google Sheets para carregamento automático de dados.</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-search"></i>
+                        </div>
+                        <h3>Busca em Tempo Real</h3>
+                        <p>Campo de busca para filtrar recursos instantaneamente na lista de itens.</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-mobile-alt"></i>
+                        </div>
+                        <h3>Design Material</h3>
+                        <p>Interface Material Design com animações suaves estilo Google e cores laranja consistentes.</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-cog"></i>
+                        </div>
+                        <h3>Configurações Avançadas</h3>
+                        <p>Personalização de links, carregamento automático e configurações de cache local.</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-bolt"></i>
+                        </div>
+                        <h3>Performance Otimizada</h3>
+                        <p>Cache local, processamento em background com Coroutines e RecyclerView otimizado.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="tech-stack">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title">Categorias Disponíveis</h2>
+                    <p class="section-subtitle">25 categorias organizadas para diferentes tipos de recursos</p>
+                </div>
+                <div class="tech-grid">
+                    <div class="tech-item">
+                        <div class="tech-icon">🤖</div>
+                        <h4>IA Computadores</h4>
+                        <p>Ferramentas de inteligência artificial</p>
+                    </div>
+                    <div class="tech-item">
+                        <div class="tech-icon">📥</div>
+                        <h4>Clientes Torrent</h4>
+                        <p>Software para download P2P</p>
+                    </div>
+                    <div class="tech-item">
+                        <div class="tech-icon">📱</div>
+                        <h4>Android / iOS</h4>
+                        <p>Apps e ferramentas mobile</p>
+                    </div>
+                    <div class="tech-item">
+                        <div class="tech-icon">🐧</div>
+                        <h4>Linux / macOS</h4>
+                        <p>Software para sistemas Unix</p>
+                    </div>
+                    <div class="tech-item">
+                        <div class="tech-icon">📚</div>
+                        <h4>Livros / Quadrinhos</h4>
+                        <p>Conteúdo literário</p>
+                    </div>
+                    <div class="tech-item">
+                        <div class="tech-icon">🎬</div>
+                        <h4>Filmes / TV / Anime</h4>
+                        <p>Conteúdo audiovisual</p>
+                    </div>
+                    <div class="tech-item">
+                        <div class="tech-icon">🌍</div>
+                        <h4>Não Inglês</h4>
+                        <p>Recursos em outros idiomas</p>
+                    </div>
+                    <div class="tech-item">
+                        <div class="tech-icon">🎓</div>
+                        <h4>Educativo</h4>
+                        <p>Ferramentas educacionais</p>
+                    </div>
+                    <div class="tech-item">
+                        <div class="tech-icon">🔞</div>
+                        <h4>Adulto +18</h4>
+                        <p>Conteúdo para maiores de idade</p>
+                    </div>
+                    <div class="tech-item">
+                        <div class="tech-icon">💾</div>
+                        <h4>Armazenamento</h4>
+                        <p>Soluções de armazenamento</p>
+                    </div>
+                    <div class="tech-item">
+                        <div class="tech-icon">🛡️</div>
+                        <h4>Sites Inseguros</h4>
+                        <p>Recursos de segurança</p>
+                    </div>
+                    <div class="tech-item">
+                        <div class="tech-icon">💻</div>
+                        <h4>Desenvolvedor</h4>
+                        <p>Ferramentas para programadores</p>
+                    </div>
+                    <div class="tech-item">
+                        <div class="tech-icon">⚙️</div>
+                        <h4>System Tools</h4>
+                        <p>Utilitários do sistema</p>
+                    </div>
+                    <div class="tech-item">
+                        <div class="tech-icon">📁</div>
+                        <h4>File Tools</h4>
+                        <p>Ferramentas para arquivos</p>
+                    </div>
+                    <div class="tech-item">
+                        <div class="tech-icon">🌐</div>
+                        <h4>Internet Tools</h4>
+                        <p>Utilitários web</p>
+                    </div>
+                    <div class="tech-item">
+                        <div class="tech-icon">📱</div>
+                        <h4>Social Media</h4>
+                        <p>Ferramentas para redes sociais</p>
+                    </div>
+                    <div class="tech-item">
+                        <div class="tech-icon">📝</div>
+                        <h4>Text Tools</h4>
+                        <p>Editores e processadores de texto</p>
+                    </div>
+                    <div class="tech-item">
+                        <div class="tech-icon">🎵</div>
+                        <h4>Audio Tools</h4>
+                        <p>Software de áudio</p>
+                    </div>
+                    <div class="tech-item">
+                        <div class="tech-icon">🎥</div>
+                        <h4>Video Tools</h4>
+                        <p>Ferramentas de vídeo</p>
+                    </div>
+                    <div class="tech-item">
+                        <div class="tech-icon">🎮</div>
+                        <h4>Gaming Tools</h4>
+                        <p>Utilitários para jogos</p>
+                    </div>
+                    <div class="tech-item">
+                        <div class="tech-icon">🖼️</div>
+                        <h4>Image Tools</h4>
+                        <p>Software de imagem</p>
+                    </div>
+                    <div class="tech-item">
+                        <div class="tech-icon">🏴‍☠️</div>
+                        <h4>Pirataria</h4>
+                        <p>Recursos relacionados</p>
+                    </div>
+                    <div class="tech-item">
+                        <div class="tech-icon">🔓</div>
+                        <h4>Hacking</h4>
+                        <p>Ferramentas de segurança</p>
+                    </div>
+                    <div class="tech-item">
+                        <div class="tech-icon">🔍</div>
+                        <h4>OSINT</h4>
+                        <p>Inteligência de código aberto</p>
+                    </div>
+                    <div class="tech-item">
+                        <div class="tech-icon">🚫</div>
+                        <h4>Bloqueio de Anúncios</h4>
+                        <p>Extensões anti-anúncios</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="workflow">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title">Como Funciona</h2>
+                    <p class="section-subtitle">Três formas simples de usar o Garimpador</p>
+                </div>
+                <div class="workflow-grid">
+                    <div class="workflow-step">
+                        <div class="step-number">1</div>
+                        <h3>Carregamento Automático</h3>
+                        <p>Abra o app e ele carrega automaticamente a planilha padrão com todos os recursos organizados.</p>
+                        <div class="step-icon">
+                            <i class="fas fa-rocket"></i>
+                        </div>
+                    </div>
+                    <div class="workflow-step">
+                        <div class="step-number">2</div>
+                        <h3>Navegação por Categorias</h3>
+                        <p>Escolha uma das 25 categorias disponíveis e acesse recursos específicos da área desejada.</p>
+                        <div class="step-icon">
+                            <i class="fas fa-folder-open"></i>
+                        </div>
+                    </div>
+                    <div class="workflow-step">
+                        <div class="step-number">3</div>
+                        <h3>Link Personalizado</h3>
+                        <p>Configure suas próprias planilhas do Google Sheets para ter recursos personalizados.</p>
+                        <div class="step-icon">
+                            <i class="fas fa-link"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="download-section">
+            <div class="container">
+                <div class="download-content">
+                    <div class="download-info">
+                        <h2>Pronto para Organizar?</h2>
+                        <p>Baixe o Garimpador agora e tenha acesso organizado a milhares de recursos em 25 categorias específicas.</p>
+                        <div class="download-features">
+                            <div class="download-feature">
+                                <i class="fas fa-check"></i>
+                                <span>25 categorias organizadas</span>
+                            </div>
+                            <div class="download-feature">
+                                <i class="fas fa-check"></i>
+                                <span>Integração Google Sheets</span>
+                            </div>
+                            <div class="download-feature">
+                                <i class="fas fa-check"></i>
+                                <span>Busca em tempo real</span>
+                            </div>
+                            <div class="download-feature">
+                                <i class="fas fa-check"></i>
+                                <span>Design Material Android</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="download-actions">
+                        <a href="https://drive.google.com/uc?export=download&id=1m0UrK6joC9Adg2fpfjB41V2hVKL9tbZD" class="btn-primary btn-large" target="_blank">
+                            <i class="fas fa-download"></i>
+                            <span>Download Garimpador APK</span>
+                        </a>
+                        <div class="download-meta">
+                            <span class="file-size">Tamanho: 15MB</span>
+                            <span class="file-version">Android 5.0+</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <span class="logo-text">Alex<span class="orange">Dev</span></span>
+                    <p>Desenvolvimento & Segurança</p>
+                </div>
+                <div class="footer-links">
+                    <div class="footer-section">
+                        <h4>Navegação</h4>
+                        <ul>
+                            <li><a href="index.html#home">Home</a></li>
+                            <li><a href="index.html#work">Trabalhos</a></li>
+                            <li><a href="index.html#skills">Skills</a></li>
+                            <li><a href="index.html#contact">Contato</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-section">
+                        <h4>Social</h4>
+                        <ul>
+                            <li><a href="#"><i class="fab fa-github"></i> GitHub</a></li>
+                            <li><a href="#"><i class="fab fa-linkedin"></i> LinkedIn</a></li>
+                            <li><a href="#"><i class="fab fa-twitter"></i> Twitter</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Alex Developer. Todos os direitos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html> 

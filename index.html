@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alex Developer - Desenvolvimento & Segurança</title>
+    <meta name="description" content="Desenvolvedor especializado em segurança da informação, pentesting e desenvolvimento web.">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="splash.css">
+</head>
+<body>
+    <!-- Splash Screen -->
+    <div id="splash-screen" class="splash-screen">
+        <div id="particles-background" class="vertical-centered-box"></div>
+        <div id="particles-foreground" class="vertical-centered-box"></div>
+        
+        <div class="vertical-centered-box">
+            <div class="content">
+                <div class="loader-circle"></div>
+                <div class="loader-line-mask">
+                    <div class="loader-line"></div>
+                </div>
+                <div class="splash-logo">
+                    <span class="logo-text">S<span class="orange">Dev</span></span>
+                    <p class="splash-subtitle">Desenvolvimento & Segurança</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Contador de Pessoas Online -->
+    <div class="online-counter">
+        <div class="counter-content">
+            <i class="fas fa-users"></i>
+            <span class="counter-number" id="online-count">0</span>
+            <span class="counter-label">online</span>
+        </div>
+    </div>
+    <div class="webgl-background"></div>
+    
+    <header class="header">
+        <nav class="nav">
+            <div class="logo">
+                <span class="logo-text">S<span class="orange">Dev</span></span>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="https://cloudpri.org/">Home</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="https://check.cloudpri.org/" target="_blank">Web Check</a></li>
+                <li><a href="https://doc.cloudpri.org/" target="_blank">Ferramentas de TI</a></li>
+              <li><a href="https://convert.cloudpri.org/" target="_blank">DOC</a></li>
+                <li><a href="https://cloudpri.org/vfm/" target="_blank">Cloud</a></li>
+                <li><a href="conversor-pdf.html">Conversor PDF</a></li>
+                <li><a href="#contact">Contato</a></li>
+            </ul>
+            <div class="nav-cta">
+                <a href="#contact" class="btn-primary">Vamos Conversar</a>
+            </div>
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <section id="home" class="hero">
+            <div class="particles-container">
+                <div class="particle"></div>
+                <div class="particle"></div>
+                <div class="particle"></div>
+                <div class="particle"></div>
+                <div class="particle"></div>
+                <div class="particle"></div>
+                <div class="particle"></div>
+                <div class="particle"></div>
+                <div class="particle"></div>
+                <div class="particle"></div>
+                <div class="particle"></div>
+                <div class="particle"></div>
+                <div class="particle"></div>
+                <div class="particle"></div>
+                <div class="particle"></div>
+                <div class="particle"></div>
+                <div class="particle"></div>
+                <div class="particle"></div>
+                <div class="particle"></div>
+                <div class="particle"></div>
+            </div>
+            <div class="hero-content">
+                <div class="hero-text">
+                    <h1 class="hero-title">
+                        <span class="title-line">Soluções</span>
+                        <span class="title-line orange">Inteligentes</span>
+                        <span class="title-line">para</span>
+                        <span class="title-line orange">Devs</span>
+                    </h1>
+                    <p class="hero-description">
+                        Garimpando a internet para você. Desenvolvo ferramentas que otimizam workflows e aceleram o desenvolvimento.
+                    </p>
+                    <div class="hero-actions">
+                        <a href="garimpador.html" class="btn-primary" target="_blank">
+                            <i class="fas fa-download"></i>
+                            <span>Download Garimpador</span>
+                        </a>
+                        <a href="categorias.html" class="btn-secondary">
+                            <span>Web Garimpador</span>
+                        </a>
+                    </div>
+                </div>
+                <div class="hero-visual">
+                    <img src="perfil.png" alt="Alex Developer" class="hero-image">
+                </div>
+            </div>
+        </section>
+
+        <section class="app-launch">
+            <div class="container">
+                <div class="launch-content">
+                    <div class="launch-info">
+                        <div class="launch-badge">
+                            <span>🚀 NOVO LANÇAMENTO</span>
+                        </div>
+                        <h2 class="launch-title">Garimpador - Organizador de Recursos</h2>
+                        <p class="launch-description">
+                            App Android revolucionário que organiza milhares de recursos online em 25 categorias específicas. 
+                            Acesso rápido a ferramentas, software e conteúdo através de planilhas do Google Sheets.
+                        </p>
+                        <div class="launch-features">
+                            <div class="launch-feature">
+                                <i class="fas fa-folder-tree"></i>
+                                <span>25 Categorias Organizadas</span>
+                            </div>
+                            <div class="launch-feature">
+                                <i class="fas fa-google"></i>
+                                <span>Integração Google Sheets</span>
+                            </div>
+                            <div class="launch-feature">
+                                <i class="fas fa-search"></i>
+                                <span>Busca em Tempo Real</span>
+                            </div>
+                            <div class="launch-feature">
+                                <i class="fas fa-mobile-alt"></i>
+                                <span>Design Material Android</span>
+                            </div>
+                        </div>
+                        <div class="launch-stats">
+                            <div class="launch-stat">
+                                <span class="stat-number">1000+</span>
+                                <span class="stat-label">Recursos</span>
+                            </div>
+                            <div class="launch-stat">
+                                <span class="stat-number">25</span>
+                                <span class="stat-label">Categorias</span>
+                            </div>
+                            <div class="launch-stat">
+                                <span class="stat-number">4.9</span>
+                                <span class="stat-label">Rating</span>
+                            </div>
+                        </div>
+                        <div class="launch-actions">
+                            <a href="https://drive.google.com/uc?export=download&id=1m0UrK6joC9Adg2fpfjB41V2hVKL9tbZD" class="btn-primary" target="_blank">
+                                <i class="fas fa-download"></i>
+                                <span>Download Gratuito</span>
+                            </a>
+                            <a href="garimpador.html" class="btn-secondary">
+                                <span>Saiba Mais</span>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="launch-visual">
+                        <div class="app-showcase">
+                            <div class="phone-mockup">
+                                <div class="phone-screen">
+                                    <div class="app-header">
+                                        <div class="app-dots">
+                                            <span></span>
+                                            <span></span>
+                                            <span></span>
+                                        </div>
+                                    </div>
+                                    <div class="app-content">
+                                        <div class="category-grid">
+                                            <div class="category-item">🤖 IA</div>
+                                            <div class="category-item">📱 Mobile</div>
+                                            <div class="category-item">💻 Dev</div>
+                                            <div class="category-item">🎬 Media</div>
+                                            <div class="category-item">📚 Books</div>
+                                            <div class="category-item">🎮 Games</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+
+        <section id="skills" class="skills">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title">Skills & Tecnologias</h2>
+                    <p class="section-subtitle">Tecnologias que domino para criar soluções inovadoras</p>
+                </div>
+                <div class="skills-grid">
+                    <div class="skill-category">
+                        <h3>Frontend</h3>
+                        <div class="skill-items">
+                            <div class="skill-item">
+                                <span class="skill-name">React</span>
+                                <div class="skill-level">
+                                    <div class="skill-bar" data-level="95"></div>
+                                </div>
+                            </div>
+                            <div class="skill-item">
+                                <span class="skill-name">Vue.js</span>
+                                <div class="skill-level">
+                                    <div class="skill-bar" data-level="90"></div>
+                                </div>
+                            </div>
+                            <div class="skill-item">
+                                <span class="skill-name">TypeScript</span>
+                                <div class="skill-level">
+                                    <div class="skill-bar" data-level="88"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="skill-category">
+                        <h3>Backend</h3>
+                        <div class="skill-items">
+                            <div class="skill-item">
+                                <span class="skill-name">Node.js</span>
+                                <div class="skill-level">
+                                    <div class="skill-bar" data-level="95"></div>
+                                </div>
+                            </div>
+                            <div class="skill-item">
+                                <span class="skill-name">Python</span>
+                                <div class="skill-level">
+                                    <div class="skill-bar" data-level="92"></div>
+                                </div>
+                            </div>
+                            <div class="skill-item">
+                                <span class="skill-name">PostgreSQL</span>
+                                <div class="skill-level">
+                                    <div class="skill-bar" data-level="85"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="skill-category">
+                        <h3>Segurança</h3>
+                        <div class="skill-items">
+                            <div class="skill-item">
+                                <span class="skill-name">Penetration Testing</span>
+                                <div class="skill-level">
+                                    <div class="skill-bar" data-level="90"></div>
+                                </div>
+                            </div>
+                            <div class="skill-item">
+                                <span class="skill-name">Kali Linux</span>
+                                <div class="skill-level">
+                                    <div class="skill-bar" data-level="88"></div>
+                                </div>
+                            </div>
+                            <div class="skill-item">
+                                <span class="skill-name">OWASP</span>
+                                <div class="skill-level">
+                                    <div class="skill-bar" data-level="85"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact" class="contact">
+            <div class="container">
+                <div class="contact-content">
+                    <div class="contact-info">
+                        <h2 class="section-title">Vamos Conversar</h2>
+                        <p class="contact-description">
+                            Estou sempre aberto a novos projetos e colaborações. 
+                            Se você tem uma ideia ou precisa de um desenvolvedor especializado em segurança, vamos conversar!
+                        </p>
+                        <div class="contact-details">
+                            <div class="contact-item">
+                                <i class="fas fa-envelope"></i>
+                                <div>
+                                    <span class="contact-label">Email</span>
+                                    <span class="contact-value">Forumsac1@gmail.com</span>
+                                </div>
+                            </div>
+                            <div class="contact-item">
+                                <i class="fas fa-phone"></i>
+                                <div>
+                                    <span class="contact-label">Telefone</span>
+                                    <span class="contact-value">+351 925199063</span>
+                                </div>
+                            </div>
+                            <div class="contact-item">
+                                <i class="fab fa-github"></i>
+                                <div>
+                                    <span class="contact-label">GitHub</span>
+                                    <span class="contact-value">github.com/alex28091994</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <form class="contact-form">
+                        <div class="form-group">
+                            <label for="name">Nome</label>
+                            <input type="text" id="name" name="name" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Contato Direto</label>
+                            <div class="contact-buttons">
+                                <a href="https://wa.me/351925199063" target="_blank" class="btn-primary">
+                                    <i class="fab fa-whatsapp"></i>
+                                    <span>WhatsApp</span>
+                                </a>
+                                <a href="#" target="_blank" class="btn-primary">
+                                    <i class="fab fa-telegram-plane"></i>
+                                    <span>Telegram</span>
+                                </a>
+                            </div>
+                        </div>
+
+                    </form>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <span class="logo-text">Alex<span class="orange">Dev</span></span>
+                    <p>Desenvolvimento & Segurança</p>
+                </div>
+                <div class="footer-links">
+                    <div class="footer-section">
+                        <h4>Navegação</h4>
+                                                <ul>
+                            <li><a href="#home">Home</a></li>
+                            <li><a href="#skills">Skills</a></li>
+                            <li><a href="conversor-pdf.html">Conversor PDF</a></li>
+                            <li><a href="#contact">Contato</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-section">
+                        <h4>Social</h4>
+                        <ul>
+                            <li><a href="#"><i class="fab fa-github"></i> GitHub</a></li>
+                            <li><a href="#"><i class="fab fa-linkedin"></i> LinkedIn</a></li>
+                            <li><a href="#"><i class="fab fa-twitter"></i> Twitter</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Alex Developer. Todos os direitos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
+    <script src="splash.js"></script>
+    <script src="script.js"></script>
+</body>
+</html> 

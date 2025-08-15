@@ -1,0 +1,588 @@
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Hacking</title>
+    <style>
+        body { 
+            font-family: Arial, sans-serif; 
+            background-color: #121212; 
+            color: #ffffff; 
+            padding: 20px; 
+            margin: 0;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+        
+        table { 
+            border-collapse: collapse; 
+            width: 100%; 
+            margin-bottom: 20px;
+        }
+        
+        th, td { 
+            border: 1px solid #333; 
+            padding: 8px; 
+            text-align: left; 
+            word-wrap: break-word;
+        }
+        
+        th { 
+            background-color: #333; 
+            position: sticky;
+            top: 0;
+            z-index: 10;
+        }
+        
+        button.copy-btn { 
+            margin: 2px; 
+            background-color: #FF6B35; 
+            color: white; 
+            border: none; 
+            padding: 8px 12px; 
+            cursor: pointer; 
+            border-radius: 4px;
+            font-size: 12px;
+            transition: background-color 0.3s;
+        }
+        
+        button.copy-btn:hover { 
+            background-color: #E55A2B; 
+        }
+        
+        button {
+            background-color: #FF6B35;
+            color: white;
+            border: none;
+            padding: 8px 12px;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            font-size: 12px;
+            margin: 2px;
+        }
+        
+        button:hover {
+            background-color: #E55A2B;
+        }
+        
+        .top-section {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        
+        .top-section h1 {
+            color: #ffffff;
+            margin: 0;
+            font-size: 2rem;
+        }
+        
+        /* Responsividade */
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+            
+            .container {
+                padding: 0 10px;
+            }
+            
+            .top-section h1 {
+                font-size: 1.5rem;
+            }
+            
+            table {
+                font-size: 14px;
+            }
+            
+            th, td {
+                padding: 6px 4px;
+                font-size: 12px;
+            }
+            
+            button, button.copy-btn {
+                padding: 6px 8px;
+                font-size: 11px;
+                margin: 1px;
+            }
+            
+            /* Em telas pequenas, quebrar a tabela */
+            table, thead, tbody, th, td, tr {
+                display: block;
+            }
+            
+            thead tr {
+                position: absolute;
+                top: -9999px;
+                left: -9999px;
+            }
+            
+            tr {
+                border: 1px solid #333;
+                margin-bottom: 10px;
+                padding: 10px;
+                background-color: #1a1a1a;
+            }
+            
+            td {
+                border: none;
+                position: relative;
+                padding-left: 50%;
+                margin-bottom: 5px;
+            }
+            
+            td:before {
+                content: attr(data-label);
+                position: absolute;
+                left: 6px;
+                width: 45%;
+                padding-right: 10px;
+                white-space: nowrap;
+                font-weight: bold;
+                color: #FF6B35;
+            }
+            
+            td:last-child {
+                padding-left: 6px;
+            }
+            
+            td:last-child:before {
+                display: none;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .top-section h1 {
+                font-size: 1.2rem;
+            }
+            
+            th, td {
+                font-size: 11px;
+            }
+            
+            button, button.copy-btn {
+                padding: 4px 6px;
+                font-size: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="top-section">
+            <h1>Hacking</h1>
+        </div>
+        <p style="font-weight:bold;">As tabelas estão atualizadas em tempo real pelos usuários da comunidade! </p>
+        
+        <!-- Campo de Pesquisa -->
+        <div style="margin-bottom: 20px;">
+            <input type="text" id="searchInput" placeholder="Pesquisar ferramentas de hacking..." 
+                   style="width: 100%; padding: 12px; font-size: 16px; border: 2px solid #333; border-radius: 5px; background-color: #1a1a1a; color: #ffffff; box-sizing: border-box;">
+        </div>
+        
+        <table id="hackingTable">
+        <thead>
+            <tr>
+<th>Ferramenta</th><th>Link</th><th>Ações</th></tr></thead><tbody><tr><td data-label="Ferramenta">Sherlock</td><td data-label="Link">https://github.com/sherlock-project/sherlock</td>
+        <td data-label="Ações">
+            <button class="copy-btn" onclick="copyToClipboard('https://github.com/sherlock-project/sherlock')">Copiar Link</button>
+            <a href="https://github.com/sherlock-project/sherlock" target="_blank"><button>Abrir Link</button></a>
+        </td>
+        </tr><tr><td>MHDDoS</td><td>https://github.com/MatrixTM/MHDDoS</td>
+        <td>
+            <button class="copy-btn" onclick="copyToClipboard('https://github.com/MatrixTM/MHDDoS')">Copiar Link</button>
+            <a href="https://github.com/MatrixTM/MHDDoS" target="_blank"><button>Abrir Link</button></a>
+        </td>
+        </tr><tr><td>LOIC</td><td>https://sourceforge.net/projects/loic/</td>
+        <td>
+            <button class="copy-btn" onclick="copyToClipboard('https://sourceforge.net/projects/loic/')">Copiar Link</button>
+            <a href="https://sourceforge.net/projects/loic/" target="_blank"><button>Abrir Link</button></a>
+        </td>
+        </tr><tr><td>XOIC</td><td>https://appnee.com/xoic/</td>
+        <td>
+            <button class="copy-btn" onclick="copyToClipboard('https://appnee.com/xoic/')">Copiar Link</button>
+            <a href="https://appnee.com/xoic/" target="_blank"><button>Abrir Link</button></a>
+        </td>
+        </tr><tr><td>Slowloris</td><td>https://github.com/gkbrk/slowloris</td>
+        <td>
+            <button class="copy-btn" onclick="copyToClipboard('https://github.com/gkbrk/slowloris')">Copiar Link</button>
+            <a href="https://github.com/gkbrk/slowloris" target="_blank"><button>Abrir Link</button></a>
+        </td>
+        </tr><tr><td>Ferramentas de hacking</td><td>https://github.com/Z4nzu/hackingtool</td>
+        <td>
+            <button class="copy-btn" onclick="copyToClipboard('https://github.com/Z4nzu/hackingtool')">Copiar Link</button>
+            <a href="https://github.com/Z4nzu/hackingtool" target="_blank"><button>Abrir Link</button></a>
+        </td>
+        </tr><tr><td>Awesome Hacking</td><td>https://github.com/carpedm20/awesome-hacking</td>
+        <td>
+            <button class="copy-btn" onclick="copyToClipboard('https://github.com/carpedm20/awesome-hacking')">Copiar Link</button>
+            <a href="https://github.com/carpedm20/awesome-hacking" target="_blank"><button>Abrir Link</button></a>
+        </td>
+        </tr><tr><td>PentestGPT</td><td>https://pentestgpt.ai/login</td>
+        <td>
+            <button class="copy-btn" onclick="copyToClipboard('https://pentestgpt.ai/login')">Copiar Link</button>
+            <a href="https://pentestgpt.ai/login" target="_blank"><button>Abrir Link</button></a>
+        </td>
+        </tr><tr><td>Mais ferramentas de hacking</td><td>https://github.com/carryingwater/MoreHackingTools</td>
+        <td>
+            <button class="copy-btn" onclick="copyToClipboard('https://github.com/carryingwater/MoreHackingTools')">Copiar Link</button>
+            <a href="https://github.com/carryingwater/MoreHackingTools" target="_blank"><button>Abrir Link</button></a>
+        </td>
+        </tr><tr><td>de4dot</td><td>https://github.com/0xd4d/de4dot</td>
+        <td>
+            <button class="copy-btn" onclick="copyToClipboard('https://github.com/0xd4d/de4dot')">Copiar Link</button>
+            <a href="https://github.com/0xd4d/de4dot" target="_blank"><button>Abrir Link</button></a>
+        </td>
+        </tr><tr><td>Embelezador JS</td><td>https://github.com/beautify-web/js-beautify</td>
+        <td>
+            <button class="copy-btn" onclick="copyToClipboard('https://github.com/beautify-web/js-beautify')">Copiar Link</button>
+            <a href="https://github.com/beautify-web/js-beautify" target="_blank"><button>Abrir Link</button></a>
+        </td>
+        </tr><tr><td>JS Nice</td><td>http://jsnice.org/</td>
+        <td>
+            <button class="copy-btn" onclick="copyToClipboard('http://jsnice.org/')">Copiar Link</button>
+            <a href="http://jsnice.org/" target="_blank"><button>Abrir Link</button></a>
+        </td>
+        </tr><tr><td>Banco de dados de exploits</td><td>https://www.exploit-db.com/</td>
+        <td>
+            <button class="copy-btn" onclick="copyToClipboard('https://www.exploit-db.com/')">Copiar Link</button>
+            <a href="https://www.exploit-db.com/" target="_blank"><button>Abrir Link</button></a>
+        </td>
+        </tr><tr><td>NetworkMiner</td><td>http://www.netresec.com/?page=NetworkMiner</td>
+        <td>
+            <button class="copy-btn" onclick="copyToClipboard('http://www.netresec.com/?page=NetworkMiner')">Copiar Link</button>
+            <a href="http://www.netresec.com/?page=NetworkMiner" target="_blank"><button>Abrir Link</button></a>
+        </td>
+        </tr><tr><td>Paros</td><td>http://sourceforge.net/projects/paros/</td>
+        <td>
+            <button class="copy-btn" onclick="copyToClipboard('http://sourceforge.net/projects/paros/')">Copiar Link</button>
+            <a href="http://sourceforge.net/projects/paros/" target="_blank"><button>Abrir Link</button></a>
+        </td>
+        </tr><tr><td>pig</td><td>https://github.com/rafael-santiago/pig</td>
+        <td>
+            <button class="copy-btn" onclick="copyToClipboard('https://github.com/rafael-santiago/pig')">Copiar Link</button>
+            <a href="https://github.com/rafael-santiago/pig" target="_blank"><button>Abrir Link</button></a>
+        </td>
+        </tr><tr><td>findsubdomains</td><td>https://findsubdomains.com</td>
+        <td>
+            <button class="copy-btn" onclick="copyToClipboard('https://findsubdomains.com')">Copiar Link</button>
+            <a href="https://findsubdomains.com" target="_blank"><button>Abrir Link</button></a>
+        </td>
+        </tr><tr><td>cirt-fuzzer</td><td>http://www.cirt.dk/</td>
+        <td>
+            <button class="copy-btn" onclick="copyToClipboard('http://www.cirt.dk/')">Copiar Link</button>
+            <a href="http://www.cirt.dk/" target="_blank"><button>Abrir Link</button></a>
+        </td>
+        </tr><tr><td>ASlookup</td><td>https://aslookup.com/</td>
+        <td>
+            <button class="copy-btn" onclick="copyToClipboard('https://aslookup.com/')">Copiar Link</button>
+            <a href="https://aslookup.com/" target="_blank"><button>Abrir Link</button></a>
+        </td>
+        </tr><tr><td>ZAP</td><td>https://www.owasp.org/index.php/OWASP_Zed_Attack_Proxy_Project</td>
+        <td>
+            <button class="copy-btn" onclick="copyToClipboard('https://www.owasp.org/index.php/OWASP_Zed_Attack_Proxy_Project')">Copiar Link</button>
+            <a href="https://www.owasp.org/index.php/OWASP_Zed_Attack_Proxy_Project" target="_blank"><button>Abrir Link</button></a>
+        </td>
+        </tr><tr><td>mitmsocks4j</td><td>https://github.com/Akdeniz/mitmsocks4j</td>
+        <td>
+            <button class="copy-btn" onclick="copyToClipboard('https://github.com/Akdeniz/mitmsocks4j')">Copiar Link</button>
+            <a href="https://github.com/Akdeniz/mitmsocks4j" target="_blank"><button>Abrir Link</button></a>
+        </td>
+        </tr><tr><td>ssh-mitm</td><td>https://github.com/jtesta/ssh-mitm</td>
+        <td>
+            <button class="copy-btn" onclick="copyToClipboard('https://github.com/jtesta/ssh-mitm')">Copiar Link</button>
+            <a href="https://github.com/jtesta/ssh-mitm" target="_blank"><button>Abrir Link</button></a>
+        </td>
+        </tr><tr><td>nmap</td><td>https://nmap.org/</td>
+        <td>
+            <button class="copy-btn" onclick="copyToClipboard('https://nmap.org/')">Copiar Link</button>
+            <a href="https://nmap.org/" target="_blank"><button>Abrir Link</button></a>
+        </td>
+        </tr><tr><td>Aircrack-ng</td><td>http://www.aircrack-ng.org/</td>
+        <td>
+            <button class="copy-btn" onclick="copyToClipboard('http://www.aircrack-ng.org/')">Copiar Link</button>
+            <a href="http://www.aircrack-ng.org/" target="_blank"><button>Abrir Link</button></a>
+        </td>
+        </tr><tr><td>Nipe</td><td>https://github.com/GouveaHeitor/nipe</td>
+        <td>
+            <button class="copy-btn" onclick="copyToClipboard('https://github.com/GouveaHeitor/nipe')">Copiar Link</button>
+            <a href="https://github.com/GouveaHeitor/nipe" target="_blank"><button>Abrir Link</button></a>
+        </td>
+        </tr><tr><td>Habu</td><td>https://github.com/portantier/habu</td>
+        <td>
+            <button class="copy-btn" onclick="copyToClipboard('https://github.com/portantier/habu')">Copiar Link</button>
+            <a href="https://github.com/portantier/habu" target="_blank"><button>Abrir Link</button></a>
+        </td>
+        </tr><tr><td>Wifi Jammer</td><td>https://github.com/DanMcInerney/wifijammer</td>
+        <td>
+            <button class="copy-btn" onclick="copyToClipboard('https://github.com/DanMcInerney/wifijammer')">Copiar Link</button>
+            <a href="https://github.com/DanMcInerney/wifijammer" target="_blank"><button>Abrir Link</button></a>
+        </td>
+        </tr><tr><td>Firesheep</td><td>https://codebutler.github.io/firesheep/</td>
+        <td>
+            <button class="copy-btn" onclick="copyToClipboard('https://codebutler.github.io/firesheep/')">Copiar Link</button>
+            <a href="https://codebutler.github.io/firesheep/" target="_blank"><button>Abrir Link</button></a>
+        </td>
+        </tr><tr><td>Scapy</td><td>https://github.com/secdev/awesome-scapy</td>
+        <td>
+            <button class="copy-btn" onclick="copyToClipboard('https://github.com/secdev/awesome-scapy')">Copiar Link</button>
+            <a href="https://github.com/secdev/awesome-scapy" target="_blank"><button>Abrir Link</button></a>
+        </td>
+        </tr><tr><td>Amass</td><td>https://github.com/OWASP/Amass</td>
+        <td>
+            <button class="copy-btn" onclick="copyToClipboard('https://github.com/OWASP/Amass')">Copiar Link</button>
+            <a href="https://github.com/OWASP/Amass" target="_blank"><button>Abrir Link</button></a>
+        </td>
+        </tr><tr><td>RustScan</td><td>https://github.com/rustscan/rustscan</td>
+        <td>
+            <button class="copy-btn" onclick="copyToClipboard('https://github.com/rustscan/rustscan')">Copiar Link</button>
+            <a href="https://github.com/rustscan/rustscan" target="_blank"><button>Abrir Link</button></a>
+        </td>
+        </tr><tr><td>PETEP</td><td>https://github.com/Warxim/petep</td>
+        <td>
+            <button class="copy-btn" onclick="copyToClipboard('https://github.com/Warxim/petep')">Copiar Link</button>
+            <a href="https://github.com/Warxim/petep" target="_blank"><button>Abrir Link</button></a>
+        </td>
+        </tr><tr><td>xortool</td><td>https://github.com/hellman/xortool</td>
+        <td>
+            <button class="copy-btn" onclick="copyToClipboard('https://github.com/hellman/xortool')">Copiar Link</button>
+            <a href="https://github.com/hellman/xortool" target="_blank"><button>Abrir Link</button></a>
+        </td>
+        </tr><tr><td>John, o Estripador</td><td>http://www.openwall.com/john/</td>
+        <td>
+            <button class="copy-btn" onclick="copyToClipboard('http://www.openwall.com/john/')">Copiar Link</button>
+            <a href="http://www.openwall.com/john/" target="_blank"><button>Abrir Link</button></a>
+        </td>
+        </tr><tr><td>Aircrack</td><td>http://www.aircrack-ng.org/</td>
+        <td>
+            <button class="copy-btn" onclick="copyToClipboard('http://www.aircrack-ng.org/')">Copiar Link</button>
+            <a href="http://www.aircrack-ng.org/" target="_blank"><button>Abrir Link</button></a>
+        </td>
+        </tr><tr><td>Ciphey</td><td>https://github.com/ciphey/ciphey</td>
+        <td>
+            <button class="copy-btn" onclick="copyToClipboard('https://github.com/ciphey/ciphey')">Copiar Link</button>
+            <a href="https://github.com/ciphey/ciphey" target="_blank"><button>Abrir Link</button></a>
+        </td>
+        </tr><tr><td>WinPwnage</td><td>https://github.com/rootm0s/WinPwnage</td>
+        <td>
+            <button class="copy-btn" onclick="copyToClipboard('https://github.com/rootm0s/WinPwnage')">Copiar Link</button>
+            <a href="https://github.com/rootm0s/WinPwnage" target="_blank"><button>Abrir Link</button></a>
+        </td>
+        </tr><tr><td>Kali Linux</td><td>https://www.kali.org/</td>
+        <td>
+            <button class="copy-btn" onclick="copyToClipboard('https://www.kali.org/')">Copiar Link</button>
+            <a href="https://www.kali.org/" target="_blank"><button>Abrir Link</button></a>
+        </td>
+        </tr><tr><td>Hack This Site!</td><td>https://www.hackthissite.org/</td>
+        <td>
+            <button class="copy-btn" onclick="copyToClipboard('https://www.hackthissite.org/')">Copiar Link</button>
+            <a href="https://www.hackthissite.org/" target="_blank"><button>Abrir Link</button></a>
+        </td>
+        </tr><tr><td>Hack The Box</td><td>https://www.hackthebox.eu</td>
+        <td>
+            <button class="copy-btn" onclick="copyToClipboard('https://www.hackthebox.eu')">Copiar Link</button>
+            <a href="https://www.hackthebox.eu" target="_blank"><button>Abrir Link</button></a>
+        </td>
+        </tr><tr><td>Webhacking.kr</td><td>http://webhacking.kr/</td>
+        <td>
+            <button class="copy-btn" onclick="copyToClipboard('http://webhacking.kr/')">Copiar Link</button>
+            <a href="http://webhacking.kr/" target="_blank"><button>Abrir Link</button></a>
+        </td>
+        </tr><tr><td>0xf.at</td><td>https://0xf.at/</td>
+        <td>
+            <button class="copy-btn" onclick="copyToClipboard('https://0xf.at/')">Copiar Link</button>
+            <a href="https://0xf.at/" target="_blank"><button>Abrir Link</button></a>
+        </td>
+        </tr><tr><td>fuzzy.land</td><td>https://fuzzy.land/</td>
+        <td>
+            <button class="copy-btn" onclick="copyToClipboard('https://fuzzy.land/')">Copiar Link</button>
+            <a href="https://fuzzy.land/" target="_blank"><button>Abrir Link</button></a>
+        </td>
+        </tr><tr><td>Gruyere</td><td>https://google-gruyere.appspot.com/</td>
+        <td>
+            <button class="copy-btn" onclick="copyToClipboard('https://google-gruyere.appspot.com/')">Copiar Link</button>
+            <a href="https://google-gruyere.appspot.com/" target="_blank"><button>Abrir Link</button></a>
+        </td>
+        </tr><tr><td>Others</td><td>https://www.owasp.org/index.php</td>
+        <td>
+            <button class="copy-btn" onclick="copyToClipboard('https://www.owasp.org/index.php')">Copiar Link</button>
+            <a href="https://www.owasp.org/index.php" target="_blank"><button>Abrir Link</button></a>
+        </td>
+        </tr><tr><td>TryHackMe</td><td>https://tryhackme.com/</td>
+        <td>
+            <button class="copy-btn" onclick="copyToClipboard('https://tryhackme.com/')">Copiar Link</button>
+            <a href="https://tryhackme.com/" target="_blank"><button>Abrir Link</button></a>
+        </td>
+        </tr><tr><td>Vulnhub</td><td>https://www.vulnhub.com/</td>
+        <td>
+            <button class="copy-btn" onclick="copyToClipboard('https://www.vulnhub.com/')">Copiar Link</button>
+            <a href="https://www.vulnhub.com/" target="_blank"><button>Abrir Link</button></a>
+        </td>
+        </tr><tr><td>Portswigger</td><td>https://portswigger.net/web-security</td>
+        <td>
+            <button class="copy-btn" onclick="copyToClipboard('https://portswigger.net/web-security')">Copiar Link</button>
+            <a href="https://portswigger.net/web-security" target="_blank"><button>Abrir Link</button></a>
+        </td>
+        </tr><tr><td>Attackdefense</td><td>https://attackdefense.com/</td>
+        <td>
+            <button class="copy-btn" onclick="copyToClipboard('https://attackdefense.com/')">Copiar Link</button>
+            <a href="https://attackdefense.com/" target="_blank"><button>Abrir Link</button></a>
+        </td>
+        </tr><tr><td>lupovis</td><td>https://prowl.lupovis.io/</td>
+        <td>
+            <button class="copy-btn" onclick="copyToClipboard('https://prowl.lupovis.io/')">Copiar Link</button>
+            <a href="https://prowl.lupovis.io/" target="_blank"><button>Abrir Link</button></a>
+        </td>
+        </tr><tr><td>fullhunt.io/</td><td>https://fullhunt.io/</td>
+        <td>
+            <button class="copy-btn" onclick="copyToClipboard('https://fullhunt.io/')">Copiar Link</button>
+            <a href="https://fullhunt.io/" target="_blank"><button>Abrir Link</button></a>
+        </td>
+        </tr><tr><td>leakix.net/</td><td>https://leakix.net/</td>
+        <td>
+            <button class="copy-btn" onclick="copyToClipboard('https://leakix.net/')">Copiar Link</button>
+            <a href="https://leakix.net/" target="_blank"><button>Abrir Link</button></a>
+        </td>
+        </tr><tr><td>hunter.io/</td><td>https://hunter.io/</td>
+        <td>
+            <button class="copy-btn" onclick="copyToClipboard('https://hunter.io/')">Copiar Link</button>
+            <a href="https://hunter.io/" target="_blank"><button>Abrir Link</button></a>
+        </td>
+        </tr><tr><td>vulners.com/</td><td>https://vulners.com/</td>
+        <td>
+            <button class="copy-btn" onclick="copyToClipboard('https://vulners.com/')">Copiar Link</button>
+            <a href="https://vulners.com/" target="_blank"><button>Abrir Link</button></a>
+        </td>
+        </tr><tr><td>/intelx.io/</td><td>https://intelx.io/</td>
+        <td>
+            <button class="copy-btn" onclick="copyToClipboard('https://intelx.io/')">Copiar Link</button>
+            <a href="https://intelx.io/" target="_blank"><button>Abrir Link</button></a>
+        </td>
+        </tr><tr><td>grep.app/</td><td>https://grep.app/</td>
+        <td>
+            <button class="copy-btn" onclick="copyToClipboard('https://grep.app/')">Copiar Link</button>
+            <a href="https://grep.app/" target="_blank"><button>Abrir Link</button></a>
+        </td>
+        </tr><tr><td>grayhatwarfare</td><td>https://grayhatwarfare.com/</td>
+        <td>
+            <button class="copy-btn" onclick="copyToClipboard('https://grayhatwarfare.com/')">Copiar Link</button>
+            <a href="https://grayhatwarfare.com/" target="_blank"><button>Abrir Link</button></a>
+        </td>
+        </tr><tr><td>urlscan.io/</td><td>https://urlscan.io/</td>
+        <td>
+            <button class="copy-btn" onclick="copyToClipboard('https://urlscan.io/')">Copiar Link</button>
+            <a href="https://urlscan.io/" target="_blank"><button>Abrir Link</button></a>
+        </td>
+        </tr><tr><td>pulsedive.com/</td><td>https://pulsedive.com/</td>
+        <td>
+            <button class="copy-btn" onclick="copyToClipboard('https://pulsedive.com/')">Copiar Link</button>
+            <a href="https://pulsedive.com/" target="_blank"><button>Abrir Link</button></a>
+        </td>
+        </tr><tr><td>www.wigle.net/</td><td>https://www.wigle.net/</td>
+        <td>
+            <button class="copy-btn" onclick="copyToClipboard('https://www.wigle.net/')">Copiar Link</button>
+            <a href="https://www.wigle.net/" target="_blank"><button>Abrir Link</button></a>
+        </td>
+        </tr><tr><td>netlas.io/</td><td>https://netlas.io/</td>
+        <td>
+            <button class="copy-btn" onclick="copyToClipboard('https://netlas.io/')">Copiar Link</button>
+            <a href="https://netlas.io/" target="_blank"><button>Abrir Link</button></a>
+        </td>
+        </tr><tr><td>greynoise.io/</td><td>https://www.greynoise.io/</td>
+        <td>
+            <button class="copy-btn" onclick="copyToClipboard('https://www.greynoise.io/')">Copiar Link</button>
+            <a href="https://www.greynoise.io/" target="_blank"><button>Abrir Link</button></a>
+        </td>
+        </tr><tr><td>search.censys.io/</td><td>https://search.censys.io/</td>
+        <td>
+            <button class="copy-btn" onclick="copyToClipboard('https://search.censys.io/')">Copiar Link</button>
+            <a href="https://search.censys.io/" target="_blank"><button>Abrir Link</button></a>
+        </td>
+        </tr><tr><td>zoomeye.org/</td><td>https://www.zoomeye.org/</td>
+        <td>
+            <button class="copy-btn" onclick="copyToClipboard('https://www.zoomeye.org/')">Copiar Link</button>
+            <a href="https://www.zoomeye.org/" target="_blank"><button>Abrir Link</button></a>
+        </td>
+        </tr><tr><td>shodan.io/</td><td>https://www.shodan.io/</td>
+        <td>
+            <button class="copy-btn" onclick="copyToClipboard('https://www.shodan.io/')">Copiar Link</button>
+            <a href="https://www.shodan.io/" target="_blank"><button>Abrir Link</button></a>
+        </td>
+        </tr><tr><td>onyphe.io/</td><td>https://www.onyphe.io/</td>
+        <td>
+            <button class="copy-btn" onclick="copyToClipboard('https://www.onyphe.io/')">Copiar Link</button>
+            <a href="https://www.onyphe.io/" target="_blank"><button>Abrir Link</button></a>
+        </td>
+        </tr><tr><td>criminalip.io/</td><td>https://www.criminalip.io/</td>
+        <td>
+            <button class="copy-btn" onclick="copyToClipboard('https://www.criminalip.io/')">Copiar Link</button>
+            <a href="https://www.criminalip.io/" target="_blank"><button>Abrir Link</button></a>
+        </td>
+        </tr>
+        </tbody>
+    </table>
+    </div>
+    <script>
+        function copyToClipboard(text) {
+            navigator.clipboard.writeText(text).then(function() {
+                alert("Link copiado: " + text);
+            }).catch(function(err) {
+                alert("Erro ao copiar: " + err);
+            });
+        }
+        
+        // Funcionalidade de pesquisa
+        document.addEventListener('DOMContentLoaded', function() {
+            const searchInput = document.getElementById('searchInput');
+            const table = document.getElementById('hackingTable');
+            const rows = table.getElementsByTagName('tr');
+            
+            // Adicionar data-labels para responsividade
+            const labels = ['Ferramenta', 'Link', 'Ações'];
+            for (let i = 1; i < rows.length; i++) {
+                const cells = rows[i].getElementsByTagName('td');
+                for (let j = 0; j < cells.length && j < labels.length; j++) {
+                    if (!cells[j].hasAttribute('data-label')) {
+                        cells[j].setAttribute('data-label', labels[j]);
+                    }
+                }
+            }
+            
+            searchInput.addEventListener('input', function() {
+                const searchTerm = this.value.toLowerCase();
+                
+                // Pular o cabeçalho (primeira linha)
+                for (let i = 1; i < rows.length; i++) {
+                    const row = rows[i];
+                    const cells = row.getElementsByTagName('td');
+                    let found = false;
+                    
+                    // Procurar em todas as células da linha
+                    for (let j = 0; j < cells.length - 1; j++) { // -1 para não incluir a coluna de ações
+                        const cellText = cells[j].textContent.toLowerCase();
+                        if (cellText.includes(searchTerm)) {
+                            found = true;
+                            break;
+                        }
+                    }
+                    
+                    // Mostrar ou ocultar a linha baseado na pesquisa
+                    if (found) {
+                        row.style.display = '';
+                    } else {
+                        row.style.display = 'none';
+                    }
+                }
+            });
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,803 @@
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Clientes torrent</title>
+    <style>
+        body { 
+            font-family: Arial, sans-serif; 
+            background-color: #121212; 
+            color: #ffffff; 
+            padding: 20px; 
+            margin: 0;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+        
+        table { 
+            border-collapse: collapse; 
+            width: 100%; 
+            margin-bottom: 20px;
+        }
+        
+        th, td { 
+            border: 1px solid #333; 
+            padding: 8px; 
+            text-align: left; 
+            word-wrap: break-word;
+        }
+        
+        th { 
+            background-color: #333; 
+            position: sticky;
+            top: 0;
+            z-index: 10;
+        }
+        
+        button.copy-btn { 
+            margin: 2px; 
+            background-color: #FF6B35; 
+            color: white; 
+            border: none; 
+            padding: 8px 12px; 
+            cursor: pointer; 
+            border-radius: 4px;
+            font-size: 12px;
+            transition: background-color 0.3s;
+        }
+        
+        button.copy-btn:hover { 
+            background-color: #E55A2B; 
+        }
+        
+        button {
+            background-color: #FF6B35;
+            color: white;
+            border: none;
+            padding: 8px 12px;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            font-size: 12px;
+            margin: 2px;
+        }
+        
+        button:hover {
+            background-color: #E55A2B;
+        }
+        
+        .top-section {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        
+        .top-section h1 {
+            color: #ffffff;
+            margin: 0;
+            font-size: 2rem;
+        }
+        
+        /* Responsividade */
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+            
+            .container {
+                padding: 0 10px;
+            }
+            
+            .top-section h1 {
+                font-size: 1.5rem;
+            }
+            
+            table {
+                font-size: 14px;
+            }
+            
+            th, td {
+                padding: 6px 4px;
+                font-size: 12px;
+            }
+            
+            button, button.copy-btn {
+                padding: 6px 8px;
+                font-size: 11px;
+                margin: 1px;
+            }
+            
+            /* Em telas pequenas, quebrar a tabela */
+            table, thead, tbody, th, td, tr {
+                display: block;
+            }
+            
+            thead tr {
+                position: absolute;
+                top: -9999px;
+                left: -9999px;
+            }
+            
+            tr {
+                border: 1px solid #333;
+                margin-bottom: 10px;
+                padding: 10px;
+                background-color: #1a1a1a;
+            }
+            
+            td {
+                border: none;
+                position: relative;
+                padding-left: 50%;
+                margin-bottom: 5px;
+            }
+            
+            td:before {
+                content: attr(data-label);
+                position: absolute;
+                left: 6px;
+                width: 45%;
+                padding-right: 10px;
+                white-space: nowrap;
+                font-weight: bold;
+                color: #FF6B35;
+            }
+            
+            td:last-child {
+                padding-left: 6px;
+            }
+            
+            td:last-child:before {
+                display: none;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .top-section h1 {
+                font-size: 1.2rem;
+            }
+            
+            th, td {
+                font-size: 11px;
+            }
+            
+            button, button.copy-btn {
+                padding: 4px 6px;
+                font-size: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="top-section">
+            <h1>Clientes torrent</h1>
+        </div>
+        <p style="font-weight:bold;">As tabelas estão atualizadas em tempo real pelos usuários da comunidade! </p>
+        
+        <!-- Campo de Pesquisa -->
+        <div style="margin-bottom: 20px;">
+            <input type="text" id="searchInput" placeholder="Pesquisar clientes de torrent..." 
+                   style="width: 100%; padding: 12px; font-size: 16px; border: 2px solid #333; border-radius: 5px; background-color: #1a1a1a; color: #ffffff; box-sizing: border-box;">
+        </div>
+        
+        <table id="torrentTable">
+        <thead>
+            <tr>
+<th>Clientes de torrent</th><th>Link</th><th>Ações</th></tr></thead><tbody><tr><td data-label="Cliente">RuTracker</td><td data-label="Link">https://rutracker.org/</td>
+        <td data-label="Ações">
+            <button class="copy-btn" onclick="copyToClipboard('https://rutracker.org/')">Copiar Link</button>
+            <a href="https://rutracker.org/" target="_blank"><button>Abrir Link</button></a>
+        </td>
+        </tr><tr><td data-label="Cliente">Addon</td><td data-label="Link">https://addons.mozilla.org/en-US/firefox/addon/rutracker_torrent_search/</td>
+        <td data-label="Ações">
+            <button class="copy-btn" onclick="copyToClipboard('https://addons.mozilla.org/en-US/firefox/addon/rutracker_torrent_search/')">Copiar Link</button>
+            <a href="https://addons.mozilla.org/en-US/firefox/addon/rutracker_torrent_search/" target="_blank"><button>Abrir Link</button></a>
+        </td>
+        </tr><tr><td data-label="Cliente">m0nkrus</td><td data-label="Link">https://w16.monkrus.ws/</td>
+        <td data-label="Ações">
+            <button class="copy-btn" onclick="copyToClipboard('https://w16.monkrus.ws/')">Copiar Link</button>
+            <a href="https://w16.monkrus.ws/" target="_blank"><button>Abrir Link</button></a>
+        </td>
+        </tr><tr><td data-label="Cliente">Torrent CSE</td><td data-label="Link">https://cse.google.com/cse?cx=006516753008110874046:0led5tukccj</td>
+        <td data-label="Ações">
+            <button class="copy-btn" onclick="copyToClipboard('https://cse.google.com/cse?cx=006516753008110874046:0led5tukccj')">Copiar Link</button>
+            <a href="https://cse.google.com/cse?cx=006516753008110874046:0led5tukccj" target="_blank"><button>Abrir Link</button></a>
+        </td>
+        </tr><tr><td data-label="Cliente">1337x</td><td data-label="Link">https://1337x.to/</td>
+        <td data-label="Ações">
+            <button class="copy-btn" onclick="copyToClipboard('https://1337x.to/')">Copiar Link</button>
+            <a href="https://1337x.to/" target="_blank"><button>Abrir Link</button></a>
+        </td>
+        </tr><tr><td data-label="Cliente">Espelhos</td><td data-label="Link">https://1337x-status.org/</td>
+        <td data-label="Ações">
+            <button class="copy-btn" onclick="copyToClipboard('https://1337x-status.org/')">Copiar Link</button>
+            <a href="https://1337x-status.org/" target="_blank"><button>Abrir Link</button></a>
+        </td>
+        </tr><tr><td data-label="Cliente">RARBG Dump</td><td data-label="Link">https://rarbgdump.com/</td>
+        <td data-label="Ações">
+            <button class="copy-btn" onclick="copyToClipboard('https://rarbgdump.com/')">Copiar Link</button>
+            <a href="https://rarbgdump.com/" target="_blank"><button>Abrir Link</button></a>
+        </td>
+        </tr><tr><td data-label="Cliente">LimeTorrents</td><td data-label="Link">https://www.limetorrents.lol/</td>
+        <td data-label="Ações">
+            <button class="copy-btn" onclick="copyToClipboard('https://www.limetorrents.lol/')">Copiar Link</button>
+            <a href="https://www.limetorrents.lol/" target="_blank"><button>Abrir Link</button></a>
+        </td>
+        </tr><tr><td data-label="Cliente">IsoHunt</td><td data-label="Link">https://isohunts.to/</td>
+        <td data-label="Ações">
+            <button class="copy-btn" onclick="copyToClipboard('https://isohunts.to/')">Copiar Link</button>
+            <a href="https://isohunts.to/" target="_blank"><button>Abrir Link</button></a>
+        </td>
+        </tr><tr><td data-label="Cliente">TorrentDownloads</td><td data-label="Link">https://www.torrentdownloads.pro/</td>
+        <td data-label="Ações">
+            <button class="copy-btn" onclick="copyToClipboard('https://www.torrentdownloads.pro/')">Copiar Link</button>
+            <a href="https://www.torrentdownloads.pro/" target="_blank"><button>Abrir Link</button></a>
+        </td>
+        </tr><tr><td data-label="Cliente">ExtraTorrent</td><td data-label="Link">https://extratorrent.st/</td>
+        <td data-label="Ações">
+            <button class="copy-btn" onclick="copyToClipboard('https://extratorrent.st/')">Copiar Link</button>
+            <a href="https://extratorrent.st/" target="_blank"><button>Abrir Link</button></a>
+        </td>
+        </tr><tr><td data-label="Cliente">rutor.info</td><td data-label="Link">https://rutor.org/</td>
+        <td data-label="Ações">
+            <button class="copy-btn" onclick="copyToClipboard('https://rutor.org/')">Copiar Link</button>
+            <a href="https://rutor.org/" target="_blank"><button>Abrir Link</button></a>
+        </td>
+        </tr><tr><td>NNM-Club</td><td>https://nnmclub.to/</td>
+        <td>
+            <button class="copy-btn" onclick="copyToClipboard('https://nnmclub.to/')">Copiar Link</button>
+            <a href="https://nnmclub.to/" target="_blank"><button>Abrir Link</button></a>
+        </td>
+        </tr><tr><td>Torrent</td><td>https://www.torrenting.com/</td>
+        <td>
+            <button class="copy-btn" onclick="copyToClipboard('https://www.torrenting.com/')">Copiar Link</button>
+            <a href="https://www.torrenting.com/" target="_blank"><button>Abrir Link</button></a>
+        </td>
+        </tr><tr><td>ZeroTorrent</td><td>http://127.0.0.1:43110/ZeroTorrent.bit/</td>
+        <td>
+            <button class="copy-btn" onclick="copyToClipboard('http://127.0.0.1:43110/ZeroTorrent.bit/')">Copiar Link</button>
+            <a href="http://127.0.0.1:43110/ZeroTorrent.bit/" target="_blank"><button>Abrir Link</button></a>
+        </td>
+        </tr><tr><td>4chan /t/</td><td>https://boards.4chan.org/t/</td>
+        <td>
+            <button class="copy-btn" onclick="copyToClipboard('https://boards.4chan.org/t/')">Copiar Link</button>
+            <a href="https://boards.4chan.org/t/" target="_blank"><button>Abrir Link</button></a>
+        </td>
+        </tr><tr><td>BTDigg</td><td>https://btdig.com/</td>
+        <td>
+            <button class="copy-btn" onclick="copyToClipboard('https://btdig.com/')">Copiar Link</button>
+            <a href="https://btdig.com/" target="_blank"><button>Abrir Link</button></a>
+        </td>
+        </tr><tr><td>Knaben</td><td>https://knaben.org/</td>
+        <td>
+            <button class="copy-btn" onclick="copyToClipboard('https://knaben.org/')">Copiar Link</button>
+            <a href="https://knaben.org/" target="_blank"><button>Abrir Link</button></a>
+        </td>
+        </tr><tr><td>ExT</td><td>https://ext.to/</td>
+        <td>
+            <button class="copy-btn" onclick="copyToClipboard('https://ext.to/')">Copiar Link</button>
+            <a href="https://ext.to/" target="_blank"><button>Abrir Link</button></a>
+        </td>
+        </tr><tr><td>TorrentProject</td><td>https://torrentproject.cc/</td>
+        <td>
+            <button class="copy-btn" onclick="copyToClipboard('https://torrentproject.cc/')">Copiar Link</button>
+            <a href="https://torrentproject.cc/" target="_blank"><button>Abrir Link</button></a>
+        </td>
+        </tr><tr><td>DaMagNet</td><td>https://damag.net/</td>
+        <td>
+            <button class="copy-btn" onclick="copyToClipboard('https://damag.net/')">Copiar Link</button>
+            <a href="https://damag.net/" target="_blank"><button>Abrir Link</button></a>
+        </td>
+        </tr><tr><td>TorrentBaixar</td><td>https://www.torrentdownload.info/</td>
+        <td>
+            <button class="copy-btn" onclick="copyToClipboard('https://www.torrentdownload.info/')">Copiar Link</button>
+            <a href="https://www.torrentdownload.info/" target="_blank"><button>Abrir Link</button></a>
+        </td>
+        </tr><tr><td>TorrentQuest</td><td>https://torrentquest.com/</td>
+        <td>
+            <button class="copy-btn" onclick="copyToClipboard('https://torrentquest.com/')">Copiar Link</button>
+            <a href="https://torrentquest.com/" target="_blank"><button>Abrir Link</button></a>
+        </td>
+        </tr><tr><td>TorrentCORE</td><td>https://torrentcore.xyz/</td>
+        <td>
+            <button class="copy-btn" onclick="copyToClipboard('https://torrentcore.xyz/')">Copiar Link</button>
+            <a href="https://torrentcore.xyz/" target="_blank"><button>Abrir Link</button></a>
+        </td>
+        </tr><tr><td>Baía limpa</td><td>https://cleanbay.netlify.app/</td>
+        <td>
+            <button class="copy-btn" onclick="copyToClipboard('https://cleanbay.netlify.app/')">Copiar Link</button>
+            <a href="https://cleanbay.netlify.app/" target="_blank"><button>Abrir Link</button></a>
+        </td>
+        </tr><tr><td>CloudTorrents</td><td>https://cloudtorrents.com/</td>
+        <td>
+            <button class="copy-btn" onclick="copyToClipboard('https://cloudtorrents.com/')">Copiar Link</button>
+            <a href="https://cloudtorrents.com/" target="_blank"><button>Abrir Link</button></a>
+        </td>
+        </tr><tr><td>Torrents-CSV</td><td>https://torrents-csv.com/</td>
+        <td>
+            <button class="copy-btn" onclick="copyToClipboard('https://torrents-csv.com/')">Copiar Link</button>
+            <a href="https://torrents-csv.com/" target="_blank"><button>Abrir Link</button></a>
+        </td>
+        </tr><tr><td>FileMood</td><td>https://filemood.com/</td>
+        <td>
+            <button class="copy-btn" onclick="copyToClipboard('https://filemood.com/')">Copiar Link</button>
+            <a href="https://filemood.com/" target="_blank"><button>Abrir Link</button></a>
+        </td>
+        </tr><tr><td>iDope</td><td>https://idope.se/</td>
+        <td>
+            <button class="copy-btn" onclick="copyToClipboard('https://idope.se/')">Copiar Link</button>
+            <a href="https://idope.se/" target="_blank"><button>Abrir Link</button></a>
+        </td>
+        </tr><tr><td>BT4G</td><td>https://bt4gprx.com/</td>
+        <td>
+            <button class="copy-btn" onclick="copyToClipboard('https://bt4gprx.com/')">Copiar Link</button>
+            <a href="https://bt4gprx.com/" target="_blank"><button>Abrir Link</button></a>
+        </td>
+        </tr><tr><td>PiratesParadise</td><td>https://piratesparadise.org/</td>
+        <td>
+            <button class="copy-btn" onclick="copyToClipboard('https://piratesparadise.org/')">Copiar Link</button>
+            <a href="https://piratesparadise.org/" target="_blank"><button>Abrir Link</button></a>
+        </td>
+        </tr><tr><td>snowfl</td><td>https://snowfl.com/</td>
+        <td>
+            <button class="copy-btn" onclick="copyToClipboard('https://snowfl.com/')">Copiar Link</button>
+            <a href="https://snowfl.com/" target="_blank"><button>Abrir Link</button></a>
+        </td>
+        </tr><tr><td>Torlock</td><td>https://www.torlock.com/</td>
+        <td>
+            <button class="copy-btn" onclick="copyToClipboard('https://www.torlock.com/')">Copiar Link</button>
+            <a href="https://www.torlock.com/" target="_blank"><button>Abrir Link</button></a>
+        </td>
+        </tr><tr><td>Seu Bittorrent</td><td>https://yourbittorrent.com/</td>
+        <td>
+            <button class="copy-btn" onclick="copyToClipboard('https://yourbittorrent.com/')">Copiar Link</button>
+            <a href="https://yourbittorrent.com/" target="_blank"><button>Abrir Link</button></a>
+        </td>
+        </tr><tr><td>Pesquisa BTSearch</td><td>https://btsearch.19950817.xyz/en</td>
+        <td>
+            <button class="copy-btn" onclick="copyToClipboard('https://btsearch.19950817.xyz/en')">Copiar Link</button>
+            <a href="https://btsearch.19950817.xyz/en" target="_blank"><button>Abrir Link</button></a>
+        </td>
+        </tr><tr><td>0Mag</td><td>https://www.0mag.net/</td>
+        <td>
+            <button class="copy-btn" onclick="copyToClipboard('https://www.0mag.net/')">Copiar Link</button>
+            <a href="https://www.0mag.net/" target="_blank"><button>Abrir Link</button></a>
+        </td>
+        </tr><tr><td>Magnetíssimo</td><td>https://github.com/sergiotapia/magnetissimo</td>
+        <td>
+            <button class="copy-btn" onclick="copyToClipboard('https://github.com/sergiotapia/magnetissimo')">Copiar Link</button>
+            <a href="https://github.com/sergiotapia/magnetissimo" target="_blank"><button>Abrir Link</button></a>
+        </td>
+        </tr><tr><td>TorrentSearchRobot</td><td>https://t.me/TorrentSearchRoBot</td>
+        <td>
+            <button class="copy-btn" onclick="copyToClipboard('https://t.me/TorrentSearchRoBot')">Copiar Link</button>
+            <a href="https://t.me/TorrentSearchRoBot" target="_blank"><button>Abrir Link</button></a>
+        </td>
+        </tr><tr><td>Torrentinim</td><td>https://github.com/sergiotapia/torrentinim</td>
+        <td>
+            <button class="copy-btn" onclick="copyToClipboard('https://github.com/sergiotapia/torrentinim')">Copiar Link</button>
+            <a href="https://github.com/sergiotapia/torrentinim" target="_blank"><button>Abrir Link</button></a>
+        </td>
+        </tr><tr><td>qBittorrent</td><td>https://www.qbittorrent.org/</td>
+        <td>
+            <button class="copy-btn" onclick="copyToClipboard('https://www.qbittorrent.org/')">Copiar Link</button>
+            <a href="https://www.qbittorrent.org/" target="_blank"><button>Abrir Link</button></a>
+        </td>
+        </tr><tr><td>Deluge</td><td>https://www.deluge-torrent.org/</td>
+        <td>
+            <button class="copy-btn" onclick="copyToClipboard('https://www.deluge-torrent.org/')">Copiar Link</button>
+            <a href="https://www.deluge-torrent.org/" target="_blank"><button>Abrir Link</button></a>
+        </td>
+        </tr><tr><td>Transmission</td><td>https://transmissionbt.com/</td>
+        <td>
+            <button class="copy-btn" onclick="copyToClipboard('https://transmissionbt.com/')">Copiar Link</button>
+            <a href="https://transmissionbt.com/" target="_blank"><button>Abrir Link</button></a>
+        </td>
+        </tr><tr><td>torrent-control</td><td>https://github.com/Mika-/torrent-control</td>
+        <td>
+            <button class="copy-btn" onclick="copyToClipboard('https://github.com/Mika-/torrent-control')">Copiar Link</button>
+            <a href="https://github.com/Mika-/torrent-control" target="_blank"><button>Abrir Link</button></a>
+        </td>
+        </tr><tr><td>imFile</td><td>https://imfile.io/</td>
+        <td>
+            <button class="copy-btn" onclick="copyToClipboard('https://imfile.io/')">Copiar Link</button>
+            <a href="https://imfile.io/" target="_blank"><button>Abrir Link</button></a>
+        </td>
+        </tr><tr><td>Tixati</td><td>https://tixati.com/</td>
+        <td>
+            <button class="copy-btn" onclick="copyToClipboard('https://tixati.com/')">Copiar Link</button>
+            <a href="https://tixati.com/" target="_blank"><button>Abrir Link</button></a>
+        </td>
+        </tr><tr><td>WizTorrent</td><td>https://wiztorrent.com/</td>
+        <td>
+            <button class="copy-btn" onclick="copyToClipboard('https://wiztorrent.com/')">Copiar Link</button>
+            <a href="https://wiztorrent.com/" target="_blank"><button>Abrir Link</button></a>
+        </td>
+        </tr><tr><td>BiglyBT</td><td>https://www.biglybt.com/</td>
+        <td>
+            <button class="copy-btn" onclick="copyToClipboard('https://www.biglybt.com/')">Copiar Link</button>
+            <a href="https://www.biglybt.com/" target="_blank"><button>Abrir Link</button></a>
+        </td>
+        </tr><tr><td>LIII</td><td>https://codecpack.co/download/LIII-BitTorrent-Client.html</td>
+        <td>
+            <button class="copy-btn" onclick="copyToClipboard('https://codecpack.co/download/LIII-BitTorrent-Client.html')">Copiar Link</button>
+            <a href="https://codecpack.co/download/LIII-BitTorrent-Client.html" target="_blank"><button>Abrir Link</button></a>
+        </td>
+        </tr><tr><td>PikaTorrent</td><td>https://www.pikatorrent.com/</td>
+        <td>
+            <button class="copy-btn" onclick="copyToClipboard('https://www.pikatorrent.com/')">Copiar Link</button>
+            <a href="https://www.pikatorrent.com/" target="_blank"><button>Abrir Link</button></a>
+        </td>
+        </tr><tr><td>Distribyted</td><td>https://distribyted.com/</td>
+        <td>
+            <button class="copy-btn" onclick="copyToClipboard('https://distribyted.com/')">Copiar Link</button>
+            <a href="https://distribyted.com/" target="_blank"><button>Abrir Link</button></a>
+        </td>
+        </tr><tr><td>Instant.io</td><td>https://instant.io/</td>
+        <td>
+            <button class="copy-btn" onclick="copyToClipboard('https://instant.io/')">Copiar Link</button>
+            <a href="https://instant.io/" target="_blank"><button>Abrir Link</button></a>
+        </td>
+        </tr><tr><td>BTorrent</td><td>https://btorrent.xyz/</td>
+        <td>
+            <button class="copy-btn" onclick="copyToClipboard('https://btorrent.xyz/')">Copiar Link</button>
+            <a href="https://btorrent.xyz/" target="_blank"><button>Abrir Link</button></a>
+        </td>
+        </tr><tr><td>Magnet Player</td><td>https://ferrolho.github.io/magnet-player/</td>
+        <td>
+            <button class="copy-btn" onclick="copyToClipboard('https://ferrolho.github.io/magnet-player/')">Copiar Link</button>
+            <a href="https://ferrolho.github.io/magnet-player/" target="_blank"><button>Abrir Link</button></a>
+        </td>
+        </tr><tr><td>BitFord</td><td>https://github.com/astro/bitford</td>
+        <td>
+            <button class="copy-btn" onclick="copyToClipboard('https://github.com/astro/bitford')">Copiar Link</button>
+            <a href="https://github.com/astro/bitford" target="_blank"><button>Abrir Link</button></a>
+        </td>
+        </tr><tr><td>Rats Search</td><td>https://github.com/DEgITx/rats-search</td>
+        <td>
+            <button class="copy-btn" onclick="copyToClipboard('https://github.com/DEgITx/rats-search')">Copiar Link</button>
+            <a href="https://github.com/DEgITx/rats-search" target="_blank"><button>Abrir Link</button></a>
+        </td>
+        </tr><tr><td>Download Torrents Through I2P</td><td>https://decentnet.github.io/blog/20200329-download-torrents-through-i2p.html</td>
+        <td>
+            <button class="copy-btn" onclick="copyToClipboard('https://decentnet.github.io/blog/20200329-download-torrents-through-i2p.html')">Copiar Link</button>
+            <a href="https://decentnet.github.io/blog/20200329-download-torrents-through-i2p.html" target="_blank"><button>Abrir Link</button></a>
+        </td>
+        </tr><tr><td>flood</td><td>https://flood.js.org/</td>
+        <td>
+            <button class="copy-btn" onclick="copyToClipboard('https://flood.js.org/')">Copiar Link</button>
+            <a href="https://flood.js.org/" target="_blank"><button>Abrir Link</button></a>
+        </td>
+        </tr><tr><td>/r/Seedboxes</td><td>https://www.reddit.com/r/seedboxes/</td>
+        <td>
+            <button class="copy-btn" onclick="copyToClipboard('https://www.reddit.com/r/seedboxes/')">Copiar Link</button>
+            <a href="https://www.reddit.com/r/seedboxes/" target="_blank"><button>Abrir Link</button></a>
+        </td>
+        </tr><tr><td>Seedbox Guide</td><td>https://seedboxgui.de/seedbox/</td>
+        <td>
+            <button class="copy-btn" onclick="copyToClipboard('https://seedboxgui.de/seedbox/')">Copiar Link</button>
+            <a href="https://seedboxgui.de/seedbox/" target="_blank"><button>Abrir Link</button></a>
+        </td>
+        </tr><tr><td>QBT Plugins</td><td>https://github.com/qbittorrent/search-plugins?tab=readme-ov-file#search-plugins</td>
+        <td>
+            <button class="copy-btn" onclick="copyToClipboard('https://github.com/qbittorrent/search-plugins?tab=readme-ov-file#search-plugins')">Copiar Link</button>
+            <a href="https://github.com/qbittorrent/search-plugins?tab=readme-ov-file#search-plugins" target="_blank"><button>Abrir Link</button></a>
+        </td>
+        </tr><tr><td>QBT Themes</td><td>https://github.com/qbittorrent/qBittorrent/wiki/List-of-known-qBittorrent-themes</td>
+        <td>
+            <button class="copy-btn" onclick="copyToClipboard('https://github.com/qbittorrent/qBittorrent/wiki/List-of-known-qBittorrent-themes')">Copiar Link</button>
+            <a href="https://github.com/qbittorrent/qBittorrent/wiki/List-of-known-qBittorrent-themes" target="_blank"><button>Abrir Link</button></a>
+        </td>
+        </tr><tr><td>qBitMF</td><td>https://github.com/qBitMF/qBitMF</td>
+        <td>
+            <button class="copy-btn" onclick="copyToClipboard('https://github.com/qBitMF/qBitMF')">Copiar Link</button>
+            <a href="https://github.com/qBitMF/qBitMF" target="_blank"><button>Abrir Link</button></a>
+        </td>
+        </tr><tr><td>VueTorrent</td><td>https://github.com/VueTorrent/VueTorrent</td>
+        <td>
+            <button class="copy-btn" onclick="copyToClipboard('https://github.com/VueTorrent/VueTorrent')">Copiar Link</button>
+            <a href="https://github.com/VueTorrent/VueTorrent" target="_blank"><button>Abrir Link</button></a>
+        </td>
+        </tr><tr><td>rqBit</td><td>https://github.com/ikatson/rqbit/</td>
+        <td>
+            <button class="copy-btn" onclick="copyToClipboard('https://github.com/ikatson/rqbit/')">Copiar Link</button>
+            <a href="https://github.com/ikatson/rqbit/" target="_blank"><button>Abrir Link</button></a>
+        </td>
+        </tr><tr><td>qBit Manage</td><td>https://github.com/StuffAnThings/qbit_manage</td>
+        <td>
+            <button class="copy-btn" onclick="copyToClipboard('https://github.com/StuffAnThings/qbit_manage')">Copiar Link</button>
+            <a href="https://github.com/StuffAnThings/qbit_manage" target="_blank"><button>Abrir Link</button></a>
+        </td>
+        </tr><tr><td>qBitController</td><td>https://github.com/Bartuzen/qBitController</td>
+        <td>
+            <button class="copy-btn" onclick="copyToClipboard('https://github.com/Bartuzen/qBitController')">Copiar Link</button>
+            <a href="https://github.com/Bartuzen/qBitController" target="_blank"><button>Abrir Link</button></a>
+        </td>
+        </tr><tr><td>Docker QBT</td><td>https://github.com/linuxserver/docker-qbittorrent</td>
+        <td>
+            <button class="copy-btn" onclick="copyToClipboard('https://github.com/linuxserver/docker-qbittorrent')">Copiar Link</button>
+            <a href="https://github.com/linuxserver/docker-qbittorrent" target="_blank"><button>Abrir Link</button></a>
+        </td>
+        </tr><tr><td>QBT Mega</td><td>https://colab.research.google.com/github/Xavy-13/qbittorrent/blob/main/qBittorrent_MEGA.ipynb</td>
+        <td>
+            <button class="copy-btn" onclick="copyToClipboard('https://colab.research.google.com/github/Xavy-13/qbittorrent/blob/main/qBittorrent_MEGA.ipynb')">Copiar Link</button>
+            <a href="https://colab.research.google.com/github/Xavy-13/qbittorrent/blob/main/qBittorrent_MEGA.ipynb" target="_blank"><button>Abrir Link</button></a>
+        </td>
+        </tr><tr><td>QBT Google Drive</td><td>https://colab.research.google.com/github/Xavy-13/qbittorrent/blob/main/qBittorrent.ipynb</td>
+        <td>
+            <button class="copy-btn" onclick="copyToClipboard('https://colab.research.google.com/github/Xavy-13/qbittorrent/blob/main/qBittorrent.ipynb')">Copiar Link</button>
+            <a href="https://colab.research.google.com/github/Xavy-13/qbittorrent/blob/main/qBittorrent.ipynb" target="_blank"><button>Abrir Link</button></a>
+        </td>
+        </tr><tr><td>Dark Theme</td><td>https://draculatheme.com/qbittorrent</td>
+        <td>
+            <button class="copy-btn" onclick="copyToClipboard('https://draculatheme.com/qbittorrent')">Copiar Link</button>
+            <a href="https://draculatheme.com/qbittorrent" target="_blank"><button>Abrir Link</button></a>
+        </td>
+        </tr><tr><td>qBitEndpoints</td><td>https://rentry.co/qBitEndpoints</td>
+        <td>
+            <button class="copy-btn" onclick="copyToClipboard('https://rentry.co/qBitEndpoints')">Copiar Link</button>
+            <a href="https://rentry.co/qBitEndpoints" target="_blank"><button>Abrir Link</button></a>
+        </td>
+        </tr><tr><td>Quantum</td><td>https://github.com/UHAXM1/Quantum</td>
+        <td>
+            <button class="copy-btn" onclick="copyToClipboard('https://github.com/UHAXM1/Quantum')">Copiar Link</button>
+            <a href="https://github.com/UHAXM1/Quantum" target="_blank"><button>Abrir Link</button></a>
+        </td>
+        </tr><tr><td>Seedr</td><td>https://www.seedr.cc/</td>
+        <td>
+            <button class="copy-btn" onclick="copyToClipboard('https://www.seedr.cc/')">Copiar Link</button>
+            <a href="https://www.seedr.cc/" target="_blank"><button>Abrir Link</button></a>
+        </td>
+        </tr><tr><td>webtor</td><td>https://webtor.io/</td>
+        <td>
+            <button class="copy-btn" onclick="copyToClipboard('https://webtor.io/')">Copiar Link</button>
+            <a href="https://webtor.io/" target="_blank"><button>Abrir Link</button></a>
+        </td>
+        </tr><tr><td>BitPlay</td><td>https://bitplay.to/</td>
+        <td>
+            <button class="copy-btn" onclick="copyToClipboard('https://bitplay.to/')">Copiar Link</button>
+            <a href="https://bitplay.to/" target="_blank"><button>Abrir Link</button></a>
+        </td>
+        </tr><tr><td>Multi-Up</td><td>https://multiup.io/en/upload/from-torrent</td>
+        <td>
+            <button class="copy-btn" onclick="copyToClipboard('https://multiup.io/en/upload/from-torrent')">Copiar Link</button>
+            <a href="https://multiup.io/en/upload/from-torrent" target="_blank"><button>Abrir Link</button></a>
+        </td>
+        </tr><tr><td>Bitport</td><td>https://bitport.io/welcome</td>
+        <td>
+            <button class="copy-btn" onclick="copyToClipboard('https://bitport.io/welcome')">Copiar Link</button>
+            <a href="https://bitport.io/welcome" target="_blank"><button>Abrir Link</button></a>
+        </td>
+        </tr><tr><td>TorrentSafe</td><td>https://www.torrentsafe.com/</td>
+        <td>
+            <button class="copy-btn" onclick="copyToClipboard('https://www.torrentsafe.com/')">Copiar Link</button>
+            <a href="https://www.torrentsafe.com/" target="_blank"><button>Abrir Link</button></a>
+        </td>
+        </tr><tr><td>ZBIGZ</td><td>https://zbigz.com/</td>
+        <td>
+            <button class="copy-btn" onclick="copyToClipboard('https://zbigz.com/')">Copiar Link</button>
+            <a href="https://zbigz.com/" target="_blank"><button>Abrir Link</button></a>
+        </td>
+        </tr><tr><td>Demagnetize</td><td>http://demagnetize.link/</td>
+        <td>
+            <button class="copy-btn" onclick="copyToClipboard('http://demagnetize.link/')">Copiar Link</button>
+            <a href="http://demagnetize.link/" target="_blank"><button>Abrir Link</button></a>
+        </td>
+        </tr><tr><td>Private Trackers General</td><td>https://rentry.co/private-trackers</td>
+        <td>
+            <button class="copy-btn" onclick="copyToClipboard('https://rentry.co/private-trackers')">Copiar Link</button>
+            <a href="https://rentry.co/private-trackers" target="_blank"><button>Abrir Link</button></a>
+        </td>
+        </tr><tr><td>Scene Related</td><td>https://opentrackers.org/links/warez-scene#scenerelated</td>
+        <td>
+            <button class="copy-btn" onclick="copyToClipboard('https://opentrackers.org/links/warez-scene#scenerelated')">Copiar Link</button>
+            <a href="https://opentrackers.org/links/warez-scene#scenerelated" target="_blank"><button>Abrir Link</button></a>
+        </td>
+        </tr><tr><td>TrackerStatus</td><td>https://trackerstatus.info/</td>
+        <td>
+            <button class="copy-btn" onclick="copyToClipboard('https://trackerstatus.info/')">Copiar Link</button>
+            <a href="https://trackerstatus.info/" target="_blank"><button>Abrir Link</button></a>
+        </td>
+        </tr><tr><td>/r/trackers</td><td>https://reddit.com/r/trackers</td>
+        <td>
+            <button class="copy-btn" onclick="copyToClipboard('https://reddit.com/r/trackers')">Copiar Link</button>
+            <a href="https://reddit.com/r/trackers" target="_blank"><button>Abrir Link</button></a>
+        </td>
+        </tr><tr><td>/r/OpenSignups</td><td>https://www.reddit.com/r/OpenSignups/</td>
+        <td>
+            <button class="copy-btn" onclick="copyToClipboard('https://www.reddit.com/r/OpenSignups/')">Copiar Link</button>
+            <a href="https://www.reddit.com/r/OpenSignups/" target="_blank"><button>Abrir Link</button></a>
+        </td>
+        </tr><tr><td>MyAnonaMouse</td><td>https://www.myanonamouse.net/</td>
+        <td>
+            <button class="copy-btn" onclick="copyToClipboard('https://www.myanonamouse.net/')">Copiar Link</button>
+            <a href="https://www.myanonamouse.net/" target="_blank"><button>Abrir Link</button></a>
+        </td>
+        </tr><tr><td>hdvinnie</td><td>https://hdvinnie.github.io/Private-Trackers-Spreadsheet/</td>
+        <td>
+            <button class="copy-btn" onclick="copyToClipboard('https://hdvinnie.github.io/Private-Trackers-Spreadsheet/')">Copiar Link</button>
+            <a href="https://hdvinnie.github.io/Private-Trackers-Spreadsheet/" target="_blank"><button>Abrir Link</button></a>
+        </td>
+        </tr><tr><td>OpenSignups</td><td>https://t.me/trackersignup</td>
+        <td>
+            <button class="copy-btn" onclick="copyToClipboard('https://t.me/trackersignup')">Copiar Link</button>
+            <a href="https://t.me/trackersignup" target="_blank"><button>Abrir Link</button></a>
+        </td>
+        </tr><tr><td>Upload-Assistant</td><td>https://github.com/L4GSP1KE/Upload-Assistant</td>
+        <td>
+            <button class="copy-btn" onclick="copyToClipboard('https://github.com/L4GSP1KE/Upload-Assistant')">Copiar Link</button>
+            <a href="https://github.com/L4GSP1KE/Upload-Assistant" target="_blank"><button>Abrir Link</button></a>
+        </td>
+        </tr><tr><td>TrackerScreenshot</td><td>https://github.com/KlevGG/TrackerScreenshot</td>
+        <td>
+            <button class="copy-btn" onclick="copyToClipboard('https://github.com/KlevGG/TrackerScreenshot')">Copiar Link</button>
+            <a href="https://github.com/KlevGG/TrackerScreenshot" target="_blank"><button>Abrir Link</button></a>
+        </td>
+        </tr><tr><td>ngosang</td><td>https://ngosang.github.io/trackerslist/</td>
+        <td>
+            <button class="copy-btn" onclick="copyToClipboard('https://ngosang.github.io/trackerslist/')">Copiar Link</button>
+            <a href="https://ngosang.github.io/trackerslist/" target="_blank"><button>Abrir Link</button></a>
+        </td>
+        </tr><tr><td>Milkie</td><td>https://milkie.cc</td>
+        <td>
+            <button class="copy-btn" onclick="copyToClipboard('https://milkie.cc')">Copiar Link</button>
+            <a href="https://milkie.cc" target="_blank"><button>Abrir Link</button></a>
+        </td>
+        </tr><tr><td>PreDB.net</td><td>https://predb.net/</td>
+        <td>
+            <button class="copy-btn" onclick="copyToClipboard('https://predb.net/')">Copiar Link</button>
+            <a href="https://predb.net/" target="_blank"><button>Abrir Link</button></a>
+        </td>
+        </tr><tr><td>T2M</td><td>https://nutbread.github.io/t2m/</td>
+        <td>
+            <button class="copy-btn" onclick="copyToClipboard('https://nutbread.github.io/t2m/')">Copiar Link</button>
+            <a href="https://nutbread.github.io/t2m/" target="_blank"><button>Abrir Link</button></a>
+        </td>
+        </tr><tr><td>Magnet2Torrent</td><td>https://magnet2torrent.com/</td>
+        <td>
+            <button class="copy-btn" onclick="copyToClipboard('https://magnet2torrent.com/')">Copiar Link</button>
+            <a href="https://magnet2torrent.com/" target="_blank"><button>Abrir Link</button></a>
+        </td>
+        </tr><tr><td>Torrent Legality</td><td>https://i.ibb.co/HHqC4V2/11e244ddbdfb.png</td>
+        <td>
+            <button class="copy-btn" onclick="copyToClipboard('https://i.ibb.co/HHqC4V2/11e244ddbdfb.png')">Copiar Link</button>
+            <a href="https://i.ibb.co/HHqC4V2/11e244ddbdfb.png" target="_blank"><button>Abrir Link</button></a>
+        </td>
+        </tr><tr><td>PeerBanHelper</td><td>https://github.com/PBH-BTN/PeerBanHelper/blob/master/README.EN.md</td>
+        <td>
+            <button class="copy-btn" onclick="copyToClipboard('https://github.com/PBH-BTN/PeerBanHelper/blob/master/README.EN.md')">Copiar Link</button>
+            <a href="https://github.com/PBH-BTN/PeerBanHelper/blob/master/README.EN.md" target="_blank"><button>Abrir Link</button></a>
+        </td>
+        </tr><tr><td>btcache</td><td>https://btcache.me/</td>
+        <td>
+            <button class="copy-btn" onclick="copyToClipboard('https://btcache.me/')">Copiar Link</button>
+            <a href="https://btcache.me/" target="_blank"><button>Abrir Link</button></a>
+        </td>
+        </tr><tr><td>InfoTorrent</td><td>https://infotorrent.tnl.one/</td>
+        <td>
+            <button class="copy-btn" onclick="copyToClipboard('https://infotorrent.tnl.one/')">Copiar Link</button>
+            <a href="https://infotorrent.tnl.one/" target="_blank"><button>Abrir Link</button></a>
+        </td>
+        </tr><tr><td>TorrentTags</td><td>https://torrenttags.com/</td>
+        <td>
+            <button class="copy-btn" onclick="copyToClipboard('https://torrenttags.com/')">Copiar Link</button>
+            <a href="https://torrenttags.com/" target="_blank"><button>Abrir Link</button></a>
+        </td>
+        </tr><tr><td>Magnet Link Generator</td><td>https://magnetlinkgenerator.com/</td>
+        <td>
+            <button class="copy-btn" onclick="copyToClipboard('https://magnetlinkgenerator.com/')">Copiar Link</button>
+            <a href="https://magnetlinkgenerator.com/" target="_blank"><button>Abrir Link</button></a>
+        </td>
+        </tr><tr><td>magnet2list</td><td>https://hutstep.github.io/magnet2list/</td>
+        <td>
+            <button class="copy-btn" onclick="copyToClipboard('https://hutstep.github.io/magnet2list/')">Copiar Link</button>
+            <a href="https://hutstep.github.io/magnet2list/" target="_blank"><button>Abrir Link</button></a>
+        </td>
+        </tr><tr><td>OpenWebTorrent</td><td>https://openwebtorrent.com/</td>
+        <td>
+            <button class="copy-btn" onclick="copyToClipboard('https://openwebtorrent.com/')">Copiar Link</button>
+            <a href="https://openwebtorrent.com/" target="_blank"><button>Abrir Link</button></a>
+        </td>
+        </tr><tr><td>AutoDL-Irssi</td><td>https://autodl-community.github.io/autodl-irssi/</td>
+        <td>
+            <button class="copy-btn" onclick="copyToClipboard('https://autodl-community.github.io/autodl-irssi/')">Copiar Link</button>
+            <a href="https://autodl-community.github.io/autodl-irssi/" target="_blank"><button>Abrir Link</button></a>
+        </td>
+        </tr><tr><td>PrivTracker</td><td>https://privtracker.com/</td>
+        <td>
+            <button class="copy-btn" onclick="copyToClipboard('https://privtracker.com/')">Copiar Link</button>
+            <a href="https://privtracker.com/" target="_blank"><button>Abrir Link</button></a>
+        </td>
+        </tr><tr><td>AnonSeed</td><td>https://www.anonseed.com/</td>
+        <td>
+            <button class="copy-btn" onclick="copyToClipboard('https://www.anonseed.com/')">Copiar Link</button>
+            <a href="https://www.anonseed.com/" target="_blank"><button>Abrir Link</button></a>
+        </td>
+        </tr><tr><td>Torrent-Creator</td><td>https://github.com/Kimbatt/torrent-creator</td>
+        <td>
+            <button class="copy-btn" onclick="copyToClipboard('https://github.com/Kimbatt/torrent-creator')">Copiar Link</button>
+            <a href="https://github.com/Kimbatt/torrent-creator" target="_blank"><button>Abrir Link</button></a>
+        </td>
+        </tr><tr><td>Torrent Parts</td><td>https://torrent.parts/</td>
+        <td>
+            <button class="copy-btn" onclick="copyToClipboard('https://torrent.parts/')">Copiar Link</button>
+            <a href="https://torrent.parts/" target="_blank"><button>Abrir Link</button></a>
+        </td>
+        </tr><tr><td>/r/torrents</td><td>https://reddit.com/r/torrents</td>
+        <td>
+            <button class="copy-btn" onclick="copyToClipboard('https://reddit.com/r/torrents')">Copiar Link</button>
+            <a href="https://reddit.com/r/torrents" target="_blank"><button>Abrir Link</button></a>
+        </td>
+        </tr><tr><td>IKnowWhatYouDownload</td><td>https://iknowwhatyoudownload.com/</td>
+        <td>
+            <button class="copy-btn" onclick="copyToClipboard('https://iknowwhatyoudownload.com/')">Copiar Link</button>
+            <a href="https://iknowwhatyoudownload.com/" target="_blank"><button>Abrir Link</button></a>
+        </td>
+        </tr>
+        </tbody>
+    </table>
+    </div>
+    <script>
+        function copyToClipboard(text) {
+            navigator.clipboard.writeText(text).then(function() {
+                alert("Link copiado: " + text);
+            }).catch(function(err) {
+                alert("Erro ao copiar: " + err);
+            });
+        }
+        
+        // Funcionalidade de pesquisa
+        document.addEventListener('DOMContentLoaded', function() {
+            const searchInput = document.getElementById('searchInput');
+            const table = document.getElementById('torrentTable');
+            const rows = table.getElementsByTagName('tr');
+            
+            // Adicionar data-labels para responsividade
+            const labels = ['Cliente', 'Link', 'Ações'];
+            for (let i = 1; i < rows.length; i++) {
+                const cells = rows[i].getElementsByTagName('td');
+                for (let j = 0; j < cells.length && j < labels.length; j++) {
+                    if (!cells[j].hasAttribute('data-label')) {
+                        cells[j].setAttribute('data-label', labels[j]);
+                    }
+                }
+            }
+            
+            searchInput.addEventListener('input', function() {
+                const searchTerm = this.value.toLowerCase();
+                
+                // Pular o cabeçalho (primeira linha)
+                for (let i = 1; i < rows.length; i++) {
+                    const row = rows[i];
+                    const cells = row.getElementsByTagName('td');
+                    let found = false;
+                    
+                    // Procurar em todas as células da linha
+                    for (let j = 0; j < cells.length - 1; j++) { // -1 para não incluir a coluna de ações
+                        const cellText = cells[j].textContent.toLowerCase();
+                        if (cellText.includes(searchTerm)) {
+                            found = true;
+                            break;
+                        }
+                    }
+                    
+                    // Mostrar ou ocultar a linha baseado na pesquisa
+                    if (found) {
+                        row.style.display = '';
+                    } else {
+                        row.style.display = 'none';
+                    }
+                }
+            });
+        });
+    </script>
+</body>
+</html>
