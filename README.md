@@ -2,7 +2,7 @@
 
 🔹 Parte do código do site encontra-se temporariamente desativada devido a recursos em desenvolvimento protegido.
 🔹 O projeto foi desenvolvido utilizando apenas HTML, CSS e JavaScript puro.
-🔹 Acesse em: cloudpri.org
+🔹 Acesse em: - - [cloudpri.org ](https://cloudpri.org/)
 
 ## ✨ Características
 
